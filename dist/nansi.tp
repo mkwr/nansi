@@ -1,22 +1,20 @@
-#  ////////////////////////////////////////////////////////////////////////////
-#  ············································································
-#  NANSI® — v.tput
-#  ············································································
-#  workmade.github.io/nansi
-#  ⓒ2014 Mike Warren
-#  ············································································
+# ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+# NANSI — v.tput
+# 1.0
+# ·············································································
+# workmade.github.io/nansi
+# ·············································································
 
 
-
-#  reset ··························
+# reset ··························
 stop=$(tput sgr0)
-#  bold ···························
+# bold ···························
 bold=$(tput smul)
-#  underline ······················
+# underline ······················
 uline=$(tput smul)
-#  reversed ·······················
+# reversed ·······················
 rvrs=$(tput rev)
-#  foreground ·····················
+# foreground ·····················
 f0=$(tput setaf 0)
 f1=$(tput setaf 1)
 f2=$(tput setaf 2)
@@ -274,7 +272,7 @@ f253=$(tput setaf 253)
 f254=$(tput setaf 254)
 f255=$(tput setaf 255)
 f256=$(tput setaf 256)
-#  background ·····················
+# background ·····················
 b0=$(tput setab 0)
 b1=$(tput setab 1)
 b2=$(tput setab 2)
@@ -531,16 +529,16 @@ b252=$(tput setab 252)
 b253=$(tput setab 253)
 b254=$(tput setab 254)
 b255=$(tput setab 255)
-#  reference ······················
+# reference ······················
 _f16 		()	{ echo;for i in {0..15};do printf "\e[38;5;%sm %4s \e[0m" "${i}" "${i}";if [ $((($i + 1) % 6)) == 0 ];then echo;fi;done;echo;}
 _f216		()	{ echo;for i in {16..231};do printf "\e[38;5;%sm %4s \e[0m" "${i}" "${i}";if [ $((($i + 1) % 6)) == 4 ];then echo;fi;done;}
 _f24 		()	{ echo;for i in {232..255};do printf "\e[38;5;%sm %4s \e[0m" "${i}" "${i}";if [ $((($i + 1) % 6)) == 4 ];then echo;fi;done;}
 _b16 		()	{ echo;for i in {0..15};do printf "\e[48;5;%sm %4s \e[0m" "${i}" "${i}";if [ $((($i + 1) % 6)) == 0 ];then echo;fi;done;echo;}
 _b216		()	{ echo;for i in {16..231};do printf "\e[48;5;%sm %4s \e[0m" "${i}" "${i}";if [ $((($i + 1) % 6)) == 4 ];then echo;fi;done;}
 _b24 		()	{ echo;for i in {232..255};do printf "\e[48;5;%sm %4s \e[0m" "${i}" "${i}";if [ $((($i + 1) % 6)) == 4 ];then echo;fi;done;}
-#  generate foreground ············
+# generate foreground ············
 nf256		()	{ _f16 && _f216 && _f24 ; }
-#  generate background ············
+# generate background ············
 nb256		()	{ _b16 && _b216 && _b24 ; }
-#  generate both ··················
+# generate both ··················
 nfb256	()	{ nf256 && nb256 ; }
