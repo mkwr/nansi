@@ -1,17 +1,15 @@
-# ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
-# NANSI — v.tput
-# 1.0
-# ·············································································
-# workmade.github.io/nansi
-# ·············································································
-
+// ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+// NANSI — v.tput
+// workmade.github.io/nansi
 
 # reset ··························
 stop=$(tput sgr0)
 # bold ···························
-bold=$(tput smul)
+bold=$(tput bold)
+# italic ···························
+italic=$(tput bold)
 # underline ······················
-uline=$(tput smul)
+line=$(tput smul)
 # reversed ·······················
 rvrs=$(tput rev)
 # foreground ·····················
@@ -271,7 +269,6 @@ f252=$(tput setaf 252)
 f253=$(tput setaf 253)
 f254=$(tput setaf 254)
 f255=$(tput setaf 255)
-f256=$(tput setaf 256)
 # background ·····················
 b0=$(tput setab 0)
 b1=$(tput setab 1)
@@ -530,15 +527,15 @@ b253=$(tput setab 253)
 b254=$(tput setab 254)
 b255=$(tput setab 255)
 # reference ······················
-_f16 		()	{ echo;for i in {0..15};do printf "\e[38;5;%sm %4s \e[0m" "${i}" "${i}";if [ $((($i + 1) % 6)) == 0 ];then echo;fi;done;echo;}
-_f216		()	{ echo;for i in {16..231};do printf "\e[38;5;%sm %4s \e[0m" "${i}" "${i}";if [ $((($i + 1) % 6)) == 4 ];then echo;fi;done;}
-_f24 		()	{ echo;for i in {232..255};do printf "\e[38;5;%sm %4s \e[0m" "${i}" "${i}";if [ $((($i + 1) % 6)) == 4 ];then echo;fi;done;}
-_b16 		()	{ echo;for i in {0..15};do printf "\e[48;5;%sm %4s \e[0m" "${i}" "${i}";if [ $((($i + 1) % 6)) == 0 ];then echo;fi;done;echo;}
-_b216		()	{ echo;for i in {16..231};do printf "\e[48;5;%sm %4s \e[0m" "${i}" "${i}";if [ $((($i + 1) % 6)) == 4 ];then echo;fi;done;}
-_b24 		()	{ echo;for i in {232..255};do printf "\e[48;5;%sm %4s \e[0m" "${i}" "${i}";if [ $((($i + 1) % 6)) == 4 ];then echo;fi;done;}
+nf16 		()	{ echo;for i in {0..15};do printf "\e[38;5;%sm %4s \e[0m" "${i}" "${i}";if [ $((($i + 1) % 6)) == 0 ];then echo;fi;done;echo;}
+nf216		()	{ echo;for i in {16..231};do printf "\e[38;5;%sm %4s \e[0m" "${i}" "${i}";if [ $((($i + 1) % 6)) == 4 ];then echo;fi;done;}
+nf24 		()	{ echo;for i in {232..255};do printf "\e[38;5;%sm %4s \e[0m" "${i}" "${i}";if [ $((($i + 1) % 6)) == 4 ];then echo;fi;done;}
+nb16 		()	{ echo;for i in {0..15};do printf "\e[48;5;%sm %4s \e[0m" "${i}" "${i}";if [ $((($i + 1) % 6)) == 0 ];then echo;fi;done;echo;}
+nb216		()	{ echo;for i in {16..231};do printf "\e[48;5;%sm %4s \e[0m" "${i}" "${i}";if [ $((($i + 1) % 6)) == 4 ];then echo;fi;done;}
+nb24 		()	{ echo;for i in {232..255};do printf "\e[48;5;%sm %4s \e[0m" "${i}" "${i}";if [ $((($i + 1) % 6)) == 4 ];then echo;fi;done;}
 # generate foreground ············
-nf256		()	{ _f16 && _f216 && _f24 ; }
+nf256		()	{ nf16 && nf216 && nf24 ; }
 # generate background ············
-nb256		()	{ _b16 && _b216 && _b24 ; }
+nb256		()	{ nb16 && nb216 && nb24 ; }
 # generate both ··················
 nfb256	()	{ nf256 && nb256 ; }

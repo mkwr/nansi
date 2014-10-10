@@ -2,169 +2,164 @@
 <html>
 
 <head>
-  <meta charset='UTF-8'>
-<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
-<meta name='viewport' content='width=device-width'>
-  <title>nansi</title>
 
-  <link rel='stylesheet' href='css/style.css'>
-  
-        <!-- Hammer reload -->
-          <script>
-            setInterval(function(){
-              try {
-                if(typeof ws != 'undefined' && ws.readyState == 1){return true;}
-                ws = new WebSocket('ws://'+(location.host || 'localhost').split(':')[0]+':35353')
-                ws.onopen = function(){ws.onclose = function(){document.location.reload()}}
-                ws.onmessage = function(){
-                  var links = document.getElementsByTagName('link'); 
-                    for (var i = 0; i < links.length;i++) { 
-                    var link = links[i]; 
-                    if (link.rel === 'stylesheet' && !link.href.match(/typekit/)) { 
-                      href = link.href.replace(/((&|\?)hammer=)[^&]+/,''); 
-                      link.href = href + (href.indexOf('?')>=0?'&':'?') + 'hammer='+(new Date().valueOf());
-                    }
-                  }
-                }
-              }catch(e){}
-            }, 1000)
-          </script>
-        <!-- /Hammer reload -->
-      
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width">
+  <title>Nansi</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+  <script src="js/webfonts.js"></script>
+
 </head>
 
 <body>
   <header>
-    <h1 class='title'>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="226 353 350 75" enable-background="new 226 353 350 75" class='nansi'><path class="nA" d="M339.5 360.2h-9.5l-10.7 50h9.6l2.1-9h8l2 9h9.6l-11.1-50zm3.6 47.1l-2-9h-12.7l-2.2 9h-3.6l9.6-44.3h5l9.5 44.2h-3.6v.1zm-14-12.6h11.2l-5.7-27-5.5 27zm7.7-2.8h-3.8l1.8-11.9 2 11.9zm31.1 27.7h-66.2v-2h66.2v2z"/><path class="n1" d="M272 360.2v8h-.1c0 6.5.5 16.2.5 16.2s-.8-2.3-2.3-6.1l-7-18h-7v50h9.2v-8.4c0-7.7-.5-14.4-.5-14.4s2.1 6.1 3.8 10.4l5.1 12.5h7.6v-50h-9.3zm6.4 47h-2.8l-13.2-32.7v32.7h-3.6v-44.2h2.7l13.4 33.6v-33.6h3.5v44.2zm23.3 12.4h-66.2v-2h66.2v2z"/><path class="n2" d="M404.4 360.2v8h-.1c0 6.5.5 16.2.5 16.2s-.8-2.3-2.3-6.1l-7-18h-7v50h9.2v-8.4c0-7.7-.5-14.4-.5-14.4s2.1 6.1 3.8 10.4l5.1 12.5h7.6v-50h-9.3zm6.4 47h-2.8l-13.2-32.7v32.7h-3.6v-44.2h2.7l13.4 33.6v-33.6h3.5v44.2zm23.3 12.4h-66.2v-2h66.2v2z"/><path class="nS" d="M476.7 386.6l-12-11.9v-5.3h4.7v6.5h9.2v-9.9c.1-3.6-.9-5.8-6.1-5.8h-11.1c-4.6 0-5.9 2.7-5.9 5.3v9.7c0 2.2.1 3.1 1.6 4.7l12.4 12.8v8.1h-4.7v-8h-9.2v11.7c0 3.2 1.7 5.7 6.1 5.7h10.6c5.4 0 6.6-3.5 6.6-5.7v-12.6c0-2.4-1.5-4.6-2.2-5.3zm-.8 17.8c0 1.3-.8 2.9-3.7 2.9h-10.6c-2.4 0-3.2-1-3.2-2.8v-8.8h3.6v8h10.4v-12.1l-13.2-13.6c-.8-.8-.8-1.6-.8-2.8v-9.8c0-1.4.6-2.4 3.1-2.4h11.1c2.9 0 3.3 1 3.3 2.9v7.2h-3.6v-6.5h-10.4v9.4l12.6 12.8c.5.5 1.4 1.8 1.4 3.2v12.4zm24.4 15.2h-66.2v-2h66.2v2z"/><path class="nI" d="M528.8 360.2v50h9.2v-50h-9.2zm6.3 47.1h-3.6v-44.3h3.6v44.3zm31.4 12.3h-66.2v-2h66.2v2z"/></svg>
-
-</h1>
-    <a class='readme'>
-      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="16" viewBox="0 0 12 16">
-        <path d="M0 3v2h12v-2h-12zm0 6h12v-2h-12v2zm0 4h12v-2h-12v2z" />
-      </svg>
-    </a>
+    <section>
+      <h3 class="man name">NANSI(1)</h3>
+      <h3 class="man name-alt">NEW(ANSI)</h3>
+      <h3 class="man readme">README</h3>
+    </section>
   </header>
 
-  <section class='info' data-hue="light" data-state="closed">
-    <p class='subtitle'></p>
+  <div class="info" data-state="closed">
 
-<h4 class='subtitle'>about</h4>
-    <p>
-      Nansi is a utility and reference for working with the ANSI 256 color palette. Nansi can be sourced into your .bashrc, or imported into your style.scss/sass.
-    </p>
-    <span class="line"></span>
-    <a name='ref'></a>
-    <h4 class='subtitle'>download</h4>
-    <p>
-      Nansi comes in a few flavors; all of which can be found at the <a href='http://github.com/workmade/girls' target="_new">repository</a> on Github; where the subtle differences are explained.
-    </p>
+    <section class="intro">
+      <h1 class="title">NANSI</h1>
+      <div class="right">
+        <a class="download" data-tooltip="download zip">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path d="M12 .5c-6.3 0-11.5 5.2-11.5 11.5s5.2 11.5 11.5 11.5 11.5-5.2 11.5-11.5-5.2-11.5-11.5-11.5zm3.3 17.7h-6.6v-1.3h6.6v1.3zm-3.3-2.5l-3.3-3.3h2.7v-6.6h1.3v6.6h2.6l-3.3 3.3z" />
+          </svg>
+        </a>
+        <a class="github" href="http://github.com/workmade/nansi" target="_new" data-tooltip="browse source">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path d="M.5 12.3c0-2.1.5-4 1.5-5.8s2.4-3.2 4.2-4.2 3.7-1.5 5.8-1.5c2.1 0 4 .5 5.8 1.5 1.8 1 3.2 2.4 4.2 4.2s1.5 3.7 1.5 5.8c0 2.5-.7 4.8-2.2 6.8-1.5 2-3.4 3.4-5.7 4.2-.3 0-.5 0-.6-.1-.1-.1-.2-.3-.2-.4v-3.2c0-1-.3-1.7-.8-2.1.6-.1 1.1-.1 1.5-.3.5-.1.9-.3 1.4-.6.5-.3.9-.6 1.2-1 .3-.4.6-.9.8-1.6.2-.7.3-1.4.3-2.3 0-1.2-.4-2.2-1.2-3.1.4-.9.3-1.9-.1-3.1-.3-.1-.7 0-1.2.2s-1 .4-1.4.7l-.6.4c-.8-.3-1.7-.5-2.7-.5-1 0-1.9.1-2.9.4-.1-.1-.3-.2-.6-.4-.3-.1-.7-.3-1.3-.6s-1-.3-1.2-.2c-.5 1.2-.5 2.2-.2 3.1-.8.8-1.2 1.9-1.2 3.1 0 .8.1 1.6.3 2.2.2.6.5 1.2.8 1.6.3.4.7.7 1.2 1 .5.3 1 .5 1.4.6l1.5.3c-.4.4-.6.9-.7 1.5-.1.1-.4.2-.6.2-.2 0-.5.1-.9.1s-.7-.1-1-.3c-.3-.2-.6-.5-.8-.9-.2-.3-.4-.6-.7-.8-.3-.2-.5-.3-.7-.4h-.3c-.2 0-.4 0-.4.1-.1 0-.1.1-.1.2l.1.2.2.2h.1c.2.1.4.3.7.6s.4.5.5.8l.1.3c.1.4.3.7.7.9.3.2.6.4 1 .4.4.1.7.1 1 .1.3 0 .6 0 .8-.1l.3-.1v2.1c0 .2-.1.3-.2.4s-.3.2-.6.1c-2.2-.6-4.1-2-5.6-4s-2.2-4.2-2.2-6.7z"
+            />
+          </svg>
+        </a>
+      </div>
+    </section>
 
-    <span class="line"></span>
-    <h4 class='subtitle'>options</h4>
-    <p>
-      Some useful options for using this page have been mapped to the keyboard numbers 1–5. Use them to toggle the background color, show hex values, increase the color size, change column spacing, and change row spacing.
-    </p>
-    <p>
-      Nansi also contains some built in functions to print the colors to stdout; just enter: <code class='inline'>nf256</code>, or  <code class='inline'>nb256</code> at the prompt; to see the foreground or background colors; respectively.
-    </p>
-    <span class="line"></span>
+    <section>
+      <h2 class="man subhead">DESCRIPTION</h2>
+      <p>
+          Nansi simplifies working with the xterm-256 color palette. Nansi reduces style/escape-sequence bloat, by using a concise, referential syntax. In addition, Nansi has a nice modern, user-focused reference for working with the palette (you are here). Nansi was originally designed because I wanted the option to explore a variety of colors in my bash dotfiles/functions. It has since been extended into the preprocesser and swatch file formats.
+      </p>
+    </section>
 
-<h4 class='subtitle'>install</h4>
-    <p>Nansi is like any other file you <code class='inline'>source ~/nansi</code> into your .bashrc (or .file of choice), and <code class='inline'>@import "_nansi.scss";</code> into your style.scss.</p>
-    <pre>
-<code lang-bash>
-<span class='n'>source ~/.nansi.tp</span><br>
-<span>source ~/.functions</span>
+    <section>
+      <h2 class="man subhead">SYNSOPSIS</h2>
+      <h2 class="man options">KEYBOARD NUMBERS:</h2>
+      <ol class="synopsis">
+        <li>: change the background from dark (default) to light.</li>
+        <li>: switch between the reference numbers (default) to hex values.</li>
+        <li>: change the color visibility from border (default) to background.</li>
+        <li>: turn column spacing off (default) and on.</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2 class="man subhead">INSTALL</h2>
+      <p>Nansi can be sourced into your .bashrc (or dotfile of choice), imported in your scss/sass stylesheet, or imported into programs that support the .ase (Adobe Swatch Exchange) format. For detailed install instructions, and example usage, refer to the readme.pdf</p>
+      <div class="bash">
+        <code>
+source ~/<span class="n">.nansi</span><br>
 </code>
-</pre>
-    <pre>
-<code lang-sass>
-<span class='n'>@import “_nansi.scss”;</span><br>
-<span>@import “_mixins.scss”;</span><br>
-</code>
-</pre>
+      </div>
 
-
-    <span class="line"></span>
-
-<h4 class='subtitle'>usage</h4>
-    <p>You can use Nansi to customize your prompt; just make sure you escape the colors to avoid prompt wrap: <code class='inline'>PS1="<span class='esc'>\[</span><span class='var-esc'>${f160}</span><span class='esc'>\]</span>\u\W<span class='esc'>\[</span><span class='var-esc'>${stop}</span><span class='esc'>\]</span>▻ "</code>,
-      and as expected in your functions, scripts, printfs, echos etc. Colors will supercede eachother, where as styles will continue until the stop is called.</p>
-    <p>The syntax is straight forward; f = foreground / b = background, followed by the reference # 0–255 e.g.,<code class='inline'>$f162</code> colors text 162, and <code class='inline'>$b143</code> colors background 143. In addition to the colors, you'll need: <code class='inline'>$stop</code> — to stop a color or style. The rest of the styles are as follows: <code class='inline'>$uline</code> — begin underline, <code class='inline'>$bold</code> —
-      bold text, <code class='inline'>$rvrs</code> — reversed out text.</p>
-    <pre lang="bash">
-<code lang-bash>
-<span class='i1'><span class='cmd'>printf "</span><span class='var'>${234}</span>foreground 234<span class='var'>${stop}</span><span class='cmd'>"</span></span><br>
-<span class='o1'>foreground 234</span>
+      <div class="sass">
+        <code>
+@import “<span class='n'>_nansi.hex.scss</span>”;<br>
 </code>
-</pre>
-    <pre lang="bash">
-<code lang-bash>
-<span class='i2'><span class='cmd'>printf "</span><span class='var'>${f234}</span>foreground 234 <span class='var'>${uline}</span>underlined</span><span class='var'>${stop}</span><span class='cmd'>"</span></span><br>
-<span class='o2'>foreground 234 <span>underlined</span></span>
-</code>
-</pre>
-<pre lang="bash">
-<code lang-bash>
-<span class='i3'><span class='cmd'>printf "</span><span class='var'>${f234}</span>foreground 234 <span class='var'>${b210}</span>background 250</span><span class='var'>${stop}</span><span class='cmd'>"</span></span><br>
-<span class='o3'>foreground 234 <span>background 250</span></span>
-</code>
-</pre>
+</div>
 
-    <p>Using it with SASS/SCSS is pretty straight forward. The variables/colors are mapped to their reference numbers, preceded by an underscore:
-    </p>
-    <pre class="syntax" lang="scss">
-    <code>
-    <span>.class { </span><br><span class='tab'>color: complement(<span class='n'>$_121</span>);</span><br>
-    <span>}</span>
-    </code>
-    </pre>
-<pre class="syntax" lang="scss">
-<code>
-<span>.class { </span><br>
-<span class='tab'>color: <span class='n'>$_238</span>;</span><br>
-<span class='tab'>border: 1px solid <span class='n'>$_96</span>;</span><br>
+<div class="less">
+  <code>
+@import “<span class="n">_nansi.hex.less</span>”;<br>
+</code>
+</div>
+
+    </section>
+
+    <section>
+      <h2 class="man subhead">SH/BASH</h2>
+      <p>
+        The syntax is simple; a number <span class='n'>0–255</span> preceded by <span class='n'>f</span>(oreground), or <span class='n'>b</span>(ackground). In addition to the colors, there's a few additional options all of which are outlined below:
+      </p>
+<ul class='usage'>
+  <li><span class='n'>f(0–255)</span> : set a foreground color</li>
+  <li><span class='n'>b(0–255)</span> : set a background color</li>
+  <li><span class='n'>stop</span> : stop a color or style</li>
+  <li><span class='n'>line</span> : set underline</li>
+  <li><span class='n'>bold</span> : set bold text</li>
+  <li><span class='n'>rvrs</span> : set reversed text</li>
+  <li><span class='n'>ital</span> : set italic text</li>
+</ul>
+      <div class="bash">
+        <code>
+<span class="input"><span class="cmd">printf "</span><span class='n'>${f8}</span>foreground eight<span class='n'>${stop}</span><span class="cmd">"</span></span><br>
+<span class="output">foreground eight</span>
+</code>
+      </div>
+
+      <div class="bash">
+        <code>
+<span class="input"><span class="cmd">printf "</span><span class='n'>${f8}</span>foreground eight <span class='n'>${line}</span>underlined</span><span class='n'>${stop}</span><span class="cmd">"</span></span><br>
+<span class="output">foreground eight <span class="undr">underlined</span></span>
+</code>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="man subhead">SASS/SCSS</h2>
+      <p>
+        Again, the syntax is simple; A dollar sign, followed by an underscore (for legibility), then a reference number <span class='n'>0–255</span>.
+      </p>
+
+      <div class="sass">
+        <code>
+<span>.class { </span><br><span class="tab">color: invert(<span class="n">$_121</span>);</span><br>
+<span class="tab">border: 1px solid <span class="n">$_96</span>;</span><br>
 <span>}</span>
 </code>
-</pre>
+      </div>
+    </section>
 
-<span class="line"></span>
+    <section>
+      <h2 class="man subhead">LESS</h2>
+      <p>
+        Same as above, aside from the variable declaration. In this case an at-sign, followed by an underscore (for legibility), then a reference number <span class='n'>0–255</span>.
+      </p>
 
-<a name='ref'></a>
-<h4 class='subtitle'>notes</h4>
-<p>I use OSX 10.9.4, Iterm2, and BASH⁴ installed via Homebrew. My use of the palette is less than advanced; simple functions, variables, aliases, expansions, and substitutions. Everything works perfectly for me, within my small, modest environment, but it may not for another.</p>
-<p>If your using OSX, the default Terminal.app, and iTerm.app (my favorite) both support 256 colors. You may need to go into preferences and set the declare/terminal type as xterm-256color. You can also check the number of supported colors in your current shell by typing <span class='inline'>tput colors</span> at the prompt, which will return that info. Lastly, it's also recommended that you lookup <span class='inline'>man terminfo</span> to see the full range of possibilities for your particular environment.</p>
+      <div class="sass">
+        <code>
+<span>.class { </span><br><span class="tab">color: <span class="n">@_121</span>;</span><br>
+<span class="tab">border: 1px solid <span class="n">@_96</span>;</span><br>
+<span>}</span>
+</code>
+      </div>
+    </section>
 
-<span class="line"></span>
+    <section>
+      <h2 class="man subhead">COLOPHON</h2>
+      <p>
+        Designed/Developed with: <a href="http://www.atom.io/" target="_new">Atom</a><br>
+        Pre-proccesors: <a href="http://haml.info" target="_new">HAML</a>, <a href="http://sass-lang.com/" target="_new">SCSS</a><br>
+        Utilities: <a href="http://bourbon.io/" target="_new">Bourbon</a>, <a href="http://neat.bourbon.io/" target="_new">Neat</a>.<br>
+        Hosting: <a href="https://pages.github.com/" target="_new">Github Pages</a>.<br>
+        Fonts: <a href="https://www.google.com/fonts/specimen/Roboto+Slab" target="_new">Source Code Pro</a>, by Christian Robertson, and <a href="https://www.google.com/fonts/specimen/Oswald" target="_new">Oswald</a> by Vernon Adams.<br>
+        Libs/JS: <a href="http://craig.is/killing/mice" target="_new">Mousetrap</a>, <a href="https://github.com/typekit/webfontloader" target="_new">Web Font Loader</a>, <a href="http://gulpjs.com/" target="_new">Gulp</a>
+      </p>
+    </section>
 
-<a name='ref'></a>
-<h4 class='subtitle'>resources</h4>
-    <p class='resources'>
-      A small primer about <a href="http://mywiki.wooledge.org/BashFAQ/037">color assignment and escaping</a>.<br>
-      The Wooledge <a href="http://mywiki.wooledge.org/BashGuide">Bash Guide</a><br>
-      The Linux Documentation Projects:<a href="http://tldp.org/LDP/abs/html/index.html">Advanced Bash Scripting Guide</a><br>
-    </p>
+  </div>
 
-    <span class="line"></span>
-
-    <a name='ref'></a>
-<h4 class='subtitle'>colophon</h4>
-  <p>
-    This project was designed and developed with <a href="http://hammerformac.com/" target="_new">hammer</a> and <a href="anvilformac.com" target="_new">anvil</a> using <a href="http://www.atom.io/" target="_new">Atom</a>.<br>
-    In addition this project utilizes <a href="http://sass-lang.com/" target="_new">sass</a>, <a href="http://bourbon.io/" target="_new">bourbon</a>, and <a href="https://github.com/terracomma" target="_new">neat</a>.<br>
-    Nansi is hosted via <a href="https://github.com/terracomma" target="_new">github pages</a>.
-  </p>
-  <p>
-    The fonts <a href="http://www.google.com/fonts/specimen/Roboto+Slab" target="_new">Roboto Slab</a>, by Christian Robertson, <a href="http://www.google.com/fonts/specimen/Source+Sans+Pro" target="_new">Source Sans Pro</a> + <a href="http://www.google.com/fonts/specimen/Source+Code+Pro" target="_new">Source Code Pro</a>, by Paul Hunt, and <a href="https://www.google.com/fonts/specimen/Oswald" target="_new">Oswald</a> by Vernon Adams; are freely available via <a href="https://www.google.com/fonts" target="_new">Google Fonts</a>.
-  </p>
-
-
-  </section>
-
-  <section class='palette' data-values='term'>
-    <!-- SECTION 1 : THE FIRST 16 COLORS / #0—#15 -->
-<div class='_16'>
+  <div class='main'>
+    <section class='palette' data-values="term">
+      <div class='_16' data-state='open'>
+  <i class='switch'></i>
   <ol class='colors' data-cols='tight'>
     <li>#000000</li>
     <li>#800000</li>
@@ -184,8 +179,8 @@
     <li>#FFFFFF</li>
   </ol>
 </div>
-<!-- SECTION 2 : THE MAIN 6×6×6 COLORS / #16—#231 -->
-<div class='_216'>
+<div class='_216' data-state='open'>
+  <i class='switch'></i>
   <ol class='colors' data-cols='tight'>
     <li>#000000</li>
     <li>#00005F</li>
@@ -405,8 +400,8 @@
     <li>#FFFFFF</li>
   </ol>
 </div>
-<!-- SECTION 3 : THE GREYSCALE RAMP 24 COLORS / #232—#255 -->
-<div class='_24'>
+<div class='_24' data-state='open'>
+  <i class='switch'></i>
   <ol class='colors' data-cols='tight'>
     <li>#080808</li>
     <li>#121212</li>
@@ -435,21 +430,18 @@
   </ol>
 </div>
 
-  </section>
-
+    </section>
+  </div>
   <footer>
-    <a class='gh' href="http://github.com/workmade/twofivesix">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" enable-background="new 0 0 18 18">
-        <path class="path" d="M17 9c0 3.5-2.3 6.5-5.5 7.6-.4.1-.6-.2-.6-.4v-2.2c0-.7-.3-1.2-.5-1.5 1.8-.2 3.7-.9 3.7-3.9 0-.9-.3-1.6-.8-2.1.1-.2.4-1-.1-2.1 0 0-.7-.2-2.2.8-.6-.2-1.3-.3-2-.3s-1.4.1-2 .3c-1.5-1-2.2-.8-2.2-.8-.4 1-.2 1.8-.1 2-.5.6-.8 1.3-.8 2.2 0 3.1 1.9 3.8 3.6 4-.2.2-.4.6-.5 1.1-.5.2-1.6.6-2.3-.7 0 0-.4-.8-1.2-.8 0 0-.8 0-.1.5 0 0 .5.2.9 1.2 0 0 .5 1.6 2.7 1.1v1.4c0 .2-.1.5-.5.4-3.2-1.3-5.5-4.3-5.5-7.8 0-4.4 3.6-8 8-8s8 3.6 8 8z"
-        />
-      </svg>
-    </a>
+    <section>
+      <h3 class="man end">END(1)</h3>
+      <h3 class="man date">September 2014</h3>
+      <h3 class="man name-bottom">NANSI(1)</h3>
+    </section>
   </footer>
+<script src="js/mousetrap.js"></script>
+<script src="js/nansi.js"></script>
 
-  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
-
-  <script src='js/mousetrap.js'></script>
-  <script src='js/nansi.js'></script>
 
 </body>
 
