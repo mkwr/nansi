@@ -2,13 +2,9 @@
 # ———————————————————
 .DS_store
 .sass-cache
-.hammer-ignore
 .fseventsd
 Icon?
 
 # project
 # ———————————————————
-/_includes
-/_library
-/_archive
-/_post
+style.css.map
