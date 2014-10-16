@@ -3,7 +3,7 @@
       families:
       [
       'Oswald:300,400',
-      'Source+Code+Pro:200,300,400'
+      'Source+Code+Pro:200,300,400,600'
       ]
     }
   };
