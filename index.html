@@ -3,42 +3,39 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
   <meta name="viewport" content="width=device-width">
   <title>Nansi</title>
   <link rel="stylesheet" href="css/style.css">
-  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
-  <script src="js/webfonts.js"></script>
+  <!-- google webfonts -->
+  <script type="text/javascript" src='//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js'></script>
+<script type="text/javascript" name='gwf.js'>
+var WebFontConfig;WebFontConfig={google:{families:["Oswald:300","Source+Code+Pro:300,400"]}};(function(){var s,wf;wf=document.createElement("script");wf.src=("https:"===document.location.protocol?"https":"http")+"://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js";wf.type="text/javascript";wf.async="true";s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(wf,s);})();
+</script>
+
 </head>
 
 <body>
   <header>
-    <section>
-      <h3 class="man name">NANSI(1)</h3>
-      <h3 class="man name-alt">NEW(ANSI)</h3>
-      <h3 class="man readme">README</h3>
+    <section class="intro">
+      <h1 class="title">NANSI</h1>
+
+        <a class="readme">README</a>
+        <a class="download" href='https://github.com/workmade/nansi/archive/gh-pages.zip'>DOWNLOAD
+          <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" enable-background="new 0 0 28 28"><style type="text/css">.st0{fill:#FFF;} .st1{fill:none;}</style><g id="down"><path class="st0" d="M17.4 12.4l-.8-.8-4.1 4.2V4h-1v11.8l-4.1-4.1-.8.7 5.4 5.3zM6 19.5h12v1H6z"/><path class="st1" d="M0 0h24v24H0z"/></g></svg> -->
+        </a>
+        <a class="github" href='http://github.com/workmade/nansi' target="_blank">SOURCE
+          <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" enable-background="new 0 0 28 28"><style type="text/css">.st0{fill:#FFF;} .st1{fill:none;}</style><g id="source"><path class="st0" d="M18.8 3H5.2C4 3 3 4 3 5.2v3.5h1V5.2C4 4.5 4.5 4 5.2 4h13.6c.7 0 1.2.5 1.2 1.2v13.6c0 .7-.5 1.2-1.2 1.2H5.2c-.7 0-1.2-.5-1.2-1.2v-3.5H3v3.5C3 20 4 21 5.2 21h13.6c1.2 0 2.2-1 2.2-2.2V5.2C21 4 20 3 18.8 3zM3.5 12.5h11.8l-4.1 4.1.7.8 5.3-5.4-5.3-5.4-.8.8 4.2 4.1H3.5zM11.9 17.4z"/><path class="st1" d="M0 0h24v24H0z"/></g></svg> -->
+        </a>
+
+      <!-- <p class="name first left">NANSI(1)</p>
+      <p class="name first right">NEW(ANSI)</p>-->
+
+
     </section>
   </header>
 
   <div class="info" data-state="closed">
-
-    <section class="intro">
-      <h1 class="title">NANSI</h1>
-      <div class="right">
-        <a class="download" href='https://github.com/workmade/nansi/archive/gh-pages.zip' data-tooltip="download">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-            <path d="M12 .5c-6.3 0-11.5 5.2-11.5 11.5s5.2 11.5 11.5 11.5 11.5-5.2 11.5-11.5-5.2-11.5-11.5-11.5zm3.3 17.7h-6.6v-1.3h6.6v1.3zm-3.3-2.5l-3.3-3.3h2.7v-6.6h1.3v6.6h2.6l-3.3 3.3z" />
-          </svg>
-        </a>
-        <a class="github" href='http://github.com/workmade/nansi' target="_blank" data-tooltip="browse source">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-            <path d="M.5 12.3c0-2.1.5-4 1.5-5.8s2.4-3.2 4.2-4.2 3.7-1.5 5.8-1.5c2.1 0 4 .5 5.8 1.5 1.8 1 3.2 2.4 4.2 4.2s1.5 3.7 1.5 5.8c0 2.5-.7 4.8-2.2 6.8-1.5 2-3.4 3.4-5.7 4.2-.3 0-.5 0-.6-.1-.1-.1-.2-.3-.2-.4v-3.2c0-1-.3-1.7-.8-2.1.6-.1 1.1-.1 1.5-.3.5-.1.9-.3 1.4-.6.5-.3.9-.6 1.2-1 .3-.4.6-.9.8-1.6.2-.7.3-1.4.3-2.3 0-1.2-.4-2.2-1.2-3.1.4-.9.3-1.9-.1-3.1-.3-.1-.7 0-1.2.2s-1 .4-1.4.7l-.6.4c-.8-.3-1.7-.5-2.7-.5-1 0-1.9.1-2.9.4-.1-.1-.3-.2-.6-.4-.3-.1-.7-.3-1.3-.6s-1-.3-1.2-.2c-.5 1.2-.5 2.2-.2 3.1-.8.8-1.2 1.9-1.2 3.1 0 .8.1 1.6.3 2.2.2.6.5 1.2.8 1.6.3.4.7.7 1.2 1 .5.3 1 .5 1.4.6l1.5.3c-.4.4-.6.9-.7 1.5-.1.1-.4.2-.6.2-.2 0-.5.1-.9.1s-.7-.1-1-.3c-.3-.2-.6-.5-.8-.9-.2-.3-.4-.6-.7-.8-.3-.2-.5-.3-.7-.4h-.3c-.2 0-.4 0-.4.1-.1 0-.1.1-.1.2l.1.2.2.2h.1c.2.1.4.3.7.6s.4.5.5.8l.1.3c.1.4.3.7.7.9.3.2.6.4 1 .4.4.1.7.1 1 .1.3 0 .6 0 .8-.1l.3-.1v2.1c0 .2-.1.3-.2.4s-.3.2-.6.1c-2.2-.6-4.1-2-5.6-4s-2.2-4.2-2.2-6.7z"
-            />
-          </svg>
-        </a>
-      </div>
-    </section>
-
     <section>
       <h2 class="man subhead">DESCRIPTION</h2>
       <p>
@@ -51,11 +48,10 @@
       <ol class="synopsis"><i>KEYBOARD NUMBERS:</i>
         <li>: change the background from dark (default) to light.</li>
         <li>: switch between the reference numbers (default) to hex values.</li>
-        <li>: change the color visibility from border (default) to background.</li>
+        <li>: color swatch size from border (default) to background.</li>
         <li>: turn column spacing off (default) and on.</li>
       </ol>
     </section>
-
     <section>
       <h2 class="man subhead">INSTALL</h2>
       <p>Nansi can be sourced into your .bashrc (or dotfile of choice), imported in your scss/sass stylesheet, or imported into programs that support the .ase (Adobe Swatch Exchange) format. For detailed install instructions, and example usage, refer to the readme.pdf</p>
@@ -88,8 +84,8 @@ source ~/<span class="n">.nansi</span><br>
   <li><span class='n'>f(0–255)</span> : set a foreground color</li>
   <li><span class='n'>b(0–255)</span> : set a background color</li>
   <li><span class='n'>stop</span> : stop a color or style</li>
-  <li><span class='n'>line</span> : set underline</li>
   <li><span class='n'>bold</span> : set bold text</li>
+  <li><span class='n'>line</span> : set underline</li>
   <li><span class='n'>rvrs</span> : set reversed text</li>
   <li><span class='n'>ital</span> : set italic text</li>
 </ul>
@@ -142,11 +138,9 @@ source ~/<span class="n">.nansi</span><br>
       <h2 class="man subhead">COLOPHON</h2>
       <p>
         Designed/Developed with: <a href="http://www.atom.io/" target="_blank">Atom</a><br>
-        Pre-proccesors: <a href="http://haml.info" target="_blank">HAML</a>, <a href="http://sass-lang.com/" target="_blank">SCSS</a><br>
-        Utilities: <a href="http://bourbon.io/" target="_blank">Bourbon</a>, <a href="http://neat.bourbon.io/" target="_blank">Neat</a>.<br>
-        Hosting: <a href="https://pages.github.com/" target="_blank">Github Pages</a>.<br>
+        Proccesors: <a href="http://haml.info" target="_blank">HAML</a>, <a href="http://sass-lang.com/" target="_blank">SCSS</a>, <a href="http://gulpjs.com/" target="_blank">Gulp</a><br>
         Fonts: <a href="https://www.google.com/fonts/specimen/Roboto+Slab" target="_blank">Source Code Pro</a>, by Christian Robertson, and <a href="https://www.google.com/fonts/specimen/Oswald" target="_blank">Oswald</a> by Vernon Adams.<br>
-        Libs/JS: <a href="http://craig.is/killing/mice" target="_blank">Mousetrap</a>, <a href="https://github.com/typekit/webfontloader" target="_blank">Web Font Loader</a>, <a href="http://gulpjs.com/" target="_blank">Gulp</a>
+        Libs/JS: <a href="http://craig.is/killing/mice" target="_blank">Mousetrap</a>, <a href="https://github.com/typekit/webfontloader" target="_blank">Web Font Loader</a>
       </p>
     </section>
 
@@ -429,14 +423,16 @@ source ~/<span class="n">.nansi</span><br>
     </section>
   </div>
   <footer>
-    <section>
-      <h3 class="man end">END(1)</h3>
-      <h3 class="man date">September 2014</h3>
-      <h3 class="man name-bottom">NANSI(1)</h3>
-    </section>
+<p>© MMXV — MIKE WARREN</p>
   </footer>
-<script src="js/mousetrap.js"></script>
-<script src="js/nansi.js"></script>
+  <!-- javascripts -->
+  <script type="text/javascript" name='mousetrap.js'>
+(function(J,r,f){function s(a,b,d){a.addEventListener?a.addEventListener(b,d,!1):a.attachEvent("on"+b,d)}function A(a){if("keypress"==a.type){var b=String.fromCharCode(a.which);a.shiftKey||(b=b.toLowerCase());return b}return h[a.which]?h[a.which]:B[a.which]?B[a.which]:String.fromCharCode(a.which).toLowerCase()}function t(a){a=a||{};var b=!1,d;for(d in n)a[d]?b=!0:n[d]=0;b||(u=!1)}function C(a,b,d,c,e,v){var g,k,f=[],h=d.type;if(!l[a])return[];"keyup"==h&&w(a)&&(b=[a]);for(g=0;g<l[a].length;++g)if(k=l[a][g],!(!c&&k.seq&&n[k.seq]!=k.level||h!=k.action||("keypress"!=h||d.metaKey||d.ctrlKey)&&b.sort().join(",")!==k.modifiers.sort().join(","))){var m=c&&k.seq==c&&k.level==v;(!c&&k.combo==e||m)&&l[a].splice(g,1);f.push(k)}return f}function K(a){var b=[];a.shiftKey&&b.push("shift");a.altKey&&b.push("alt");a.ctrlKey&&b.push("ctrl");a.metaKey&&b.push("meta");return b}function x(a,b,d,c){m.stopCallback(b,b.target||b.srcElement,d,c)||!1!==a(b,d)||(b.preventDefault?b.preventDefault():b.returnValue=!1,b.stopPropagation?b.stopPropagation():b.cancelBubble=!0)}function y(a){"number"!==typeof a.which&&(a.which=a.keyCode);var b=A(a);b&&("keyup"==a.type&&z===b?z=!1:m.handleKey(b,K(a),a))}function w(a){return"shift"==a||"ctrl"==a||"alt"==a||"meta"==a}function L(a,b,d,c){function e(b){return function(){u=b;++n[a];clearTimeout(D);D=setTimeout(t,1E3)}}function v(b){x(d,b,a);"keyup"!==c&&(z=A(b));setTimeout(t,10)}for(var g=n[a]=0;g<b.length;++g){var f=g+1===b.length?v:e(c||E(b[g+1]).action);F(b[g],f,c,a,g)}}function E(a,b){var d,c,e,f=[];d="+"===a?["+"]:a.split("+");for(e=0;e<d.length;++e)c=d[e],G[c]&&(c=G[c]),b&&"keypress"!=b&&H[c]&&(c=H[c],f.push("shift")),w(c)&&f.push(c);d=c;e=b;if(!e){if(!p){p={};for(var g in h)95<g&&112>g||h.hasOwnProperty(g)&&(p[h[g]]=g)}e=p[d]?"keydown":"keypress"}"keypress"==e&&f.length&&(e="keydown");return{key:c,modifiers:f,action:e}}function F(a,b,d,c,e){q[a+":"+d]=b;a=a.replace(/\s+/g," ");var f=a.split(" ");1<f.length?L(a,f,b,d):(d=E(a,d),l[d.key]=l[d.key]||[],C(d.key,d.modifiers,{type:d.action},c,a,e),l[d.key][c?"unshift":"push"]({callback:b,modifiers:d.modifiers,action:d.action,seq:c,level:e,combo:a}))}var h={8:"backspace",9:"tab",13:"enter",16:"shift",17:"ctrl",18:"alt",20:"capslock",27:"esc",32:"space",33:"pageup",34:"pagedown",35:"end",36:"home",37:"left",38:"up",39:"right",40:"down",45:"ins",46:"del",91:"meta",93:"meta",224:"meta"},B={106:"*",107:"+",109:"-",110:".",111:"/",186:";",187:"=",188:",",189:"-",190:".",191:"/",192:"`",219:"[",220:"\\",221:"]",222:"'"},H={"~":"`","!":"1","@":"2","#":"3",$:"4","%":"5","^":"6","&":"7","*":"8","(":"9",")":"0",_:"-","+":"=",":":";",'"':"'","<":",",">":".","?":"/","|":"\\"},G={option:"alt",command:"meta","return":"enter",escape:"esc",mod:/Mac|iPod|iPhone|iPad/.test(navigator.platform)?"meta":"ctrl"},p,l={},q={},n={},D,z=!1,I=!1,u=!1;for(f=1;20>f;++f)h[111+f]="f"+f;for(f=0;9>=f;++f)h[f+96]=f;s(r,"keypress",y);s(r,"keydown",y);s(r,"keyup",y);var m={bind:function(a,b,d){a=a instanceof Array?a:[a];for(var c=0;c<a.length;++c)F(a[c],b,d);return this},unbind:function(a,b){return m.bind(a,function(){},b)},trigger:function(a,b){if(q[a+":"+b])q[a+":"+b]({},a);return this},reset:function(){l={};q={};return this},stopCallback:function(a,b){return-1<(" "+b.className+" ").indexOf(" mousetrap ")?!1:"INPUT"==b.tagName||"SELECT"==b.tagName||"TEXTAREA"==b.tagName||b.isContentEditable},handleKey:function(a,b,d){var c=C(a,b,d),e;b={};var f=0,g=!1;for(e=0;e<c.length;++e)c[e].seq&&(f=Math.max(f,c[e].level));for(e=0;e<c.length;++e)c[e].seq?c[e].level==f&&(g=!0,b[c[e].seq]=1,x(c[e].callback,d,c[e].combo,c[e].seq)):g||x(c[e].callback,d,c[e].combo);c="keypress"==d.type&&I;d.type!=u||w(a)||c||t(b);I=g&&"keydown"==d.type}};J.Mousetrap=m;"function"===typeof define&&define.amd&&define(m)})(window,document);
+</script>
+<script type="text/javascript" name='nansi.js'>
+(function(){c=document.querySelector('.readme');b=document.querySelector('.info');c.addEventListener('click',function(){b.setAttribute('data-state','open'===b.getAttribute('data-state')?'closed':'open');});Mousetrap.bind('1',function(){a=document.querySelector('.main');a.setAttribute('data-bgcolor','light'===a.getAttribute('data-bgcolor')?'dark':'light');});Mousetrap.bind('2',function(){a=document.querySelector('.palette');a.setAttribute('data-values','term'===a.getAttribute('data-values')?'hex':'term');});Mousetrap.bind('3',function(){[].forEach.call(document.querySelectorAll('.colors'),function(a){a.classList.toggle('bg');});});Mousetrap.bind('4',function(){[].forEach.call(document.querySelectorAll('.colors'),function(a){a.setAttribute('data-cols','tight'===a.getAttribute('data-cols')?'loose':'tight');});});}).call(this);
+</script>
+
 
 <a class='ga' href="https://workmade.github.io/nansi"><img src="https://ga-beacon.appspot.com/UA-42808437-5/workmade/nansi?pixel" alt="analytics"/></a>
 </body>
