@@ -1,10 +1,4 @@
-# osx
-# ———————————————————
-.DS_store
-.sass-cache
-.fseventsd
-Icon?
-
 # project
 # ———————————————————
 style.css.map
+**/*.zip

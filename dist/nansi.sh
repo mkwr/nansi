@@ -1,23 +1,22 @@
 # ███████████████████████████████████████
-# name: nansi.sh
-# url: workmade.github.io/nansi
-# author: by Mike Warren
+# nansi.sh
+# workmade.github.io/nansi
 
-stop=$(tput sgr0)  # reset
-bold=$(tput bold)  # bold
-undr=$(tput smul)  # underline
-rvrs=$(tput rev)   # reverse
-ital=$(tput sitm)  # italic [?]
+STOP=$(tput sgr0)  # reset
+BOLD=$(tput bold)  # bold
+UNDR=$(tput smul)  # underline
+RVRS=$(tput rev)   # reverse
+ITAL=$(tput sitm)  # italic [?]
 
 declare -a fg=(
   $(for i in {0..255} ; do
-      echo f"$i"=$(tput setaf "$i")
+      echo F"$i"=$(tput setaf "$i")
     done)
   )
 
 declare -a bg=(
   $(for i in {0..255} ; do
-      echo b"$i"=$(tput setab "$i")
+      echo B"$i"=$(tput setab "$i")
     done)
   )
 
@@ -35,7 +34,7 @@ fi
 nansi
 unset nansi
 
-n256 () {
+N256 () {
   printf '%s\n' "░░░░░░░░░░░░░░░░░░░░ THE 16 STANDARD COLORS"
   for i in {0..16} ; do
     printf '%s\n' "$(tput setaf "$i")▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ "$i"$(tput sgr0)"
