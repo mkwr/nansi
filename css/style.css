@@ -52,22 +52,3545 @@ table {
   border-spacing: 0; }
 
 /*
-░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
-  TYPESET + USAGE
-  @include typeset(12, 16, 1.75, 400, normal)
-░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+
+
+Aa|rchetypes [ An SCSS toolkit for modern web typography. ]
+
+⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼
+«   On some fonts, these analphabetic characters are beautifully
+    designed; on others they are not designed at all. Often they
+    are simply borrowed from another font, which may have been
+    drawn in a different weight and style.
+    ...
+    Fonts equipped with good versions of these characters must
+    often lend them to those without. But not just any good
+»   version will do.
+
+    'The Elements of Typographic Style'
+    — Robert Bringhurst
+⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼
+
+    Keys
+    *  Using the variables.
+    2. Using the variables in the archetype() mixin.
+    3. Using the [data_unicode] namespace in your HTML.
+
+⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼
+*/
+/* ⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼
+**  Aa|rchetypes :: Presets
+**
+**  reset/normalize etc.
+**  this is the first file imported
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code, .cmt, .note,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* ⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼
+**  Aa|rchetypes :: Configuration
+**
+**  Customize Aarchetypes options
+**  Enable/disable features, output, etc.
+*/
+/* ⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼
+**  Aa|rchetypes :: Variables
+**
+**
+**
+*/
+/* ⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼
+**  type-specific
+**
+*/
+/* ⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼
+**  font-stacks
+**
+*/
+/* Aa|rchetypes [ Functions ]
+
+⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼
+
+    Functions
+    1. is : http://www.sitepoint.com/tips-help-level-up-sass/
+    2. list : from arglist to list
+    3. each : call function on each $i in list
+    4. unit-conversions : from pixels → em, rem, pica, in, pt
+    5. is-color : check if value is color
+    6. is-num : check if value is number
+    7. reciprocal : returns reciprocal ( 1 / number )
+    8. get-unicode : returns unicode-value from unicode-key
+
+⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼
+*/
+/* ⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼
+**  Aa|rchetypes :: Mixins
+**
+**
+**
 */
 /*
-░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
-  ARCHETYPE + USAGE
-  @include archetype('\0024', Source Code Pro, 11px, $_245, 0 1em 0 0);
-░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+
+«   On some fonts, these analphabetic characters are beautifully
+    designed; on others they are not designed at all. Often they
+    are simply borrowed from another font, which may have been
+    drawn in a different weight and style.
+    ...
+    Fonts equipped with good versions of these characters must
+    often lend them to those without. But not just any good
+»   version will do.
+
+    'The Elements of Typographic Style'
+    — Robert Bringhurst
+
+    Mixins
+    1. typeset  : traditional typographic notation in shorthand
+    2. opentype : enable/disable opentype features
+    3. aa : simplified unicode mixin
+    4. analpha : robust unicode mixin
+    5. uni : simplified unicode mixin (uses map keys)
+    6. unicode : robust unicode mixin (uses map keys)
+    7. rhythm : generates font-size based on scale
+    8. Using the [data_unicode] namespace in your HTML.
+
+    ⭑ signifies that a mixin contains config options.
+
+*/
+/* ⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼
+**  Aa|rchetypes [ Extends (Placeholders) ]
+**
+**  requires _mixins.scss
+**  also available as a regular mixins
+*/
+/* Aa|rchetypes — Analphabetics
+
+⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼
+«   On some fonts, these analphabetic characters are beautifully
+    designed; on others they are not designed at all. Often they
+    are simply borrowed from another font, which may have been
+    drawn in a different weight and style.
+    ...
+    Fonts equipped with good versions of these characters must
+    often lend them to those without. But not just any good
+»   version will do.
+
+    'The Elements of Typographic Style'
+    — Robert Bringhurst
+⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼
+
+    There are 3 ways use these:
+    1. Using the variables.
+    2. Using the variables in the archetype() mixin.
+    3. Using the [data-unicode] namespace in your HTML.
+
+⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼
 */
 /*
-░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
-  PREDEFINED ARCHETYPES + USAGE
-  @include <name>(Source Code Pro, 11px, red, 0 1em 0 0);
-░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+!! ratio map
+>> name: value;
+*/
+/* ⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼
+**  Aa|rchetypes [ Opentype Features ]
+**
+**  requires _mixins.scss
+**  also available as a regular mixins
+*/
+/*
+⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼
+1.   Using the opentype mixin:
+     @include opentype(liga,onum,true);
+     :: takes any 4 character key from the map below
+     :: last value is either on/off, true/false, enable/disable
+
+2.   Use the [data-opentype] namespace in your HTML to
+     activate opentype feature. Accepts map key or value.
+⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼
+*/
+.ot_aalt {
+  -moz-font-feature-settings: "aalt";
+  -moz-font-feature-settings: "aalt=1";
+  -ms-font-feature-settings: "aalt";
+  -o-font-feature-settings: "aalt";
+  -webkit-font-feature-settings: "aalt";
+  font-feature-settings: "aalt"; }
+
+.ot_abvf {
+  -moz-font-feature-settings: "abvf";
+  -moz-font-feature-settings: "abvf=1";
+  -ms-font-feature-settings: "abvf";
+  -o-font-feature-settings: "abvf";
+  -webkit-font-feature-settings: "abvf";
+  font-feature-settings: "abvf"; }
+
+.ot_abvm {
+  -moz-font-feature-settings: "abvm";
+  -moz-font-feature-settings: "abvm=1";
+  -ms-font-feature-settings: "abvm";
+  -o-font-feature-settings: "abvm";
+  -webkit-font-feature-settings: "abvm";
+  font-feature-settings: "abvm"; }
+
+.ot_abvs {
+  -moz-font-feature-settings: "abvs";
+  -moz-font-feature-settings: "abvs=1";
+  -ms-font-feature-settings: "abvs";
+  -o-font-feature-settings: "abvs";
+  -webkit-font-feature-settings: "abvs";
+  font-feature-settings: "abvs"; }
+
+.ot_afrc {
+  -moz-font-feature-settings: "afrc";
+  -moz-font-feature-settings: "afrc=1";
+  -ms-font-feature-settings: "afrc";
+  -o-font-feature-settings: "afrc";
+  -webkit-font-feature-settings: "afrc";
+  font-feature-settings: "afrc"; }
+
+.ot_akhn {
+  -moz-font-feature-settings: "akhn";
+  -moz-font-feature-settings: "akhn=1";
+  -ms-font-feature-settings: "akhn";
+  -o-font-feature-settings: "akhn";
+  -webkit-font-feature-settings: "akhn";
+  font-feature-settings: "akhn"; }
+
+.ot_blwf {
+  -moz-font-feature-settings: "blwf";
+  -moz-font-feature-settings: "blwf=1";
+  -ms-font-feature-settings: "blwf";
+  -o-font-feature-settings: "blwf";
+  -webkit-font-feature-settings: "blwf";
+  font-feature-settings: "blwf"; }
+
+.ot_blwm {
+  -moz-font-feature-settings: "blwm";
+  -moz-font-feature-settings: "blwm=1";
+  -ms-font-feature-settings: "blwm";
+  -o-font-feature-settings: "blwm";
+  -webkit-font-feature-settings: "blwm";
+  font-feature-settings: "blwm"; }
+
+.ot_blws {
+  -moz-font-feature-settings: "blws";
+  -moz-font-feature-settings: "blws=1";
+  -ms-font-feature-settings: "blws";
+  -o-font-feature-settings: "blws";
+  -webkit-font-feature-settings: "blws";
+  font-feature-settings: "blws"; }
+
+.ot_calt {
+  -moz-font-feature-settings: "calt";
+  -moz-font-feature-settings: "calt=1";
+  -ms-font-feature-settings: "calt";
+  -o-font-feature-settings: "calt";
+  -webkit-font-feature-settings: "calt";
+  font-feature-settings: "calt"; }
+
+.ot_case {
+  -moz-font-feature-settings: "case";
+  -moz-font-feature-settings: "case=1";
+  -ms-font-feature-settings: "case";
+  -o-font-feature-settings: "case";
+  -webkit-font-feature-settings: "case";
+  font-feature-settings: "case"; }
+
+.ot_ccmp {
+  -moz-font-feature-settings: "ccmp";
+  -moz-font-feature-settings: "ccmp=1";
+  -ms-font-feature-settings: "ccmp";
+  -o-font-feature-settings: "ccmp";
+  -webkit-font-feature-settings: "ccmp";
+  font-feature-settings: "ccmp"; }
+
+.ot_cfar {
+  -moz-font-feature-settings: "cfar";
+  -moz-font-feature-settings: "cfar=1";
+  -ms-font-feature-settings: "cfar";
+  -o-font-feature-settings: "cfar";
+  -webkit-font-feature-settings: "cfar";
+  font-feature-settings: "cfar"; }
+
+.ot_cjct {
+  -moz-font-feature-settings: "cjct";
+  -moz-font-feature-settings: "cjct=1";
+  -ms-font-feature-settings: "cjct";
+  -o-font-feature-settings: "cjct";
+  -webkit-font-feature-settings: "cjct";
+  font-feature-settings: "cjct"; }
+
+.ot_clig {
+  -moz-font-feature-settings: "clig";
+  -moz-font-feature-settings: "clig=1";
+  -ms-font-feature-settings: "clig";
+  -o-font-feature-settings: "clig";
+  -webkit-font-feature-settings: "clig";
+  font-feature-settings: "clig"; }
+
+.ot_cpct {
+  -moz-font-feature-settings: "cpct";
+  -moz-font-feature-settings: "cpct=1";
+  -ms-font-feature-settings: "cpct";
+  -o-font-feature-settings: "cpct";
+  -webkit-font-feature-settings: "cpct";
+  font-feature-settings: "cpct"; }
+
+.ot_cpsp {
+  -moz-font-feature-settings: "cpsp";
+  -moz-font-feature-settings: "cpsp=1";
+  -ms-font-feature-settings: "cpsp";
+  -o-font-feature-settings: "cpsp";
+  -webkit-font-feature-settings: "cpsp";
+  font-feature-settings: "cpsp"; }
+
+.ot_cswh {
+  -moz-font-feature-settings: "cswh";
+  -moz-font-feature-settings: "cswh=1";
+  -ms-font-feature-settings: "cswh";
+  -o-font-feature-settings: "cswh";
+  -webkit-font-feature-settings: "cswh";
+  font-feature-settings: "cswh"; }
+
+.ot_curs {
+  -moz-font-feature-settings: "curs";
+  -moz-font-feature-settings: "curs=1";
+  -ms-font-feature-settings: "curs";
+  -o-font-feature-settings: "curs";
+  -webkit-font-feature-settings: "curs";
+  font-feature-settings: "curs"; }
+
+.ot_c2pc {
+  -moz-font-feature-settings: "c2pc";
+  -moz-font-feature-settings: "c2pc=1";
+  -ms-font-feature-settings: "c2pc";
+  -o-font-feature-settings: "c2pc";
+  -webkit-font-feature-settings: "c2pc";
+  font-feature-settings: "c2pc"; }
+
+.ot_c2sc {
+  -moz-font-feature-settings: "c2sc";
+  -moz-font-feature-settings: "c2sc=1";
+  -ms-font-feature-settings: "c2sc";
+  -o-font-feature-settings: "c2sc";
+  -webkit-font-feature-settings: "c2sc";
+  font-feature-settings: "c2sc"; }
+
+.ot_dist {
+  -moz-font-feature-settings: "dist";
+  -moz-font-feature-settings: "dist=1";
+  -ms-font-feature-settings: "dist";
+  -o-font-feature-settings: "dist";
+  -webkit-font-feature-settings: "dist";
+  font-feature-settings: "dist"; }
+
+.ot_dlig {
+  -moz-font-feature-settings: "dlig";
+  -moz-font-feature-settings: "dlig=1";
+  -ms-font-feature-settings: "dlig";
+  -o-font-feature-settings: "dlig";
+  -webkit-font-feature-settings: "dlig";
+  font-feature-settings: "dlig"; }
+
+.ot_dnom {
+  -moz-font-feature-settings: "dnom";
+  -moz-font-feature-settings: "dnom=1";
+  -ms-font-feature-settings: "dnom";
+  -o-font-feature-settings: "dnom";
+  -webkit-font-feature-settings: "dnom";
+  font-feature-settings: "dnom"; }
+
+.ot_dtls {
+  -moz-font-feature-settings: "dtls";
+  -moz-font-feature-settings: "dtls=1";
+  -ms-font-feature-settings: "dtls";
+  -o-font-feature-settings: "dtls";
+  -webkit-font-feature-settings: "dtls";
+  font-feature-settings: "dtls"; }
+
+.ot_expt {
+  -moz-font-feature-settings: "expt";
+  -moz-font-feature-settings: "expt=1";
+  -ms-font-feature-settings: "expt";
+  -o-font-feature-settings: "expt";
+  -webkit-font-feature-settings: "expt";
+  font-feature-settings: "expt"; }
+
+.ot_falt {
+  -moz-font-feature-settings: "falt";
+  -moz-font-feature-settings: "falt=1";
+  -ms-font-feature-settings: "falt";
+  -o-font-feature-settings: "falt";
+  -webkit-font-feature-settings: "falt";
+  font-feature-settings: "falt"; }
+
+.ot_fin2 {
+  -moz-font-feature-settings: "fin2";
+  -moz-font-feature-settings: "fin2=1";
+  -ms-font-feature-settings: "fin2";
+  -o-font-feature-settings: "fin2";
+  -webkit-font-feature-settings: "fin2";
+  font-feature-settings: "fin2"; }
+
+.ot_fin3 {
+  -moz-font-feature-settings: "fin3";
+  -moz-font-feature-settings: "fin3=1";
+  -ms-font-feature-settings: "fin3";
+  -o-font-feature-settings: "fin3";
+  -webkit-font-feature-settings: "fin3";
+  font-feature-settings: "fin3"; }
+
+.ot_fina {
+  -moz-font-feature-settings: "fina";
+  -moz-font-feature-settings: "fina=1";
+  -ms-font-feature-settings: "fina";
+  -o-font-feature-settings: "fina";
+  -webkit-font-feature-settings: "fina";
+  font-feature-settings: "fina"; }
+
+.ot_flac {
+  -moz-font-feature-settings: "flac";
+  -moz-font-feature-settings: "flac=1";
+  -ms-font-feature-settings: "flac";
+  -o-font-feature-settings: "flac";
+  -webkit-font-feature-settings: "flac";
+  font-feature-settings: "flac"; }
+
+.ot_frac {
+  -moz-font-feature-settings: "frac";
+  -moz-font-feature-settings: "frac=1";
+  -ms-font-feature-settings: "frac";
+  -o-font-feature-settings: "frac";
+  -webkit-font-feature-settings: "frac";
+  font-feature-settings: "frac"; }
+
+.ot_fwid {
+  -moz-font-feature-settings: "fwid";
+  -moz-font-feature-settings: "fwid=1";
+  -ms-font-feature-settings: "fwid";
+  -o-font-feature-settings: "fwid";
+  -webkit-font-feature-settings: "fwid";
+  font-feature-settings: "fwid"; }
+
+.ot_half {
+  -moz-font-feature-settings: "half";
+  -moz-font-feature-settings: "half=1";
+  -ms-font-feature-settings: "half";
+  -o-font-feature-settings: "half";
+  -webkit-font-feature-settings: "half";
+  font-feature-settings: "half"; }
+
+.ot_haln {
+  -moz-font-feature-settings: "haln";
+  -moz-font-feature-settings: "haln=1";
+  -ms-font-feature-settings: "haln";
+  -o-font-feature-settings: "haln";
+  -webkit-font-feature-settings: "haln";
+  font-feature-settings: "haln"; }
+
+.ot_halt {
+  -moz-font-feature-settings: "halt";
+  -moz-font-feature-settings: "halt=1";
+  -ms-font-feature-settings: "halt";
+  -o-font-feature-settings: "halt";
+  -webkit-font-feature-settings: "halt";
+  font-feature-settings: "halt"; }
+
+.ot_hist {
+  -moz-font-feature-settings: "hist";
+  -moz-font-feature-settings: "hist=1";
+  -ms-font-feature-settings: "hist";
+  -o-font-feature-settings: "hist";
+  -webkit-font-feature-settings: "hist";
+  font-feature-settings: "hist"; }
+
+.ot_hkna {
+  -moz-font-feature-settings: "hkna";
+  -moz-font-feature-settings: "hkna=1";
+  -ms-font-feature-settings: "hkna";
+  -o-font-feature-settings: "hkna";
+  -webkit-font-feature-settings: "hkna";
+  font-feature-settings: "hkna"; }
+
+.ot_hlig {
+  -moz-font-feature-settings: "hlig";
+  -moz-font-feature-settings: "hlig=1";
+  -ms-font-feature-settings: "hlig";
+  -o-font-feature-settings: "hlig";
+  -webkit-font-feature-settings: "hlig";
+  font-feature-settings: "hlig"; }
+
+.ot_hngl {
+  -moz-font-feature-settings: "hngl";
+  -moz-font-feature-settings: "hngl=1";
+  -ms-font-feature-settings: "hngl";
+  -o-font-feature-settings: "hngl";
+  -webkit-font-feature-settings: "hngl";
+  font-feature-settings: "hngl"; }
+
+.ot_hojo {
+  -moz-font-feature-settings: "hojo";
+  -moz-font-feature-settings: "hojo=1";
+  -ms-font-feature-settings: "hojo";
+  -o-font-feature-settings: "hojo";
+  -webkit-font-feature-settings: "hojo";
+  font-feature-settings: "hojo"; }
+
+.ot_hwid {
+  -moz-font-feature-settings: "hwid";
+  -moz-font-feature-settings: "hwid=1";
+  -ms-font-feature-settings: "hwid";
+  -o-font-feature-settings: "hwid";
+  -webkit-font-feature-settings: "hwid";
+  font-feature-settings: "hwid"; }
+
+.ot_init {
+  -moz-font-feature-settings: "init";
+  -moz-font-feature-settings: "init=1";
+  -ms-font-feature-settings: "init";
+  -o-font-feature-settings: "init";
+  -webkit-font-feature-settings: "init";
+  font-feature-settings: "init"; }
+
+.ot_isol {
+  -moz-font-feature-settings: "isol";
+  -moz-font-feature-settings: "isol=1";
+  -ms-font-feature-settings: "isol";
+  -o-font-feature-settings: "isol";
+  -webkit-font-feature-settings: "isol";
+  font-feature-settings: "isol"; }
+
+.ot_ital {
+  -moz-font-feature-settings: "ital";
+  -moz-font-feature-settings: "ital=1";
+  -ms-font-feature-settings: "ital";
+  -o-font-feature-settings: "ital";
+  -webkit-font-feature-settings: "ital";
+  font-feature-settings: "ital"; }
+
+.ot_jalt {
+  -moz-font-feature-settings: "jalt";
+  -moz-font-feature-settings: "jalt=1";
+  -ms-font-feature-settings: "jalt";
+  -o-font-feature-settings: "jalt";
+  -webkit-font-feature-settings: "jalt";
+  font-feature-settings: "jalt"; }
+
+.ot_jp78 {
+  -moz-font-feature-settings: "jp78";
+  -moz-font-feature-settings: "jp78=1";
+  -ms-font-feature-settings: "jp78";
+  -o-font-feature-settings: "jp78";
+  -webkit-font-feature-settings: "jp78";
+  font-feature-settings: "jp78"; }
+
+.ot_jp83 {
+  -moz-font-feature-settings: "jp83";
+  -moz-font-feature-settings: "jp83=1";
+  -ms-font-feature-settings: "jp83";
+  -o-font-feature-settings: "jp83";
+  -webkit-font-feature-settings: "jp83";
+  font-feature-settings: "jp83"; }
+
+.ot_jp90 {
+  -moz-font-feature-settings: "jp90";
+  -moz-font-feature-settings: "jp90=1";
+  -ms-font-feature-settings: "jp90";
+  -o-font-feature-settings: "jp90";
+  -webkit-font-feature-settings: "jp90";
+  font-feature-settings: "jp90"; }
+
+.ot_jp04 {
+  -moz-font-feature-settings: "jp04";
+  -moz-font-feature-settings: "jp04=1";
+  -ms-font-feature-settings: "jp04";
+  -o-font-feature-settings: "jp04";
+  -webkit-font-feature-settings: "jp04";
+  font-feature-settings: "jp04"; }
+
+.ot_kern {
+  -moz-font-feature-settings: "kern";
+  -moz-font-feature-settings: "kern=1";
+  -ms-font-feature-settings: "kern";
+  -o-font-feature-settings: "kern";
+  -webkit-font-feature-settings: "kern";
+  font-feature-settings: "kern"; }
+
+.ot_lfbd {
+  -moz-font-feature-settings: "lfbd";
+  -moz-font-feature-settings: "lfbd=1";
+  -ms-font-feature-settings: "lfbd";
+  -o-font-feature-settings: "lfbd";
+  -webkit-font-feature-settings: "lfbd";
+  font-feature-settings: "lfbd"; }
+
+.ot_liga {
+  -moz-font-feature-settings: "liga";
+  -moz-font-feature-settings: "liga=1";
+  -ms-font-feature-settings: "liga";
+  -o-font-feature-settings: "liga";
+  -webkit-font-feature-settings: "liga";
+  font-feature-settings: "liga"; }
+
+.ot_ljmo {
+  -moz-font-feature-settings: "ljmo";
+  -moz-font-feature-settings: "ljmo=1";
+  -ms-font-feature-settings: "ljmo";
+  -o-font-feature-settings: "ljmo";
+  -webkit-font-feature-settings: "ljmo";
+  font-feature-settings: "ljmo"; }
+
+.ot_lnum {
+  -moz-font-feature-settings: "lnum";
+  -moz-font-feature-settings: "lnum=1";
+  -ms-font-feature-settings: "lnum";
+  -o-font-feature-settings: "lnum";
+  -webkit-font-feature-settings: "lnum";
+  font-feature-settings: "lnum"; }
+
+.ot_locl {
+  -moz-font-feature-settings: "locl";
+  -moz-font-feature-settings: "locl=1";
+  -ms-font-feature-settings: "locl";
+  -o-font-feature-settings: "locl";
+  -webkit-font-feature-settings: "locl";
+  font-feature-settings: "locl"; }
+
+.ot_ltra {
+  -moz-font-feature-settings: "ltra";
+  -moz-font-feature-settings: "ltra=1";
+  -ms-font-feature-settings: "ltra";
+  -o-font-feature-settings: "ltra";
+  -webkit-font-feature-settings: "ltra";
+  font-feature-settings: "ltra"; }
+
+.ot_ltrm {
+  -moz-font-feature-settings: "ltrm";
+  -moz-font-feature-settings: "ltrm=1";
+  -ms-font-feature-settings: "ltrm";
+  -o-font-feature-settings: "ltrm";
+  -webkit-font-feature-settings: "ltrm";
+  font-feature-settings: "ltrm"; }
+
+.ot_mark {
+  -moz-font-feature-settings: "mark";
+  -moz-font-feature-settings: "mark=1";
+  -ms-font-feature-settings: "mark";
+  -o-font-feature-settings: "mark";
+  -webkit-font-feature-settings: "mark";
+  font-feature-settings: "mark"; }
+
+.ot_med2 {
+  -moz-font-feature-settings: "med2";
+  -moz-font-feature-settings: "med2=1";
+  -ms-font-feature-settings: "med2";
+  -o-font-feature-settings: "med2";
+  -webkit-font-feature-settings: "med2";
+  font-feature-settings: "med2"; }
+
+.ot_medi {
+  -moz-font-feature-settings: "medi";
+  -moz-font-feature-settings: "medi=1";
+  -ms-font-feature-settings: "medi";
+  -o-font-feature-settings: "medi";
+  -webkit-font-feature-settings: "medi";
+  font-feature-settings: "medi"; }
+
+.ot_mgrk {
+  -moz-font-feature-settings: "mgrk";
+  -moz-font-feature-settings: "mgrk=1";
+  -ms-font-feature-settings: "mgrk";
+  -o-font-feature-settings: "mgrk";
+  -webkit-font-feature-settings: "mgrk";
+  font-feature-settings: "mgrk"; }
+
+.ot_mkmk {
+  -moz-font-feature-settings: "mkmk";
+  -moz-font-feature-settings: "mkmk=1";
+  -ms-font-feature-settings: "mkmk";
+  -o-font-feature-settings: "mkmk";
+  -webkit-font-feature-settings: "mkmk";
+  font-feature-settings: "mkmk"; }
+
+.ot_mset {
+  -moz-font-feature-settings: "mset";
+  -moz-font-feature-settings: "mset=1";
+  -ms-font-feature-settings: "mset";
+  -o-font-feature-settings: "mset";
+  -webkit-font-feature-settings: "mset";
+  font-feature-settings: "mset"; }
+
+.ot_nalt {
+  -moz-font-feature-settings: "nalt";
+  -moz-font-feature-settings: "nalt=1";
+  -ms-font-feature-settings: "nalt";
+  -o-font-feature-settings: "nalt";
+  -webkit-font-feature-settings: "nalt";
+  font-feature-settings: "nalt"; }
+
+.ot_nlck {
+  -moz-font-feature-settings: "nlck";
+  -moz-font-feature-settings: "nlck=1";
+  -ms-font-feature-settings: "nlck";
+  -o-font-feature-settings: "nlck";
+  -webkit-font-feature-settings: "nlck";
+  font-feature-settings: "nlck"; }
+
+.ot_nukt {
+  -moz-font-feature-settings: "nukt";
+  -moz-font-feature-settings: "nukt=1";
+  -ms-font-feature-settings: "nukt";
+  -o-font-feature-settings: "nukt";
+  -webkit-font-feature-settings: "nukt";
+  font-feature-settings: "nukt"; }
+
+.ot_numr {
+  -moz-font-feature-settings: "numr";
+  -moz-font-feature-settings: "numr=1";
+  -ms-font-feature-settings: "numr";
+  -o-font-feature-settings: "numr";
+  -webkit-font-feature-settings: "numr";
+  font-feature-settings: "numr"; }
+
+.ot_onum {
+  -moz-font-feature-settings: "onum";
+  -moz-font-feature-settings: "onum=1";
+  -ms-font-feature-settings: "onum";
+  -o-font-feature-settings: "onum";
+  -webkit-font-feature-settings: "onum";
+  font-feature-settings: "onum"; }
+
+.ot_opbd {
+  -moz-font-feature-settings: "opbd";
+  -moz-font-feature-settings: "opbd=1";
+  -ms-font-feature-settings: "opbd";
+  -o-font-feature-settings: "opbd";
+  -webkit-font-feature-settings: "opbd";
+  font-feature-settings: "opbd"; }
+
+.ot_ordn {
+  -moz-font-feature-settings: "ordn";
+  -moz-font-feature-settings: "ordn=1";
+  -ms-font-feature-settings: "ordn";
+  -o-font-feature-settings: "ordn";
+  -webkit-font-feature-settings: "ordn";
+  font-feature-settings: "ordn"; }
+
+.ot_ornm {
+  -moz-font-feature-settings: "ornm";
+  -moz-font-feature-settings: "ornm=1";
+  -ms-font-feature-settings: "ornm";
+  -o-font-feature-settings: "ornm";
+  -webkit-font-feature-settings: "ornm";
+  font-feature-settings: "ornm"; }
+
+.ot_palt {
+  -moz-font-feature-settings: "palt";
+  -moz-font-feature-settings: "palt=1";
+  -ms-font-feature-settings: "palt";
+  -o-font-feature-settings: "palt";
+  -webkit-font-feature-settings: "palt";
+  font-feature-settings: "palt"; }
+
+.ot_pcap {
+  -moz-font-feature-settings: "pcap";
+  -moz-font-feature-settings: "pcap=1";
+  -ms-font-feature-settings: "pcap";
+  -o-font-feature-settings: "pcap";
+  -webkit-font-feature-settings: "pcap";
+  font-feature-settings: "pcap"; }
+
+.ot_pkna {
+  -moz-font-feature-settings: "pkna";
+  -moz-font-feature-settings: "pkna=1";
+  -ms-font-feature-settings: "pkna";
+  -o-font-feature-settings: "pkna";
+  -webkit-font-feature-settings: "pkna";
+  font-feature-settings: "pkna"; }
+
+.ot_pnum {
+  -moz-font-feature-settings: "pnum";
+  -moz-font-feature-settings: "pnum=1";
+  -ms-font-feature-settings: "pnum";
+  -o-font-feature-settings: "pnum";
+  -webkit-font-feature-settings: "pnum";
+  font-feature-settings: "pnum"; }
+
+.ot_pref {
+  -moz-font-feature-settings: "pref";
+  -moz-font-feature-settings: "pref=1";
+  -ms-font-feature-settings: "pref";
+  -o-font-feature-settings: "pref";
+  -webkit-font-feature-settings: "pref";
+  font-feature-settings: "pref"; }
+
+.ot_pres {
+  -moz-font-feature-settings: "pres";
+  -moz-font-feature-settings: "pres=1";
+  -ms-font-feature-settings: "pres";
+  -o-font-feature-settings: "pres";
+  -webkit-font-feature-settings: "pres";
+  font-feature-settings: "pres"; }
+
+.ot_pstf {
+  -moz-font-feature-settings: "pstf";
+  -moz-font-feature-settings: "pstf=1";
+  -ms-font-feature-settings: "pstf";
+  -o-font-feature-settings: "pstf";
+  -webkit-font-feature-settings: "pstf";
+  font-feature-settings: "pstf"; }
+
+.ot_psts {
+  -moz-font-feature-settings: "psts";
+  -moz-font-feature-settings: "psts=1";
+  -ms-font-feature-settings: "psts";
+  -o-font-feature-settings: "psts";
+  -webkit-font-feature-settings: "psts";
+  font-feature-settings: "psts"; }
+
+.ot_pwid {
+  -moz-font-feature-settings: "pwid";
+  -moz-font-feature-settings: "pwid=1";
+  -ms-font-feature-settings: "pwid";
+  -o-font-feature-settings: "pwid";
+  -webkit-font-feature-settings: "pwid";
+  font-feature-settings: "pwid"; }
+
+.ot_qwid {
+  -moz-font-feature-settings: "qwid";
+  -moz-font-feature-settings: "qwid=1";
+  -ms-font-feature-settings: "qwid";
+  -o-font-feature-settings: "qwid";
+  -webkit-font-feature-settings: "qwid";
+  font-feature-settings: "qwid"; }
+
+.ot_rand {
+  -moz-font-feature-settings: "rand";
+  -moz-font-feature-settings: "rand=1";
+  -ms-font-feature-settings: "rand";
+  -o-font-feature-settings: "rand";
+  -webkit-font-feature-settings: "rand";
+  font-feature-settings: "rand"; }
+
+.ot_rclt {
+  -moz-font-feature-settings: "rclt";
+  -moz-font-feature-settings: "rclt=1";
+  -ms-font-feature-settings: "rclt";
+  -o-font-feature-settings: "rclt";
+  -webkit-font-feature-settings: "rclt";
+  font-feature-settings: "rclt"; }
+
+.ot_rkrf {
+  -moz-font-feature-settings: "rkrf";
+  -moz-font-feature-settings: "rkrf=1";
+  -ms-font-feature-settings: "rkrf";
+  -o-font-feature-settings: "rkrf";
+  -webkit-font-feature-settings: "rkrf";
+  font-feature-settings: "rkrf"; }
+
+.ot_rlig {
+  -moz-font-feature-settings: "rlig";
+  -moz-font-feature-settings: "rlig=1";
+  -ms-font-feature-settings: "rlig";
+  -o-font-feature-settings: "rlig";
+  -webkit-font-feature-settings: "rlig";
+  font-feature-settings: "rlig"; }
+
+.ot_rphf {
+  -moz-font-feature-settings: "rphf";
+  -moz-font-feature-settings: "rphf=1";
+  -ms-font-feature-settings: "rphf";
+  -o-font-feature-settings: "rphf";
+  -webkit-font-feature-settings: "rphf";
+  font-feature-settings: "rphf"; }
+
+.ot_rtbd {
+  -moz-font-feature-settings: "rtbd";
+  -moz-font-feature-settings: "rtbd=1";
+  -ms-font-feature-settings: "rtbd";
+  -o-font-feature-settings: "rtbd";
+  -webkit-font-feature-settings: "rtbd";
+  font-feature-settings: "rtbd"; }
+
+.ot_rtla {
+  -moz-font-feature-settings: "rtla";
+  -moz-font-feature-settings: "rtla=1";
+  -ms-font-feature-settings: "rtla";
+  -o-font-feature-settings: "rtla";
+  -webkit-font-feature-settings: "rtla";
+  font-feature-settings: "rtla"; }
+
+.ot_rtlm {
+  -moz-font-feature-settings: "rtlm";
+  -moz-font-feature-settings: "rtlm=1";
+  -ms-font-feature-settings: "rtlm";
+  -o-font-feature-settings: "rtlm";
+  -webkit-font-feature-settings: "rtlm";
+  font-feature-settings: "rtlm"; }
+
+.ot_ruby {
+  -moz-font-feature-settings: "ruby";
+  -moz-font-feature-settings: "ruby=1";
+  -ms-font-feature-settings: "ruby";
+  -o-font-feature-settings: "ruby";
+  -webkit-font-feature-settings: "ruby";
+  font-feature-settings: "ruby"; }
+
+.ot_salt {
+  -moz-font-feature-settings: "salt";
+  -moz-font-feature-settings: "salt=1";
+  -ms-font-feature-settings: "salt";
+  -o-font-feature-settings: "salt";
+  -webkit-font-feature-settings: "salt";
+  font-feature-settings: "salt"; }
+
+.ot_sinf {
+  -moz-font-feature-settings: "sinf";
+  -moz-font-feature-settings: "sinf=1";
+  -ms-font-feature-settings: "sinf";
+  -o-font-feature-settings: "sinf";
+  -webkit-font-feature-settings: "sinf";
+  font-feature-settings: "sinf"; }
+
+.ot_size {
+  -moz-font-feature-settings: "size";
+  -moz-font-feature-settings: "size=1";
+  -ms-font-feature-settings: "size";
+  -o-font-feature-settings: "size";
+  -webkit-font-feature-settings: "size";
+  font-feature-settings: "size"; }
+
+.ot_smcp {
+  -moz-font-feature-settings: "smcp";
+  -moz-font-feature-settings: "smcp=1";
+  -ms-font-feature-settings: "smcp";
+  -o-font-feature-settings: "smcp";
+  -webkit-font-feature-settings: "smcp";
+  font-feature-settings: "smcp"; }
+
+.ot_smpl {
+  -moz-font-feature-settings: "smpl";
+  -moz-font-feature-settings: "smpl=1";
+  -ms-font-feature-settings: "smpl";
+  -o-font-feature-settings: "smpl";
+  -webkit-font-feature-settings: "smpl";
+  font-feature-settings: "smpl"; }
+
+.ot_ss01 {
+  -moz-font-feature-settings: "ss01";
+  -moz-font-feature-settings: "ss01=1";
+  -ms-font-feature-settings: "ss01";
+  -o-font-feature-settings: "ss01";
+  -webkit-font-feature-settings: "ss01";
+  font-feature-settings: "ss01"; }
+
+.ot_ss02 {
+  -moz-font-feature-settings: "ss02";
+  -moz-font-feature-settings: "ss02=1";
+  -ms-font-feature-settings: "ss02";
+  -o-font-feature-settings: "ss02";
+  -webkit-font-feature-settings: "ss02";
+  font-feature-settings: "ss02"; }
+
+.ot_ss03 {
+  -moz-font-feature-settings: "ss03";
+  -moz-font-feature-settings: "ss03=1";
+  -ms-font-feature-settings: "ss03";
+  -o-font-feature-settings: "ss03";
+  -webkit-font-feature-settings: "ss03";
+  font-feature-settings: "ss03"; }
+
+.ot_ss04 {
+  -moz-font-feature-settings: "ss04";
+  -moz-font-feature-settings: "ss04=1";
+  -ms-font-feature-settings: "ss04";
+  -o-font-feature-settings: "ss04";
+  -webkit-font-feature-settings: "ss04";
+  font-feature-settings: "ss04"; }
+
+.ot_ss05 {
+  -moz-font-feature-settings: "ss05";
+  -moz-font-feature-settings: "ss05=1";
+  -ms-font-feature-settings: "ss05";
+  -o-font-feature-settings: "ss05";
+  -webkit-font-feature-settings: "ss05";
+  font-feature-settings: "ss05"; }
+
+.ot_ss06 {
+  -moz-font-feature-settings: "ss06";
+  -moz-font-feature-settings: "ss06=1";
+  -ms-font-feature-settings: "ss06";
+  -o-font-feature-settings: "ss06";
+  -webkit-font-feature-settings: "ss06";
+  font-feature-settings: "ss06"; }
+
+.ot_ss07 {
+  -moz-font-feature-settings: "ss07";
+  -moz-font-feature-settings: "ss07=1";
+  -ms-font-feature-settings: "ss07";
+  -o-font-feature-settings: "ss07";
+  -webkit-font-feature-settings: "ss07";
+  font-feature-settings: "ss07"; }
+
+.ot_ss08 {
+  -moz-font-feature-settings: "ss08";
+  -moz-font-feature-settings: "ss08=1";
+  -ms-font-feature-settings: "ss08";
+  -o-font-feature-settings: "ss08";
+  -webkit-font-feature-settings: "ss08";
+  font-feature-settings: "ss08"; }
+
+.ot_ss09 {
+  -moz-font-feature-settings: "ss09";
+  -moz-font-feature-settings: "ss09=1";
+  -ms-font-feature-settings: "ss09";
+  -o-font-feature-settings: "ss09";
+  -webkit-font-feature-settings: "ss09";
+  font-feature-settings: "ss09"; }
+
+.ot_ss10 {
+  -moz-font-feature-settings: "ss10";
+  -moz-font-feature-settings: "ss10=1";
+  -ms-font-feature-settings: "ss10";
+  -o-font-feature-settings: "ss10";
+  -webkit-font-feature-settings: "ss10";
+  font-feature-settings: "ss10"; }
+
+.ot_ss11 {
+  -moz-font-feature-settings: "ss11";
+  -moz-font-feature-settings: "ss11=1";
+  -ms-font-feature-settings: "ss11";
+  -o-font-feature-settings: "ss11";
+  -webkit-font-feature-settings: "ss11";
+  font-feature-settings: "ss11"; }
+
+.ot_ss12 {
+  -moz-font-feature-settings: "ss12";
+  -moz-font-feature-settings: "ss12=1";
+  -ms-font-feature-settings: "ss12";
+  -o-font-feature-settings: "ss12";
+  -webkit-font-feature-settings: "ss12";
+  font-feature-settings: "ss12"; }
+
+.ot_ss13 {
+  -moz-font-feature-settings: "ss13";
+  -moz-font-feature-settings: "ss13=1";
+  -ms-font-feature-settings: "ss13";
+  -o-font-feature-settings: "ss13";
+  -webkit-font-feature-settings: "ss13";
+  font-feature-settings: "ss13"; }
+
+.ot_ss14 {
+  -moz-font-feature-settings: "ss14";
+  -moz-font-feature-settings: "ss14=1";
+  -ms-font-feature-settings: "ss14";
+  -o-font-feature-settings: "ss14";
+  -webkit-font-feature-settings: "ss14";
+  font-feature-settings: "ss14"; }
+
+.ot_ss15 {
+  -moz-font-feature-settings: "ss15";
+  -moz-font-feature-settings: "ss15=1";
+  -ms-font-feature-settings: "ss15";
+  -o-font-feature-settings: "ss15";
+  -webkit-font-feature-settings: "ss15";
+  font-feature-settings: "ss15"; }
+
+.ot_ss16 {
+  -moz-font-feature-settings: "ss16";
+  -moz-font-feature-settings: "ss16=1";
+  -ms-font-feature-settings: "ss16";
+  -o-font-feature-settings: "ss16";
+  -webkit-font-feature-settings: "ss16";
+  font-feature-settings: "ss16"; }
+
+.ot_ss17 {
+  -moz-font-feature-settings: "ss17";
+  -moz-font-feature-settings: "ss17=1";
+  -ms-font-feature-settings: "ss17";
+  -o-font-feature-settings: "ss17";
+  -webkit-font-feature-settings: "ss17";
+  font-feature-settings: "ss17"; }
+
+.ot_ss18 {
+  -moz-font-feature-settings: "ss18";
+  -moz-font-feature-settings: "ss18=1";
+  -ms-font-feature-settings: "ss18";
+  -o-font-feature-settings: "ss18";
+  -webkit-font-feature-settings: "ss18";
+  font-feature-settings: "ss18"; }
+
+.ot_ss19 {
+  -moz-font-feature-settings: "ss19";
+  -moz-font-feature-settings: "ss19=1";
+  -ms-font-feature-settings: "ss19";
+  -o-font-feature-settings: "ss19";
+  -webkit-font-feature-settings: "ss19";
+  font-feature-settings: "ss19"; }
+
+.ot_ss20 {
+  -moz-font-feature-settings: "ss20";
+  -moz-font-feature-settings: "ss20=1";
+  -ms-font-feature-settings: "ss20";
+  -o-font-feature-settings: "ss20";
+  -webkit-font-feature-settings: "ss20";
+  font-feature-settings: "ss20"; }
+
+.ot_ssty {
+  -moz-font-feature-settings: "ssty";
+  -moz-font-feature-settings: "ssty=1";
+  -ms-font-feature-settings: "ssty";
+  -o-font-feature-settings: "ssty";
+  -webkit-font-feature-settings: "ssty";
+  font-feature-settings: "ssty"; }
+
+.ot_stch {
+  -moz-font-feature-settings: "stch";
+  -moz-font-feature-settings: "stch=1";
+  -ms-font-feature-settings: "stch";
+  -o-font-feature-settings: "stch";
+  -webkit-font-feature-settings: "stch";
+  font-feature-settings: "stch"; }
+
+.ot_subs {
+  -moz-font-feature-settings: "subs";
+  -moz-font-feature-settings: "subs=1";
+  -ms-font-feature-settings: "subs";
+  -o-font-feature-settings: "subs";
+  -webkit-font-feature-settings: "subs";
+  font-feature-settings: "subs"; }
+
+.ot_sups {
+  -moz-font-feature-settings: "sups";
+  -moz-font-feature-settings: "sups=1";
+  -ms-font-feature-settings: "sups";
+  -o-font-feature-settings: "sups";
+  -webkit-font-feature-settings: "sups";
+  font-feature-settings: "sups"; }
+
+.ot_swsh {
+  -moz-font-feature-settings: "swsh";
+  -moz-font-feature-settings: "swsh=1";
+  -ms-font-feature-settings: "swsh";
+  -o-font-feature-settings: "swsh";
+  -webkit-font-feature-settings: "swsh";
+  font-feature-settings: "swsh"; }
+
+.ot_titl {
+  -moz-font-feature-settings: "titl";
+  -moz-font-feature-settings: "titl=1";
+  -ms-font-feature-settings: "titl";
+  -o-font-feature-settings: "titl";
+  -webkit-font-feature-settings: "titl";
+  font-feature-settings: "titl"; }
+
+.ot_tjmo {
+  -moz-font-feature-settings: "tjmo";
+  -moz-font-feature-settings: "tjmo=1";
+  -ms-font-feature-settings: "tjmo";
+  -o-font-feature-settings: "tjmo";
+  -webkit-font-feature-settings: "tjmo";
+  font-feature-settings: "tjmo"; }
+
+.ot_tnam {
+  -moz-font-feature-settings: "tnam";
+  -moz-font-feature-settings: "tnam=1";
+  -ms-font-feature-settings: "tnam";
+  -o-font-feature-settings: "tnam";
+  -webkit-font-feature-settings: "tnam";
+  font-feature-settings: "tnam"; }
+
+.ot_tnum {
+  -moz-font-feature-settings: "tnum";
+  -moz-font-feature-settings: "tnum=1";
+  -ms-font-feature-settings: "tnum";
+  -o-font-feature-settings: "tnum";
+  -webkit-font-feature-settings: "tnum";
+  font-feature-settings: "tnum"; }
+
+.ot_trad {
+  -moz-font-feature-settings: "trad";
+  -moz-font-feature-settings: "trad=1";
+  -ms-font-feature-settings: "trad";
+  -o-font-feature-settings: "trad";
+  -webkit-font-feature-settings: "trad";
+  font-feature-settings: "trad"; }
+
+.ot_twid {
+  -moz-font-feature-settings: "twid";
+  -moz-font-feature-settings: "twid=1";
+  -ms-font-feature-settings: "twid";
+  -o-font-feature-settings: "twid";
+  -webkit-font-feature-settings: "twid";
+  font-feature-settings: "twid"; }
+
+.ot_unic {
+  -moz-font-feature-settings: "unic";
+  -moz-font-feature-settings: "unic=1";
+  -ms-font-feature-settings: "unic";
+  -o-font-feature-settings: "unic";
+  -webkit-font-feature-settings: "unic";
+  font-feature-settings: "unic"; }
+
+.ot_valt {
+  -moz-font-feature-settings: "valt";
+  -moz-font-feature-settings: "valt=1";
+  -ms-font-feature-settings: "valt";
+  -o-font-feature-settings: "valt";
+  -webkit-font-feature-settings: "valt";
+  font-feature-settings: "valt"; }
+
+.ot_vatu {
+  -moz-font-feature-settings: "vatu";
+  -moz-font-feature-settings: "vatu=1";
+  -ms-font-feature-settings: "vatu";
+  -o-font-feature-settings: "vatu";
+  -webkit-font-feature-settings: "vatu";
+  font-feature-settings: "vatu"; }
+
+.ot_vert {
+  -moz-font-feature-settings: "vert";
+  -moz-font-feature-settings: "vert=1";
+  -ms-font-feature-settings: "vert";
+  -o-font-feature-settings: "vert";
+  -webkit-font-feature-settings: "vert";
+  font-feature-settings: "vert"; }
+
+.ot_vhal {
+  -moz-font-feature-settings: "vhal";
+  -moz-font-feature-settings: "vhal=1";
+  -ms-font-feature-settings: "vhal";
+  -o-font-feature-settings: "vhal";
+  -webkit-font-feature-settings: "vhal";
+  font-feature-settings: "vhal"; }
+
+.ot_vjmo {
+  -moz-font-feature-settings: "vjmo";
+  -moz-font-feature-settings: "vjmo=1";
+  -ms-font-feature-settings: "vjmo";
+  -o-font-feature-settings: "vjmo";
+  -webkit-font-feature-settings: "vjmo";
+  font-feature-settings: "vjmo"; }
+
+.ot_vkna {
+  -moz-font-feature-settings: "vkna";
+  -moz-font-feature-settings: "vkna=1";
+  -ms-font-feature-settings: "vkna";
+  -o-font-feature-settings: "vkna";
+  -webkit-font-feature-settings: "vkna";
+  font-feature-settings: "vkna"; }
+
+.ot_vkrn {
+  -moz-font-feature-settings: "vkrn";
+  -moz-font-feature-settings: "vkrn=1";
+  -ms-font-feature-settings: "vkrn";
+  -o-font-feature-settings: "vkrn";
+  -webkit-font-feature-settings: "vkrn";
+  font-feature-settings: "vkrn"; }
+
+.ot_vpal {
+  -moz-font-feature-settings: "vpal";
+  -moz-font-feature-settings: "vpal=1";
+  -ms-font-feature-settings: "vpal";
+  -o-font-feature-settings: "vpal";
+  -webkit-font-feature-settings: "vpal";
+  font-feature-settings: "vpal"; }
+
+.ot_vrt2 {
+  -moz-font-feature-settings: "vrt2";
+  -moz-font-feature-settings: "vrt2=1";
+  -ms-font-feature-settings: "vrt2";
+  -o-font-feature-settings: "vrt2";
+  -webkit-font-feature-settings: "vrt2";
+  font-feature-settings: "vrt2"; }
+
+.ot_zero {
+  -moz-font-feature-settings: "zero";
+  -moz-font-feature-settings: "zero=1";
+  -ms-font-feature-settings: "zero";
+  -o-font-feature-settings: "zero";
+  -webkit-font-feature-settings: "zero";
+  font-feature-settings: "zero"; }
+
+.ot_access-all-alternates {
+  -moz-font-feature-settings: "aalt";
+  -moz-font-feature-settings: "aalt=1";
+  -ms-font-feature-settings: "aalt";
+  -o-font-feature-settings: "aalt";
+  -webkit-font-feature-settings: "aalt";
+  font-feature-settings: "aalt"; }
+
+.ot_above-base-forms {
+  -moz-font-feature-settings: "abvf";
+  -moz-font-feature-settings: "abvf=1";
+  -ms-font-feature-settings: "abvf";
+  -o-font-feature-settings: "abvf";
+  -webkit-font-feature-settings: "abvf";
+  font-feature-settings: "abvf"; }
+
+.ot_above-base-mark-positioning {
+  -moz-font-feature-settings: "abvm";
+  -moz-font-feature-settings: "abvm=1";
+  -ms-font-feature-settings: "abvm";
+  -o-font-feature-settings: "abvm";
+  -webkit-font-feature-settings: "abvm";
+  font-feature-settings: "abvm"; }
+
+.ot_above-base-substitutions {
+  -moz-font-feature-settings: "abvs";
+  -moz-font-feature-settings: "abvs=1";
+  -ms-font-feature-settings: "abvs";
+  -o-font-feature-settings: "abvs";
+  -webkit-font-feature-settings: "abvs";
+  font-feature-settings: "abvs"; }
+
+.ot_alternative-fractions {
+  -moz-font-feature-settings: "afrc";
+  -moz-font-feature-settings: "afrc=1";
+  -ms-font-feature-settings: "afrc";
+  -o-font-feature-settings: "afrc";
+  -webkit-font-feature-settings: "afrc";
+  font-feature-settings: "afrc"; }
+
+.ot_akhands {
+  -moz-font-feature-settings: "akhn";
+  -moz-font-feature-settings: "akhn=1";
+  -ms-font-feature-settings: "akhn";
+  -o-font-feature-settings: "akhn";
+  -webkit-font-feature-settings: "akhn";
+  font-feature-settings: "akhn"; }
+
+.ot_below-base-forms {
+  -moz-font-feature-settings: "blwf";
+  -moz-font-feature-settings: "blwf=1";
+  -ms-font-feature-settings: "blwf";
+  -o-font-feature-settings: "blwf";
+  -webkit-font-feature-settings: "blwf";
+  font-feature-settings: "blwf"; }
+
+.ot_below-base-mark-positioning {
+  -moz-font-feature-settings: "blwm";
+  -moz-font-feature-settings: "blwm=1";
+  -ms-font-feature-settings: "blwm";
+  -o-font-feature-settings: "blwm";
+  -webkit-font-feature-settings: "blwm";
+  font-feature-settings: "blwm"; }
+
+.ot_below-base-substitutions {
+  -moz-font-feature-settings: "blws";
+  -moz-font-feature-settings: "blws=1";
+  -ms-font-feature-settings: "blws";
+  -o-font-feature-settings: "blws";
+  -webkit-font-feature-settings: "blws";
+  font-feature-settings: "blws"; }
+
+.ot_contextual-alternates {
+  -moz-font-feature-settings: "calt";
+  -moz-font-feature-settings: "calt=1";
+  -ms-font-feature-settings: "calt";
+  -o-font-feature-settings: "calt";
+  -webkit-font-feature-settings: "calt";
+  font-feature-settings: "calt"; }
+
+.ot_case-sensitive-forms {
+  -moz-font-feature-settings: "case";
+  -moz-font-feature-settings: "case=1";
+  -ms-font-feature-settings: "case";
+  -o-font-feature-settings: "case";
+  -webkit-font-feature-settings: "case";
+  font-feature-settings: "case"; }
+
+.ot_glyph-composition-decomposition {
+  -moz-font-feature-settings: "ccmp";
+  -moz-font-feature-settings: "ccmp=1";
+  -ms-font-feature-settings: "ccmp";
+  -o-font-feature-settings: "ccmp";
+  -webkit-font-feature-settings: "ccmp";
+  font-feature-settings: "ccmp"; }
+
+.ot_conjunct-form-after-ro {
+  -moz-font-feature-settings: "cfar";
+  -moz-font-feature-settings: "cfar=1";
+  -ms-font-feature-settings: "cfar";
+  -o-font-feature-settings: "cfar";
+  -webkit-font-feature-settings: "cfar";
+  font-feature-settings: "cfar"; }
+
+.ot_conjunct-forms {
+  -moz-font-feature-settings: "cjct";
+  -moz-font-feature-settings: "cjct=1";
+  -ms-font-feature-settings: "cjct";
+  -o-font-feature-settings: "cjct";
+  -webkit-font-feature-settings: "cjct";
+  font-feature-settings: "cjct"; }
+
+.ot_contextual-ligatures {
+  -moz-font-feature-settings: "clig";
+  -moz-font-feature-settings: "clig=1";
+  -ms-font-feature-settings: "clig";
+  -o-font-feature-settings: "clig";
+  -webkit-font-feature-settings: "clig";
+  font-feature-settings: "clig"; }
+
+.ot_centered-cjk-punctuation {
+  -moz-font-feature-settings: "cpct";
+  -moz-font-feature-settings: "cpct=1";
+  -ms-font-feature-settings: "cpct";
+  -o-font-feature-settings: "cpct";
+  -webkit-font-feature-settings: "cpct";
+  font-feature-settings: "cpct"; }
+
+.ot_capital-spacing {
+  -moz-font-feature-settings: "cpsp";
+  -moz-font-feature-settings: "cpsp=1";
+  -ms-font-feature-settings: "cpsp";
+  -o-font-feature-settings: "cpsp";
+  -webkit-font-feature-settings: "cpsp";
+  font-feature-settings: "cpsp"; }
+
+.ot_contextual-swash {
+  -moz-font-feature-settings: "cswh";
+  -moz-font-feature-settings: "cswh=1";
+  -ms-font-feature-settings: "cswh";
+  -o-font-feature-settings: "cswh";
+  -webkit-font-feature-settings: "cswh";
+  font-feature-settings: "cswh"; }
+
+.ot_cursive-positioning {
+  -moz-font-feature-settings: "curs";
+  -moz-font-feature-settings: "curs=1";
+  -ms-font-feature-settings: "curs";
+  -o-font-feature-settings: "curs";
+  -webkit-font-feature-settings: "curs";
+  font-feature-settings: "curs"; }
+
+.ot_petite-capitals-from-capitals {
+  -moz-font-feature-settings: "c2pc";
+  -moz-font-feature-settings: "c2pc=1";
+  -ms-font-feature-settings: "c2pc";
+  -o-font-feature-settings: "c2pc";
+  -webkit-font-feature-settings: "c2pc";
+  font-feature-settings: "c2pc"; }
+
+.ot_small-capitals-from-capitals {
+  -moz-font-feature-settings: "c2sc";
+  -moz-font-feature-settings: "c2sc=1";
+  -ms-font-feature-settings: "c2sc";
+  -o-font-feature-settings: "c2sc";
+  -webkit-font-feature-settings: "c2sc";
+  font-feature-settings: "c2sc"; }
+
+.ot_distances {
+  -moz-font-feature-settings: "dist";
+  -moz-font-feature-settings: "dist=1";
+  -ms-font-feature-settings: "dist";
+  -o-font-feature-settings: "dist";
+  -webkit-font-feature-settings: "dist";
+  font-feature-settings: "dist"; }
+
+.ot_discretionary-ligatures {
+  -moz-font-feature-settings: "dlig";
+  -moz-font-feature-settings: "dlig=1";
+  -ms-font-feature-settings: "dlig";
+  -o-font-feature-settings: "dlig";
+  -webkit-font-feature-settings: "dlig";
+  font-feature-settings: "dlig"; }
+
+.ot_denominators {
+  -moz-font-feature-settings: "dnom";
+  -moz-font-feature-settings: "dnom=1";
+  -ms-font-feature-settings: "dnom";
+  -o-font-feature-settings: "dnom";
+  -webkit-font-feature-settings: "dnom";
+  font-feature-settings: "dnom"; }
+
+.ot_dotless-forms {
+  -moz-font-feature-settings: "dtls";
+  -moz-font-feature-settings: "dtls=1";
+  -ms-font-feature-settings: "dtls";
+  -o-font-feature-settings: "dtls";
+  -webkit-font-feature-settings: "dtls";
+  font-feature-settings: "dtls"; }
+
+.ot_expert-forms {
+  -moz-font-feature-settings: "expt";
+  -moz-font-feature-settings: "expt=1";
+  -ms-font-feature-settings: "expt";
+  -o-font-feature-settings: "expt";
+  -webkit-font-feature-settings: "expt";
+  font-feature-settings: "expt"; }
+
+.ot_final-glyph-on-line-alternates {
+  -moz-font-feature-settings: "falt";
+  -moz-font-feature-settings: "falt=1";
+  -ms-font-feature-settings: "falt";
+  -o-font-feature-settings: "falt";
+  -webkit-font-feature-settings: "falt";
+  font-feature-settings: "falt"; }
+
+.ot_terminal-forms-2 {
+  -moz-font-feature-settings: "fin2";
+  -moz-font-feature-settings: "fin2=1";
+  -ms-font-feature-settings: "fin2";
+  -o-font-feature-settings: "fin2";
+  -webkit-font-feature-settings: "fin2";
+  font-feature-settings: "fin2"; }
+
+.ot_terminal-forms-3 {
+  -moz-font-feature-settings: "fin3";
+  -moz-font-feature-settings: "fin3=1";
+  -ms-font-feature-settings: "fin3";
+  -o-font-feature-settings: "fin3";
+  -webkit-font-feature-settings: "fin3";
+  font-feature-settings: "fin3"; }
+
+.ot_terminal-forms {
+  -moz-font-feature-settings: "fina";
+  -moz-font-feature-settings: "fina=1";
+  -ms-font-feature-settings: "fina";
+  -o-font-feature-settings: "fina";
+  -webkit-font-feature-settings: "fina";
+  font-feature-settings: "fina"; }
+
+.ot_flattened-accent-forms {
+  -moz-font-feature-settings: "flac";
+  -moz-font-feature-settings: "flac=1";
+  -ms-font-feature-settings: "flac";
+  -o-font-feature-settings: "flac";
+  -webkit-font-feature-settings: "flac";
+  font-feature-settings: "flac"; }
+
+.ot_fractions {
+  -moz-font-feature-settings: "frac";
+  -moz-font-feature-settings: "frac=1";
+  -ms-font-feature-settings: "frac";
+  -o-font-feature-settings: "frac";
+  -webkit-font-feature-settings: "frac";
+  font-feature-settings: "frac"; }
+
+.ot_full-widths {
+  -moz-font-feature-settings: "fwid";
+  -moz-font-feature-settings: "fwid=1";
+  -ms-font-feature-settings: "fwid";
+  -o-font-feature-settings: "fwid";
+  -webkit-font-feature-settings: "fwid";
+  font-feature-settings: "fwid"; }
+
+.ot_half-forms {
+  -moz-font-feature-settings: "half";
+  -moz-font-feature-settings: "half=1";
+  -ms-font-feature-settings: "half";
+  -o-font-feature-settings: "half";
+  -webkit-font-feature-settings: "half";
+  font-feature-settings: "half"; }
+
+.ot_halant-forms {
+  -moz-font-feature-settings: "haln";
+  -moz-font-feature-settings: "haln=1";
+  -ms-font-feature-settings: "haln";
+  -o-font-feature-settings: "haln";
+  -webkit-font-feature-settings: "haln";
+  font-feature-settings: "haln"; }
+
+.ot_alternate-half-widths {
+  -moz-font-feature-settings: "halt";
+  -moz-font-feature-settings: "halt=1";
+  -ms-font-feature-settings: "halt";
+  -o-font-feature-settings: "halt";
+  -webkit-font-feature-settings: "halt";
+  font-feature-settings: "halt"; }
+
+.ot_historical-forms {
+  -moz-font-feature-settings: "hist";
+  -moz-font-feature-settings: "hist=1";
+  -ms-font-feature-settings: "hist";
+  -o-font-feature-settings: "hist";
+  -webkit-font-feature-settings: "hist";
+  font-feature-settings: "hist"; }
+
+.ot_horizontal-kana-alternates {
+  -moz-font-feature-settings: "hkna";
+  -moz-font-feature-settings: "hkna=1";
+  -ms-font-feature-settings: "hkna";
+  -o-font-feature-settings: "hkna";
+  -webkit-font-feature-settings: "hkna";
+  font-feature-settings: "hkna"; }
+
+.ot_historical-ligatures {
+  -moz-font-feature-settings: "hlig";
+  -moz-font-feature-settings: "hlig=1";
+  -ms-font-feature-settings: "hlig";
+  -o-font-feature-settings: "hlig";
+  -webkit-font-feature-settings: "hlig";
+  font-feature-settings: "hlig"; }
+
+.ot_hangul {
+  -moz-font-feature-settings: "hngl";
+  -moz-font-feature-settings: "hngl=1";
+  -ms-font-feature-settings: "hngl";
+  -o-font-feature-settings: "hngl";
+  -webkit-font-feature-settings: "hngl";
+  font-feature-settings: "hngl"; }
+
+.ot_hojo-kanji-forms {
+  -moz-font-feature-settings: "hojo";
+  -moz-font-feature-settings: "hojo=1";
+  -ms-font-feature-settings: "hojo";
+  -o-font-feature-settings: "hojo";
+  -webkit-font-feature-settings: "hojo";
+  font-feature-settings: "hojo"; }
+
+.ot_half-widths {
+  -moz-font-feature-settings: "hwid";
+  -moz-font-feature-settings: "hwid=1";
+  -ms-font-feature-settings: "hwid";
+  -o-font-feature-settings: "hwid";
+  -webkit-font-feature-settings: "hwid";
+  font-feature-settings: "hwid"; }
+
+.ot_initial-forms {
+  -moz-font-feature-settings: "init";
+  -moz-font-feature-settings: "init=1";
+  -ms-font-feature-settings: "init";
+  -o-font-feature-settings: "init";
+  -webkit-font-feature-settings: "init";
+  font-feature-settings: "init"; }
+
+.ot_isolated-forms {
+  -moz-font-feature-settings: "isol";
+  -moz-font-feature-settings: "isol=1";
+  -ms-font-feature-settings: "isol";
+  -o-font-feature-settings: "isol";
+  -webkit-font-feature-settings: "isol";
+  font-feature-settings: "isol"; }
+
+.ot_italics {
+  -moz-font-feature-settings: "ital";
+  -moz-font-feature-settings: "ital=1";
+  -ms-font-feature-settings: "ital";
+  -o-font-feature-settings: "ital";
+  -webkit-font-feature-settings: "ital";
+  font-feature-settings: "ital"; }
+
+.ot_justification-alternates {
+  -moz-font-feature-settings: "jalt";
+  -moz-font-feature-settings: "jalt=1";
+  -ms-font-feature-settings: "jalt";
+  -o-font-feature-settings: "jalt";
+  -webkit-font-feature-settings: "jalt";
+  font-feature-settings: "jalt"; }
+
+.ot_jis78-forms {
+  -moz-font-feature-settings: "jp78";
+  -moz-font-feature-settings: "jp78=1";
+  -ms-font-feature-settings: "jp78";
+  -o-font-feature-settings: "jp78";
+  -webkit-font-feature-settings: "jp78";
+  font-feature-settings: "jp78"; }
+
+.ot_jis83-forms {
+  -moz-font-feature-settings: "jp83";
+  -moz-font-feature-settings: "jp83=1";
+  -ms-font-feature-settings: "jp83";
+  -o-font-feature-settings: "jp83";
+  -webkit-font-feature-settings: "jp83";
+  font-feature-settings: "jp83"; }
+
+.ot_jis90-forms {
+  -moz-font-feature-settings: "jp90";
+  -moz-font-feature-settings: "jp90=1";
+  -ms-font-feature-settings: "jp90";
+  -o-font-feature-settings: "jp90";
+  -webkit-font-feature-settings: "jp90";
+  font-feature-settings: "jp90"; }
+
+.ot_jis2004-forms {
+  -moz-font-feature-settings: "jp04";
+  -moz-font-feature-settings: "jp04=1";
+  -ms-font-feature-settings: "jp04";
+  -o-font-feature-settings: "jp04";
+  -webkit-font-feature-settings: "jp04";
+  font-feature-settings: "jp04"; }
+
+.ot_kerning {
+  -moz-font-feature-settings: "kern";
+  -moz-font-feature-settings: "kern=1";
+  -ms-font-feature-settings: "kern";
+  -o-font-feature-settings: "kern";
+  -webkit-font-feature-settings: "kern";
+  font-feature-settings: "kern"; }
+
+.ot_left-bounds {
+  -moz-font-feature-settings: "lfbd";
+  -moz-font-feature-settings: "lfbd=1";
+  -ms-font-feature-settings: "lfbd";
+  -o-font-feature-settings: "lfbd";
+  -webkit-font-feature-settings: "lfbd";
+  font-feature-settings: "lfbd"; }
+
+.ot_standard-ligatures {
+  -moz-font-feature-settings: "liga";
+  -moz-font-feature-settings: "liga=1";
+  -ms-font-feature-settings: "liga";
+  -o-font-feature-settings: "liga";
+  -webkit-font-feature-settings: "liga";
+  font-feature-settings: "liga"; }
+
+.ot_leading-jamo-forms {
+  -moz-font-feature-settings: "ljmo";
+  -moz-font-feature-settings: "ljmo=1";
+  -ms-font-feature-settings: "ljmo";
+  -o-font-feature-settings: "ljmo";
+  -webkit-font-feature-settings: "ljmo";
+  font-feature-settings: "ljmo"; }
+
+.ot_lining-figures {
+  -moz-font-feature-settings: "lnum";
+  -moz-font-feature-settings: "lnum=1";
+  -ms-font-feature-settings: "lnum";
+  -o-font-feature-settings: "lnum";
+  -webkit-font-feature-settings: "lnum";
+  font-feature-settings: "lnum"; }
+
+.ot_localized-forms {
+  -moz-font-feature-settings: "locl";
+  -moz-font-feature-settings: "locl=1";
+  -ms-font-feature-settings: "locl";
+  -o-font-feature-settings: "locl";
+  -webkit-font-feature-settings: "locl";
+  font-feature-settings: "locl"; }
+
+.ot_left-to-right-alternates {
+  -moz-font-feature-settings: "ltra";
+  -moz-font-feature-settings: "ltra=1";
+  -ms-font-feature-settings: "ltra";
+  -o-font-feature-settings: "ltra";
+  -webkit-font-feature-settings: "ltra";
+  font-feature-settings: "ltra"; }
+
+.ot_left-to-right-mirrored-forms {
+  -moz-font-feature-settings: "ltrm";
+  -moz-font-feature-settings: "ltrm=1";
+  -ms-font-feature-settings: "ltrm";
+  -o-font-feature-settings: "ltrm";
+  -webkit-font-feature-settings: "ltrm";
+  font-feature-settings: "ltrm"; }
+
+.ot_mark-positioning {
+  -moz-font-feature-settings: "mark";
+  -moz-font-feature-settings: "mark=1";
+  -ms-font-feature-settings: "mark";
+  -o-font-feature-settings: "mark";
+  -webkit-font-feature-settings: "mark";
+  font-feature-settings: "mark"; }
+
+.ot_medial-forms-2 {
+  -moz-font-feature-settings: "med2";
+  -moz-font-feature-settings: "med2=1";
+  -ms-font-feature-settings: "med2";
+  -o-font-feature-settings: "med2";
+  -webkit-font-feature-settings: "med2";
+  font-feature-settings: "med2"; }
+
+.ot_medial-forms {
+  -moz-font-feature-settings: "medi";
+  -moz-font-feature-settings: "medi=1";
+  -ms-font-feature-settings: "medi";
+  -o-font-feature-settings: "medi";
+  -webkit-font-feature-settings: "medi";
+  font-feature-settings: "medi"; }
+
+.ot_mathematical-greek {
+  -moz-font-feature-settings: "mgrk";
+  -moz-font-feature-settings: "mgrk=1";
+  -ms-font-feature-settings: "mgrk";
+  -o-font-feature-settings: "mgrk";
+  -webkit-font-feature-settings: "mgrk";
+  font-feature-settings: "mgrk"; }
+
+.ot_mark-to-mark-positioning {
+  -moz-font-feature-settings: "mkmk";
+  -moz-font-feature-settings: "mkmk=1";
+  -ms-font-feature-settings: "mkmk";
+  -o-font-feature-settings: "mkmk";
+  -webkit-font-feature-settings: "mkmk";
+  font-feature-settings: "mkmk"; }
+
+.ot_mark-positioning-via-substitution {
+  -moz-font-feature-settings: "mset";
+  -moz-font-feature-settings: "mset=1";
+  -ms-font-feature-settings: "mset";
+  -o-font-feature-settings: "mset";
+  -webkit-font-feature-settings: "mset";
+  font-feature-settings: "mset"; }
+
+.ot_alternate-annotation-forms {
+  -moz-font-feature-settings: "nalt";
+  -moz-font-feature-settings: "nalt=1";
+  -ms-font-feature-settings: "nalt";
+  -o-font-feature-settings: "nalt";
+  -webkit-font-feature-settings: "nalt";
+  font-feature-settings: "nalt"; }
+
+.ot_nlc-kanji-forms {
+  -moz-font-feature-settings: "nlck";
+  -moz-font-feature-settings: "nlck=1";
+  -ms-font-feature-settings: "nlck";
+  -o-font-feature-settings: "nlck";
+  -webkit-font-feature-settings: "nlck";
+  font-feature-settings: "nlck"; }
+
+.ot_nukta-forms {
+  -moz-font-feature-settings: "nukt";
+  -moz-font-feature-settings: "nukt=1";
+  -ms-font-feature-settings: "nukt";
+  -o-font-feature-settings: "nukt";
+  -webkit-font-feature-settings: "nukt";
+  font-feature-settings: "nukt"; }
+
+.ot_numerators {
+  -moz-font-feature-settings: "numr";
+  -moz-font-feature-settings: "numr=1";
+  -ms-font-feature-settings: "numr";
+  -o-font-feature-settings: "numr";
+  -webkit-font-feature-settings: "numr";
+  font-feature-settings: "numr"; }
+
+.ot_oldstyle-figures {
+  -moz-font-feature-settings: "onum";
+  -moz-font-feature-settings: "onum=1";
+  -ms-font-feature-settings: "onum";
+  -o-font-feature-settings: "onum";
+  -webkit-font-feature-settings: "onum";
+  font-feature-settings: "onum"; }
+
+.ot_optical-bounds {
+  -moz-font-feature-settings: "opbd";
+  -moz-font-feature-settings: "opbd=1";
+  -ms-font-feature-settings: "opbd";
+  -o-font-feature-settings: "opbd";
+  -webkit-font-feature-settings: "opbd";
+  font-feature-settings: "opbd"; }
+
+.ot_ordinals {
+  -moz-font-feature-settings: "ordn";
+  -moz-font-feature-settings: "ordn=1";
+  -ms-font-feature-settings: "ordn";
+  -o-font-feature-settings: "ordn";
+  -webkit-font-feature-settings: "ordn";
+  font-feature-settings: "ordn"; }
+
+.ot_ornaments {
+  -moz-font-feature-settings: "ornm";
+  -moz-font-feature-settings: "ornm=1";
+  -ms-font-feature-settings: "ornm";
+  -o-font-feature-settings: "ornm";
+  -webkit-font-feature-settings: "ornm";
+  font-feature-settings: "ornm"; }
+
+.ot_proportional-alternate-widths {
+  -moz-font-feature-settings: "palt";
+  -moz-font-feature-settings: "palt=1";
+  -ms-font-feature-settings: "palt";
+  -o-font-feature-settings: "palt";
+  -webkit-font-feature-settings: "palt";
+  font-feature-settings: "palt"; }
+
+.ot_petite-capitals {
+  -moz-font-feature-settings: "pcap";
+  -moz-font-feature-settings: "pcap=1";
+  -ms-font-feature-settings: "pcap";
+  -o-font-feature-settings: "pcap";
+  -webkit-font-feature-settings: "pcap";
+  font-feature-settings: "pcap"; }
+
+.ot_proportional-kana {
+  -moz-font-feature-settings: "pkna";
+  -moz-font-feature-settings: "pkna=1";
+  -ms-font-feature-settings: "pkna";
+  -o-font-feature-settings: "pkna";
+  -webkit-font-feature-settings: "pkna";
+  font-feature-settings: "pkna"; }
+
+.ot_proportional-figures {
+  -moz-font-feature-settings: "pnum";
+  -moz-font-feature-settings: "pnum=1";
+  -ms-font-feature-settings: "pnum";
+  -o-font-feature-settings: "pnum";
+  -webkit-font-feature-settings: "pnum";
+  font-feature-settings: "pnum"; }
+
+.ot_pre-base-forms {
+  -moz-font-feature-settings: "pref";
+  -moz-font-feature-settings: "pref=1";
+  -ms-font-feature-settings: "pref";
+  -o-font-feature-settings: "pref";
+  -webkit-font-feature-settings: "pref";
+  font-feature-settings: "pref"; }
+
+.ot_pre-base-substitutions {
+  -moz-font-feature-settings: "pres";
+  -moz-font-feature-settings: "pres=1";
+  -ms-font-feature-settings: "pres";
+  -o-font-feature-settings: "pres";
+  -webkit-font-feature-settings: "pres";
+  font-feature-settings: "pres"; }
+
+.ot_post-base-forms {
+  -moz-font-feature-settings: "pstf";
+  -moz-font-feature-settings: "pstf=1";
+  -ms-font-feature-settings: "pstf";
+  -o-font-feature-settings: "pstf";
+  -webkit-font-feature-settings: "pstf";
+  font-feature-settings: "pstf"; }
+
+.ot_post-base-substitutions {
+  -moz-font-feature-settings: "psts";
+  -moz-font-feature-settings: "psts=1";
+  -ms-font-feature-settings: "psts";
+  -o-font-feature-settings: "psts";
+  -webkit-font-feature-settings: "psts";
+  font-feature-settings: "psts"; }
+
+.ot_proportional-widths {
+  -moz-font-feature-settings: "pwid";
+  -moz-font-feature-settings: "pwid=1";
+  -ms-font-feature-settings: "pwid";
+  -o-font-feature-settings: "pwid";
+  -webkit-font-feature-settings: "pwid";
+  font-feature-settings: "pwid"; }
+
+.ot_quarter-widths {
+  -moz-font-feature-settings: "qwid";
+  -moz-font-feature-settings: "qwid=1";
+  -ms-font-feature-settings: "qwid";
+  -o-font-feature-settings: "qwid";
+  -webkit-font-feature-settings: "qwid";
+  font-feature-settings: "qwid"; }
+
+.ot_randomize {
+  -moz-font-feature-settings: "rand";
+  -moz-font-feature-settings: "rand=1";
+  -ms-font-feature-settings: "rand";
+  -o-font-feature-settings: "rand";
+  -webkit-font-feature-settings: "rand";
+  font-feature-settings: "rand"; }
+
+.ot_required-contextual-alternates {
+  -moz-font-feature-settings: "rclt";
+  -moz-font-feature-settings: "rclt=1";
+  -ms-font-feature-settings: "rclt";
+  -o-font-feature-settings: "rclt";
+  -webkit-font-feature-settings: "rclt";
+  font-feature-settings: "rclt"; }
+
+.ot_rakar-forms {
+  -moz-font-feature-settings: "rkrf";
+  -moz-font-feature-settings: "rkrf=1";
+  -ms-font-feature-settings: "rkrf";
+  -o-font-feature-settings: "rkrf";
+  -webkit-font-feature-settings: "rkrf";
+  font-feature-settings: "rkrf"; }
+
+.ot_required-ligatures {
+  -moz-font-feature-settings: "rlig";
+  -moz-font-feature-settings: "rlig=1";
+  -ms-font-feature-settings: "rlig";
+  -o-font-feature-settings: "rlig";
+  -webkit-font-feature-settings: "rlig";
+  font-feature-settings: "rlig"; }
+
+.ot_reph-forms {
+  -moz-font-feature-settings: "rphf";
+  -moz-font-feature-settings: "rphf=1";
+  -ms-font-feature-settings: "rphf";
+  -o-font-feature-settings: "rphf";
+  -webkit-font-feature-settings: "rphf";
+  font-feature-settings: "rphf"; }
+
+.ot_right-bounds {
+  -moz-font-feature-settings: "rtbd";
+  -moz-font-feature-settings: "rtbd=1";
+  -ms-font-feature-settings: "rtbd";
+  -o-font-feature-settings: "rtbd";
+  -webkit-font-feature-settings: "rtbd";
+  font-feature-settings: "rtbd"; }
+
+.ot_right-to-left-alternates {
+  -moz-font-feature-settings: "rtla";
+  -moz-font-feature-settings: "rtla=1";
+  -ms-font-feature-settings: "rtla";
+  -o-font-feature-settings: "rtla";
+  -webkit-font-feature-settings: "rtla";
+  font-feature-settings: "rtla"; }
+
+.ot_right-to-left-mirrored-forms {
+  -moz-font-feature-settings: "rtlm";
+  -moz-font-feature-settings: "rtlm=1";
+  -ms-font-feature-settings: "rtlm";
+  -o-font-feature-settings: "rtlm";
+  -webkit-font-feature-settings: "rtlm";
+  font-feature-settings: "rtlm"; }
+
+.ot_ruby-notation-forms {
+  -moz-font-feature-settings: "ruby";
+  -moz-font-feature-settings: "ruby=1";
+  -ms-font-feature-settings: "ruby";
+  -o-font-feature-settings: "ruby";
+  -webkit-font-feature-settings: "ruby";
+  font-feature-settings: "ruby"; }
+
+.ot_stylistic-alternates {
+  -moz-font-feature-settings: "salt";
+  -moz-font-feature-settings: "salt=1";
+  -ms-font-feature-settings: "salt";
+  -o-font-feature-settings: "salt";
+  -webkit-font-feature-settings: "salt";
+  font-feature-settings: "salt"; }
+
+.ot_scientific-inferiors {
+  -moz-font-feature-settings: "sinf";
+  -moz-font-feature-settings: "sinf=1";
+  -ms-font-feature-settings: "sinf";
+  -o-font-feature-settings: "sinf";
+  -webkit-font-feature-settings: "sinf";
+  font-feature-settings: "sinf"; }
+
+.ot_optical-size {
+  -moz-font-feature-settings: "size";
+  -moz-font-feature-settings: "size=1";
+  -ms-font-feature-settings: "size";
+  -o-font-feature-settings: "size";
+  -webkit-font-feature-settings: "size";
+  font-feature-settings: "size"; }
+
+.ot_small-capitals {
+  -moz-font-feature-settings: "smcp";
+  -moz-font-feature-settings: "smcp=1";
+  -ms-font-feature-settings: "smcp";
+  -o-font-feature-settings: "smcp";
+  -webkit-font-feature-settings: "smcp";
+  font-feature-settings: "smcp"; }
+
+.ot_simplified-forms {
+  -moz-font-feature-settings: "smpl";
+  -moz-font-feature-settings: "smpl=1";
+  -ms-font-feature-settings: "smpl";
+  -o-font-feature-settings: "smpl";
+  -webkit-font-feature-settings: "smpl";
+  font-feature-settings: "smpl"; }
+
+.ot_stylistic-set-1 {
+  -moz-font-feature-settings: "ss01";
+  -moz-font-feature-settings: "ss01=1";
+  -ms-font-feature-settings: "ss01";
+  -o-font-feature-settings: "ss01";
+  -webkit-font-feature-settings: "ss01";
+  font-feature-settings: "ss01"; }
+
+.ot_stylistic-set-2 {
+  -moz-font-feature-settings: "ss02";
+  -moz-font-feature-settings: "ss02=1";
+  -ms-font-feature-settings: "ss02";
+  -o-font-feature-settings: "ss02";
+  -webkit-font-feature-settings: "ss02";
+  font-feature-settings: "ss02"; }
+
+.ot_stylistic-set-3 {
+  -moz-font-feature-settings: "ss03";
+  -moz-font-feature-settings: "ss03=1";
+  -ms-font-feature-settings: "ss03";
+  -o-font-feature-settings: "ss03";
+  -webkit-font-feature-settings: "ss03";
+  font-feature-settings: "ss03"; }
+
+.ot_stylistic-set-4 {
+  -moz-font-feature-settings: "ss04";
+  -moz-font-feature-settings: "ss04=1";
+  -ms-font-feature-settings: "ss04";
+  -o-font-feature-settings: "ss04";
+  -webkit-font-feature-settings: "ss04";
+  font-feature-settings: "ss04"; }
+
+.ot_stylistic-set-5 {
+  -moz-font-feature-settings: "ss05";
+  -moz-font-feature-settings: "ss05=1";
+  -ms-font-feature-settings: "ss05";
+  -o-font-feature-settings: "ss05";
+  -webkit-font-feature-settings: "ss05";
+  font-feature-settings: "ss05"; }
+
+.ot_stylistic-set-6 {
+  -moz-font-feature-settings: "ss06";
+  -moz-font-feature-settings: "ss06=1";
+  -ms-font-feature-settings: "ss06";
+  -o-font-feature-settings: "ss06";
+  -webkit-font-feature-settings: "ss06";
+  font-feature-settings: "ss06"; }
+
+.ot_stylistic-set-7 {
+  -moz-font-feature-settings: "ss07";
+  -moz-font-feature-settings: "ss07=1";
+  -ms-font-feature-settings: "ss07";
+  -o-font-feature-settings: "ss07";
+  -webkit-font-feature-settings: "ss07";
+  font-feature-settings: "ss07"; }
+
+.ot_stylistic-set-8 {
+  -moz-font-feature-settings: "ss08";
+  -moz-font-feature-settings: "ss08=1";
+  -ms-font-feature-settings: "ss08";
+  -o-font-feature-settings: "ss08";
+  -webkit-font-feature-settings: "ss08";
+  font-feature-settings: "ss08"; }
+
+.ot_stylistic-set-9 {
+  -moz-font-feature-settings: "ss09";
+  -moz-font-feature-settings: "ss09=1";
+  -ms-font-feature-settings: "ss09";
+  -o-font-feature-settings: "ss09";
+  -webkit-font-feature-settings: "ss09";
+  font-feature-settings: "ss09"; }
+
+.ot_stylistic-set-10 {
+  -moz-font-feature-settings: "ss10";
+  -moz-font-feature-settings: "ss10=1";
+  -ms-font-feature-settings: "ss10";
+  -o-font-feature-settings: "ss10";
+  -webkit-font-feature-settings: "ss10";
+  font-feature-settings: "ss10"; }
+
+.ot_stylistic-set-11 {
+  -moz-font-feature-settings: "ss11";
+  -moz-font-feature-settings: "ss11=1";
+  -ms-font-feature-settings: "ss11";
+  -o-font-feature-settings: "ss11";
+  -webkit-font-feature-settings: "ss11";
+  font-feature-settings: "ss11"; }
+
+.ot_stylistic-set-12 {
+  -moz-font-feature-settings: "ss12";
+  -moz-font-feature-settings: "ss12=1";
+  -ms-font-feature-settings: "ss12";
+  -o-font-feature-settings: "ss12";
+  -webkit-font-feature-settings: "ss12";
+  font-feature-settings: "ss12"; }
+
+.ot_stylistic-set-13 {
+  -moz-font-feature-settings: "ss13";
+  -moz-font-feature-settings: "ss13=1";
+  -ms-font-feature-settings: "ss13";
+  -o-font-feature-settings: "ss13";
+  -webkit-font-feature-settings: "ss13";
+  font-feature-settings: "ss13"; }
+
+.ot_stylistic-set-14 {
+  -moz-font-feature-settings: "ss14";
+  -moz-font-feature-settings: "ss14=1";
+  -ms-font-feature-settings: "ss14";
+  -o-font-feature-settings: "ss14";
+  -webkit-font-feature-settings: "ss14";
+  font-feature-settings: "ss14"; }
+
+.ot_stylistic-set-15 {
+  -moz-font-feature-settings: "ss15";
+  -moz-font-feature-settings: "ss15=1";
+  -ms-font-feature-settings: "ss15";
+  -o-font-feature-settings: "ss15";
+  -webkit-font-feature-settings: "ss15";
+  font-feature-settings: "ss15"; }
+
+.ot_stylistic-set-16 {
+  -moz-font-feature-settings: "ss16";
+  -moz-font-feature-settings: "ss16=1";
+  -ms-font-feature-settings: "ss16";
+  -o-font-feature-settings: "ss16";
+  -webkit-font-feature-settings: "ss16";
+  font-feature-settings: "ss16"; }
+
+.ot_stylistic-set-17 {
+  -moz-font-feature-settings: "ss17";
+  -moz-font-feature-settings: "ss17=1";
+  -ms-font-feature-settings: "ss17";
+  -o-font-feature-settings: "ss17";
+  -webkit-font-feature-settings: "ss17";
+  font-feature-settings: "ss17"; }
+
+.ot_stylistic-set-18 {
+  -moz-font-feature-settings: "ss18";
+  -moz-font-feature-settings: "ss18=1";
+  -ms-font-feature-settings: "ss18";
+  -o-font-feature-settings: "ss18";
+  -webkit-font-feature-settings: "ss18";
+  font-feature-settings: "ss18"; }
+
+.ot_stylistic-set-19 {
+  -moz-font-feature-settings: "ss19";
+  -moz-font-feature-settings: "ss19=1";
+  -ms-font-feature-settings: "ss19";
+  -o-font-feature-settings: "ss19";
+  -webkit-font-feature-settings: "ss19";
+  font-feature-settings: "ss19"; }
+
+.ot_stylistic-set-20 {
+  -moz-font-feature-settings: "ss20";
+  -moz-font-feature-settings: "ss20=1";
+  -ms-font-feature-settings: "ss20";
+  -o-font-feature-settings: "ss20";
+  -webkit-font-feature-settings: "ss20";
+  font-feature-settings: "ss20"; }
+
+.ot_math-script-style-alternates {
+  -moz-font-feature-settings: "ssty";
+  -moz-font-feature-settings: "ssty=1";
+  -ms-font-feature-settings: "ssty";
+  -o-font-feature-settings: "ssty";
+  -webkit-font-feature-settings: "ssty";
+  font-feature-settings: "ssty"; }
+
+.ot_stretching-glyph-decomposition {
+  -moz-font-feature-settings: "stch";
+  -moz-font-feature-settings: "stch=1";
+  -ms-font-feature-settings: "stch";
+  -o-font-feature-settings: "stch";
+  -webkit-font-feature-settings: "stch";
+  font-feature-settings: "stch"; }
+
+.ot_subscript {
+  -moz-font-feature-settings: "subs";
+  -moz-font-feature-settings: "subs=1";
+  -ms-font-feature-settings: "subs";
+  -o-font-feature-settings: "subs";
+  -webkit-font-feature-settings: "subs";
+  font-feature-settings: "subs"; }
+
+.ot_superscript {
+  -moz-font-feature-settings: "sups";
+  -moz-font-feature-settings: "sups=1";
+  -ms-font-feature-settings: "sups";
+  -o-font-feature-settings: "sups";
+  -webkit-font-feature-settings: "sups";
+  font-feature-settings: "sups"; }
+
+.ot_swash {
+  -moz-font-feature-settings: "swsh";
+  -moz-font-feature-settings: "swsh=1";
+  -ms-font-feature-settings: "swsh";
+  -o-font-feature-settings: "swsh";
+  -webkit-font-feature-settings: "swsh";
+  font-feature-settings: "swsh"; }
+
+.ot_titling {
+  -moz-font-feature-settings: "titl";
+  -moz-font-feature-settings: "titl=1";
+  -ms-font-feature-settings: "titl";
+  -o-font-feature-settings: "titl";
+  -webkit-font-feature-settings: "titl";
+  font-feature-settings: "titl"; }
+
+.ot_trailing-jamo-forms {
+  -moz-font-feature-settings: "tjmo";
+  -moz-font-feature-settings: "tjmo=1";
+  -ms-font-feature-settings: "tjmo";
+  -o-font-feature-settings: "tjmo";
+  -webkit-font-feature-settings: "tjmo";
+  font-feature-settings: "tjmo"; }
+
+.ot_traditional-name-forms {
+  -moz-font-feature-settings: "tnam";
+  -moz-font-feature-settings: "tnam=1";
+  -ms-font-feature-settings: "tnam";
+  -o-font-feature-settings: "tnam";
+  -webkit-font-feature-settings: "tnam";
+  font-feature-settings: "tnam"; }
+
+.ot_tabular-figures {
+  -moz-font-feature-settings: "tnum";
+  -moz-font-feature-settings: "tnum=1";
+  -ms-font-feature-settings: "tnum";
+  -o-font-feature-settings: "tnum";
+  -webkit-font-feature-settings: "tnum";
+  font-feature-settings: "tnum"; }
+
+.ot_traditional-forms {
+  -moz-font-feature-settings: "trad";
+  -moz-font-feature-settings: "trad=1";
+  -ms-font-feature-settings: "trad";
+  -o-font-feature-settings: "trad";
+  -webkit-font-feature-settings: "trad";
+  font-feature-settings: "trad"; }
+
+.ot_third-widths {
+  -moz-font-feature-settings: "twid";
+  -moz-font-feature-settings: "twid=1";
+  -ms-font-feature-settings: "twid";
+  -o-font-feature-settings: "twid";
+  -webkit-font-feature-settings: "twid";
+  font-feature-settings: "twid"; }
+
+.ot_unicase {
+  -moz-font-feature-settings: "unic";
+  -moz-font-feature-settings: "unic=1";
+  -ms-font-feature-settings: "unic";
+  -o-font-feature-settings: "unic";
+  -webkit-font-feature-settings: "unic";
+  font-feature-settings: "unic"; }
+
+.ot_alternate-vertical-metrics {
+  -moz-font-feature-settings: "valt";
+  -moz-font-feature-settings: "valt=1";
+  -ms-font-feature-settings: "valt";
+  -o-font-feature-settings: "valt";
+  -webkit-font-feature-settings: "valt";
+  font-feature-settings: "valt"; }
+
+.ot_vattu-variants {
+  -moz-font-feature-settings: "vatu";
+  -moz-font-feature-settings: "vatu=1";
+  -ms-font-feature-settings: "vatu";
+  -o-font-feature-settings: "vatu";
+  -webkit-font-feature-settings: "vatu";
+  font-feature-settings: "vatu"; }
+
+.ot_vertical-writing {
+  -moz-font-feature-settings: "vert";
+  -moz-font-feature-settings: "vert=1";
+  -ms-font-feature-settings: "vert";
+  -o-font-feature-settings: "vert";
+  -webkit-font-feature-settings: "vert";
+  font-feature-settings: "vert"; }
+
+.ot_alternate-vertical-half-metrics {
+  -moz-font-feature-settings: "vhal";
+  -moz-font-feature-settings: "vhal=1";
+  -ms-font-feature-settings: "vhal";
+  -o-font-feature-settings: "vhal";
+  -webkit-font-feature-settings: "vhal";
+  font-feature-settings: "vhal"; }
+
+.ot_vowel-jamo-forms {
+  -moz-font-feature-settings: "vjmo";
+  -moz-font-feature-settings: "vjmo=1";
+  -ms-font-feature-settings: "vjmo";
+  -o-font-feature-settings: "vjmo";
+  -webkit-font-feature-settings: "vjmo";
+  font-feature-settings: "vjmo"; }
+
+.ot_vertical-kana-alternates {
+  -moz-font-feature-settings: "vkna";
+  -moz-font-feature-settings: "vkna=1";
+  -ms-font-feature-settings: "vkna";
+  -o-font-feature-settings: "vkna";
+  -webkit-font-feature-settings: "vkna";
+  font-feature-settings: "vkna"; }
+
+.ot_vertical-kerning {
+  -moz-font-feature-settings: "vkrn";
+  -moz-font-feature-settings: "vkrn=1";
+  -ms-font-feature-settings: "vkrn";
+  -o-font-feature-settings: "vkrn";
+  -webkit-font-feature-settings: "vkrn";
+  font-feature-settings: "vkrn"; }
+
+.ot_proportional-alternate-vertical-metrics {
+  -moz-font-feature-settings: "vpal";
+  -moz-font-feature-settings: "vpal=1";
+  -ms-font-feature-settings: "vpal";
+  -o-font-feature-settings: "vpal";
+  -webkit-font-feature-settings: "vpal";
+  font-feature-settings: "vpal"; }
+
+.ot_vertical-alternates-and-rotation {
+  -moz-font-feature-settings: "vrt2";
+  -moz-font-feature-settings: "vrt2=1";
+  -ms-font-feature-settings: "vrt2";
+  -o-font-feature-settings: "vrt2";
+  -webkit-font-feature-settings: "vrt2";
+  font-feature-settings: "vrt2"; }
+
+.ot_slashed-zero {
+  -moz-font-feature-settings: "zero";
+  -moz-font-feature-settings: "zero=1";
+  -ms-font-feature-settings: "zero";
+  -o-font-feature-settings: "zero";
+  -webkit-font-feature-settings: "zero";
+  font-feature-settings: "zero"; }
+
+[data-opentype~='aalt'] {
+  -moz-font-feature-settings: "aalt";
+  -moz-font-feature-settings: "aalt=1";
+  -ms-font-feature-settings: "aalt";
+  -o-font-feature-settings: "aalt";
+  -webkit-font-feature-settings: "aalt";
+  font-feature-settings: "aalt"; }
+
+[data-opentype~='abvf'] {
+  -moz-font-feature-settings: "abvf";
+  -moz-font-feature-settings: "abvf=1";
+  -ms-font-feature-settings: "abvf";
+  -o-font-feature-settings: "abvf";
+  -webkit-font-feature-settings: "abvf";
+  font-feature-settings: "abvf"; }
+
+[data-opentype~='abvm'] {
+  -moz-font-feature-settings: "abvm";
+  -moz-font-feature-settings: "abvm=1";
+  -ms-font-feature-settings: "abvm";
+  -o-font-feature-settings: "abvm";
+  -webkit-font-feature-settings: "abvm";
+  font-feature-settings: "abvm"; }
+
+[data-opentype~='abvs'] {
+  -moz-font-feature-settings: "abvs";
+  -moz-font-feature-settings: "abvs=1";
+  -ms-font-feature-settings: "abvs";
+  -o-font-feature-settings: "abvs";
+  -webkit-font-feature-settings: "abvs";
+  font-feature-settings: "abvs"; }
+
+[data-opentype~='afrc'] {
+  -moz-font-feature-settings: "afrc";
+  -moz-font-feature-settings: "afrc=1";
+  -ms-font-feature-settings: "afrc";
+  -o-font-feature-settings: "afrc";
+  -webkit-font-feature-settings: "afrc";
+  font-feature-settings: "afrc"; }
+
+[data-opentype~='akhn'] {
+  -moz-font-feature-settings: "akhn";
+  -moz-font-feature-settings: "akhn=1";
+  -ms-font-feature-settings: "akhn";
+  -o-font-feature-settings: "akhn";
+  -webkit-font-feature-settings: "akhn";
+  font-feature-settings: "akhn"; }
+
+[data-opentype~='blwf'] {
+  -moz-font-feature-settings: "blwf";
+  -moz-font-feature-settings: "blwf=1";
+  -ms-font-feature-settings: "blwf";
+  -o-font-feature-settings: "blwf";
+  -webkit-font-feature-settings: "blwf";
+  font-feature-settings: "blwf"; }
+
+[data-opentype~='blwm'] {
+  -moz-font-feature-settings: "blwm";
+  -moz-font-feature-settings: "blwm=1";
+  -ms-font-feature-settings: "blwm";
+  -o-font-feature-settings: "blwm";
+  -webkit-font-feature-settings: "blwm";
+  font-feature-settings: "blwm"; }
+
+[data-opentype~='blws'] {
+  -moz-font-feature-settings: "blws";
+  -moz-font-feature-settings: "blws=1";
+  -ms-font-feature-settings: "blws";
+  -o-font-feature-settings: "blws";
+  -webkit-font-feature-settings: "blws";
+  font-feature-settings: "blws"; }
+
+[data-opentype~='calt'] {
+  -moz-font-feature-settings: "calt";
+  -moz-font-feature-settings: "calt=1";
+  -ms-font-feature-settings: "calt";
+  -o-font-feature-settings: "calt";
+  -webkit-font-feature-settings: "calt";
+  font-feature-settings: "calt"; }
+
+[data-opentype~='case'] {
+  -moz-font-feature-settings: "case";
+  -moz-font-feature-settings: "case=1";
+  -ms-font-feature-settings: "case";
+  -o-font-feature-settings: "case";
+  -webkit-font-feature-settings: "case";
+  font-feature-settings: "case"; }
+
+[data-opentype~='ccmp'] {
+  -moz-font-feature-settings: "ccmp";
+  -moz-font-feature-settings: "ccmp=1";
+  -ms-font-feature-settings: "ccmp";
+  -o-font-feature-settings: "ccmp";
+  -webkit-font-feature-settings: "ccmp";
+  font-feature-settings: "ccmp"; }
+
+[data-opentype~='cfar'] {
+  -moz-font-feature-settings: "cfar";
+  -moz-font-feature-settings: "cfar=1";
+  -ms-font-feature-settings: "cfar";
+  -o-font-feature-settings: "cfar";
+  -webkit-font-feature-settings: "cfar";
+  font-feature-settings: "cfar"; }
+
+[data-opentype~='cjct'] {
+  -moz-font-feature-settings: "cjct";
+  -moz-font-feature-settings: "cjct=1";
+  -ms-font-feature-settings: "cjct";
+  -o-font-feature-settings: "cjct";
+  -webkit-font-feature-settings: "cjct";
+  font-feature-settings: "cjct"; }
+
+[data-opentype~='clig'] {
+  -moz-font-feature-settings: "clig";
+  -moz-font-feature-settings: "clig=1";
+  -ms-font-feature-settings: "clig";
+  -o-font-feature-settings: "clig";
+  -webkit-font-feature-settings: "clig";
+  font-feature-settings: "clig"; }
+
+[data-opentype~='cpct'] {
+  -moz-font-feature-settings: "cpct";
+  -moz-font-feature-settings: "cpct=1";
+  -ms-font-feature-settings: "cpct";
+  -o-font-feature-settings: "cpct";
+  -webkit-font-feature-settings: "cpct";
+  font-feature-settings: "cpct"; }
+
+[data-opentype~='cpsp'] {
+  -moz-font-feature-settings: "cpsp";
+  -moz-font-feature-settings: "cpsp=1";
+  -ms-font-feature-settings: "cpsp";
+  -o-font-feature-settings: "cpsp";
+  -webkit-font-feature-settings: "cpsp";
+  font-feature-settings: "cpsp"; }
+
+[data-opentype~='cswh'] {
+  -moz-font-feature-settings: "cswh";
+  -moz-font-feature-settings: "cswh=1";
+  -ms-font-feature-settings: "cswh";
+  -o-font-feature-settings: "cswh";
+  -webkit-font-feature-settings: "cswh";
+  font-feature-settings: "cswh"; }
+
+[data-opentype~='curs'] {
+  -moz-font-feature-settings: "curs";
+  -moz-font-feature-settings: "curs=1";
+  -ms-font-feature-settings: "curs";
+  -o-font-feature-settings: "curs";
+  -webkit-font-feature-settings: "curs";
+  font-feature-settings: "curs"; }
+
+[data-opentype~='c2pc'] {
+  -moz-font-feature-settings: "c2pc";
+  -moz-font-feature-settings: "c2pc=1";
+  -ms-font-feature-settings: "c2pc";
+  -o-font-feature-settings: "c2pc";
+  -webkit-font-feature-settings: "c2pc";
+  font-feature-settings: "c2pc"; }
+
+[data-opentype~='c2sc'] {
+  -moz-font-feature-settings: "c2sc";
+  -moz-font-feature-settings: "c2sc=1";
+  -ms-font-feature-settings: "c2sc";
+  -o-font-feature-settings: "c2sc";
+  -webkit-font-feature-settings: "c2sc";
+  font-feature-settings: "c2sc"; }
+
+[data-opentype~='dist'] {
+  -moz-font-feature-settings: "dist";
+  -moz-font-feature-settings: "dist=1";
+  -ms-font-feature-settings: "dist";
+  -o-font-feature-settings: "dist";
+  -webkit-font-feature-settings: "dist";
+  font-feature-settings: "dist"; }
+
+[data-opentype~='dlig'] {
+  -moz-font-feature-settings: "dlig";
+  -moz-font-feature-settings: "dlig=1";
+  -ms-font-feature-settings: "dlig";
+  -o-font-feature-settings: "dlig";
+  -webkit-font-feature-settings: "dlig";
+  font-feature-settings: "dlig"; }
+
+[data-opentype~='dnom'] {
+  -moz-font-feature-settings: "dnom";
+  -moz-font-feature-settings: "dnom=1";
+  -ms-font-feature-settings: "dnom";
+  -o-font-feature-settings: "dnom";
+  -webkit-font-feature-settings: "dnom";
+  font-feature-settings: "dnom"; }
+
+[data-opentype~='dtls'] {
+  -moz-font-feature-settings: "dtls";
+  -moz-font-feature-settings: "dtls=1";
+  -ms-font-feature-settings: "dtls";
+  -o-font-feature-settings: "dtls";
+  -webkit-font-feature-settings: "dtls";
+  font-feature-settings: "dtls"; }
+
+[data-opentype~='expt'] {
+  -moz-font-feature-settings: "expt";
+  -moz-font-feature-settings: "expt=1";
+  -ms-font-feature-settings: "expt";
+  -o-font-feature-settings: "expt";
+  -webkit-font-feature-settings: "expt";
+  font-feature-settings: "expt"; }
+
+[data-opentype~='falt'] {
+  -moz-font-feature-settings: "falt";
+  -moz-font-feature-settings: "falt=1";
+  -ms-font-feature-settings: "falt";
+  -o-font-feature-settings: "falt";
+  -webkit-font-feature-settings: "falt";
+  font-feature-settings: "falt"; }
+
+[data-opentype~='fin2'] {
+  -moz-font-feature-settings: "fin2";
+  -moz-font-feature-settings: "fin2=1";
+  -ms-font-feature-settings: "fin2";
+  -o-font-feature-settings: "fin2";
+  -webkit-font-feature-settings: "fin2";
+  font-feature-settings: "fin2"; }
+
+[data-opentype~='fin3'] {
+  -moz-font-feature-settings: "fin3";
+  -moz-font-feature-settings: "fin3=1";
+  -ms-font-feature-settings: "fin3";
+  -o-font-feature-settings: "fin3";
+  -webkit-font-feature-settings: "fin3";
+  font-feature-settings: "fin3"; }
+
+[data-opentype~='fina'] {
+  -moz-font-feature-settings: "fina";
+  -moz-font-feature-settings: "fina=1";
+  -ms-font-feature-settings: "fina";
+  -o-font-feature-settings: "fina";
+  -webkit-font-feature-settings: "fina";
+  font-feature-settings: "fina"; }
+
+[data-opentype~='flac'] {
+  -moz-font-feature-settings: "flac";
+  -moz-font-feature-settings: "flac=1";
+  -ms-font-feature-settings: "flac";
+  -o-font-feature-settings: "flac";
+  -webkit-font-feature-settings: "flac";
+  font-feature-settings: "flac"; }
+
+[data-opentype~='frac'] {
+  -moz-font-feature-settings: "frac";
+  -moz-font-feature-settings: "frac=1";
+  -ms-font-feature-settings: "frac";
+  -o-font-feature-settings: "frac";
+  -webkit-font-feature-settings: "frac";
+  font-feature-settings: "frac"; }
+
+[data-opentype~='fwid'] {
+  -moz-font-feature-settings: "fwid";
+  -moz-font-feature-settings: "fwid=1";
+  -ms-font-feature-settings: "fwid";
+  -o-font-feature-settings: "fwid";
+  -webkit-font-feature-settings: "fwid";
+  font-feature-settings: "fwid"; }
+
+[data-opentype~='half'] {
+  -moz-font-feature-settings: "half";
+  -moz-font-feature-settings: "half=1";
+  -ms-font-feature-settings: "half";
+  -o-font-feature-settings: "half";
+  -webkit-font-feature-settings: "half";
+  font-feature-settings: "half"; }
+
+[data-opentype~='haln'] {
+  -moz-font-feature-settings: "haln";
+  -moz-font-feature-settings: "haln=1";
+  -ms-font-feature-settings: "haln";
+  -o-font-feature-settings: "haln";
+  -webkit-font-feature-settings: "haln";
+  font-feature-settings: "haln"; }
+
+[data-opentype~='halt'] {
+  -moz-font-feature-settings: "halt";
+  -moz-font-feature-settings: "halt=1";
+  -ms-font-feature-settings: "halt";
+  -o-font-feature-settings: "halt";
+  -webkit-font-feature-settings: "halt";
+  font-feature-settings: "halt"; }
+
+[data-opentype~='hist'] {
+  -moz-font-feature-settings: "hist";
+  -moz-font-feature-settings: "hist=1";
+  -ms-font-feature-settings: "hist";
+  -o-font-feature-settings: "hist";
+  -webkit-font-feature-settings: "hist";
+  font-feature-settings: "hist"; }
+
+[data-opentype~='hkna'] {
+  -moz-font-feature-settings: "hkna";
+  -moz-font-feature-settings: "hkna=1";
+  -ms-font-feature-settings: "hkna";
+  -o-font-feature-settings: "hkna";
+  -webkit-font-feature-settings: "hkna";
+  font-feature-settings: "hkna"; }
+
+[data-opentype~='hlig'] {
+  -moz-font-feature-settings: "hlig";
+  -moz-font-feature-settings: "hlig=1";
+  -ms-font-feature-settings: "hlig";
+  -o-font-feature-settings: "hlig";
+  -webkit-font-feature-settings: "hlig";
+  font-feature-settings: "hlig"; }
+
+[data-opentype~='hngl'] {
+  -moz-font-feature-settings: "hngl";
+  -moz-font-feature-settings: "hngl=1";
+  -ms-font-feature-settings: "hngl";
+  -o-font-feature-settings: "hngl";
+  -webkit-font-feature-settings: "hngl";
+  font-feature-settings: "hngl"; }
+
+[data-opentype~='hojo'] {
+  -moz-font-feature-settings: "hojo";
+  -moz-font-feature-settings: "hojo=1";
+  -ms-font-feature-settings: "hojo";
+  -o-font-feature-settings: "hojo";
+  -webkit-font-feature-settings: "hojo";
+  font-feature-settings: "hojo"; }
+
+[data-opentype~='hwid'] {
+  -moz-font-feature-settings: "hwid";
+  -moz-font-feature-settings: "hwid=1";
+  -ms-font-feature-settings: "hwid";
+  -o-font-feature-settings: "hwid";
+  -webkit-font-feature-settings: "hwid";
+  font-feature-settings: "hwid"; }
+
+[data-opentype~='init'] {
+  -moz-font-feature-settings: "init";
+  -moz-font-feature-settings: "init=1";
+  -ms-font-feature-settings: "init";
+  -o-font-feature-settings: "init";
+  -webkit-font-feature-settings: "init";
+  font-feature-settings: "init"; }
+
+[data-opentype~='isol'] {
+  -moz-font-feature-settings: "isol";
+  -moz-font-feature-settings: "isol=1";
+  -ms-font-feature-settings: "isol";
+  -o-font-feature-settings: "isol";
+  -webkit-font-feature-settings: "isol";
+  font-feature-settings: "isol"; }
+
+[data-opentype~='ital'] {
+  -moz-font-feature-settings: "ital";
+  -moz-font-feature-settings: "ital=1";
+  -ms-font-feature-settings: "ital";
+  -o-font-feature-settings: "ital";
+  -webkit-font-feature-settings: "ital";
+  font-feature-settings: "ital"; }
+
+[data-opentype~='jalt'] {
+  -moz-font-feature-settings: "jalt";
+  -moz-font-feature-settings: "jalt=1";
+  -ms-font-feature-settings: "jalt";
+  -o-font-feature-settings: "jalt";
+  -webkit-font-feature-settings: "jalt";
+  font-feature-settings: "jalt"; }
+
+[data-opentype~='jp78'] {
+  -moz-font-feature-settings: "jp78";
+  -moz-font-feature-settings: "jp78=1";
+  -ms-font-feature-settings: "jp78";
+  -o-font-feature-settings: "jp78";
+  -webkit-font-feature-settings: "jp78";
+  font-feature-settings: "jp78"; }
+
+[data-opentype~='jp83'] {
+  -moz-font-feature-settings: "jp83";
+  -moz-font-feature-settings: "jp83=1";
+  -ms-font-feature-settings: "jp83";
+  -o-font-feature-settings: "jp83";
+  -webkit-font-feature-settings: "jp83";
+  font-feature-settings: "jp83"; }
+
+[data-opentype~='jp90'] {
+  -moz-font-feature-settings: "jp90";
+  -moz-font-feature-settings: "jp90=1";
+  -ms-font-feature-settings: "jp90";
+  -o-font-feature-settings: "jp90";
+  -webkit-font-feature-settings: "jp90";
+  font-feature-settings: "jp90"; }
+
+[data-opentype~='jp04'] {
+  -moz-font-feature-settings: "jp04";
+  -moz-font-feature-settings: "jp04=1";
+  -ms-font-feature-settings: "jp04";
+  -o-font-feature-settings: "jp04";
+  -webkit-font-feature-settings: "jp04";
+  font-feature-settings: "jp04"; }
+
+[data-opentype~='kern'] {
+  -moz-font-feature-settings: "kern";
+  -moz-font-feature-settings: "kern=1";
+  -ms-font-feature-settings: "kern";
+  -o-font-feature-settings: "kern";
+  -webkit-font-feature-settings: "kern";
+  font-feature-settings: "kern"; }
+
+[data-opentype~='lfbd'] {
+  -moz-font-feature-settings: "lfbd";
+  -moz-font-feature-settings: "lfbd=1";
+  -ms-font-feature-settings: "lfbd";
+  -o-font-feature-settings: "lfbd";
+  -webkit-font-feature-settings: "lfbd";
+  font-feature-settings: "lfbd"; }
+
+[data-opentype~='liga'] {
+  -moz-font-feature-settings: "liga";
+  -moz-font-feature-settings: "liga=1";
+  -ms-font-feature-settings: "liga";
+  -o-font-feature-settings: "liga";
+  -webkit-font-feature-settings: "liga";
+  font-feature-settings: "liga"; }
+
+[data-opentype~='ljmo'] {
+  -moz-font-feature-settings: "ljmo";
+  -moz-font-feature-settings: "ljmo=1";
+  -ms-font-feature-settings: "ljmo";
+  -o-font-feature-settings: "ljmo";
+  -webkit-font-feature-settings: "ljmo";
+  font-feature-settings: "ljmo"; }
+
+[data-opentype~='lnum'] {
+  -moz-font-feature-settings: "lnum";
+  -moz-font-feature-settings: "lnum=1";
+  -ms-font-feature-settings: "lnum";
+  -o-font-feature-settings: "lnum";
+  -webkit-font-feature-settings: "lnum";
+  font-feature-settings: "lnum"; }
+
+[data-opentype~='locl'] {
+  -moz-font-feature-settings: "locl";
+  -moz-font-feature-settings: "locl=1";
+  -ms-font-feature-settings: "locl";
+  -o-font-feature-settings: "locl";
+  -webkit-font-feature-settings: "locl";
+  font-feature-settings: "locl"; }
+
+[data-opentype~='ltra'] {
+  -moz-font-feature-settings: "ltra";
+  -moz-font-feature-settings: "ltra=1";
+  -ms-font-feature-settings: "ltra";
+  -o-font-feature-settings: "ltra";
+  -webkit-font-feature-settings: "ltra";
+  font-feature-settings: "ltra"; }
+
+[data-opentype~='ltrm'] {
+  -moz-font-feature-settings: "ltrm";
+  -moz-font-feature-settings: "ltrm=1";
+  -ms-font-feature-settings: "ltrm";
+  -o-font-feature-settings: "ltrm";
+  -webkit-font-feature-settings: "ltrm";
+  font-feature-settings: "ltrm"; }
+
+[data-opentype~='mark'] {
+  -moz-font-feature-settings: "mark";
+  -moz-font-feature-settings: "mark=1";
+  -ms-font-feature-settings: "mark";
+  -o-font-feature-settings: "mark";
+  -webkit-font-feature-settings: "mark";
+  font-feature-settings: "mark"; }
+
+[data-opentype~='med2'] {
+  -moz-font-feature-settings: "med2";
+  -moz-font-feature-settings: "med2=1";
+  -ms-font-feature-settings: "med2";
+  -o-font-feature-settings: "med2";
+  -webkit-font-feature-settings: "med2";
+  font-feature-settings: "med2"; }
+
+[data-opentype~='medi'] {
+  -moz-font-feature-settings: "medi";
+  -moz-font-feature-settings: "medi=1";
+  -ms-font-feature-settings: "medi";
+  -o-font-feature-settings: "medi";
+  -webkit-font-feature-settings: "medi";
+  font-feature-settings: "medi"; }
+
+[data-opentype~='mgrk'] {
+  -moz-font-feature-settings: "mgrk";
+  -moz-font-feature-settings: "mgrk=1";
+  -ms-font-feature-settings: "mgrk";
+  -o-font-feature-settings: "mgrk";
+  -webkit-font-feature-settings: "mgrk";
+  font-feature-settings: "mgrk"; }
+
+[data-opentype~='mkmk'] {
+  -moz-font-feature-settings: "mkmk";
+  -moz-font-feature-settings: "mkmk=1";
+  -ms-font-feature-settings: "mkmk";
+  -o-font-feature-settings: "mkmk";
+  -webkit-font-feature-settings: "mkmk";
+  font-feature-settings: "mkmk"; }
+
+[data-opentype~='mset'] {
+  -moz-font-feature-settings: "mset";
+  -moz-font-feature-settings: "mset=1";
+  -ms-font-feature-settings: "mset";
+  -o-font-feature-settings: "mset";
+  -webkit-font-feature-settings: "mset";
+  font-feature-settings: "mset"; }
+
+[data-opentype~='nalt'] {
+  -moz-font-feature-settings: "nalt";
+  -moz-font-feature-settings: "nalt=1";
+  -ms-font-feature-settings: "nalt";
+  -o-font-feature-settings: "nalt";
+  -webkit-font-feature-settings: "nalt";
+  font-feature-settings: "nalt"; }
+
+[data-opentype~='nlck'] {
+  -moz-font-feature-settings: "nlck";
+  -moz-font-feature-settings: "nlck=1";
+  -ms-font-feature-settings: "nlck";
+  -o-font-feature-settings: "nlck";
+  -webkit-font-feature-settings: "nlck";
+  font-feature-settings: "nlck"; }
+
+[data-opentype~='nukt'] {
+  -moz-font-feature-settings: "nukt";
+  -moz-font-feature-settings: "nukt=1";
+  -ms-font-feature-settings: "nukt";
+  -o-font-feature-settings: "nukt";
+  -webkit-font-feature-settings: "nukt";
+  font-feature-settings: "nukt"; }
+
+[data-opentype~='numr'] {
+  -moz-font-feature-settings: "numr";
+  -moz-font-feature-settings: "numr=1";
+  -ms-font-feature-settings: "numr";
+  -o-font-feature-settings: "numr";
+  -webkit-font-feature-settings: "numr";
+  font-feature-settings: "numr"; }
+
+[data-opentype~='onum'] {
+  -moz-font-feature-settings: "onum";
+  -moz-font-feature-settings: "onum=1";
+  -ms-font-feature-settings: "onum";
+  -o-font-feature-settings: "onum";
+  -webkit-font-feature-settings: "onum";
+  font-feature-settings: "onum"; }
+
+[data-opentype~='opbd'] {
+  -moz-font-feature-settings: "opbd";
+  -moz-font-feature-settings: "opbd=1";
+  -ms-font-feature-settings: "opbd";
+  -o-font-feature-settings: "opbd";
+  -webkit-font-feature-settings: "opbd";
+  font-feature-settings: "opbd"; }
+
+[data-opentype~='ordn'] {
+  -moz-font-feature-settings: "ordn";
+  -moz-font-feature-settings: "ordn=1";
+  -ms-font-feature-settings: "ordn";
+  -o-font-feature-settings: "ordn";
+  -webkit-font-feature-settings: "ordn";
+  font-feature-settings: "ordn"; }
+
+[data-opentype~='ornm'] {
+  -moz-font-feature-settings: "ornm";
+  -moz-font-feature-settings: "ornm=1";
+  -ms-font-feature-settings: "ornm";
+  -o-font-feature-settings: "ornm";
+  -webkit-font-feature-settings: "ornm";
+  font-feature-settings: "ornm"; }
+
+[data-opentype~='palt'] {
+  -moz-font-feature-settings: "palt";
+  -moz-font-feature-settings: "palt=1";
+  -ms-font-feature-settings: "palt";
+  -o-font-feature-settings: "palt";
+  -webkit-font-feature-settings: "palt";
+  font-feature-settings: "palt"; }
+
+[data-opentype~='pcap'] {
+  -moz-font-feature-settings: "pcap";
+  -moz-font-feature-settings: "pcap=1";
+  -ms-font-feature-settings: "pcap";
+  -o-font-feature-settings: "pcap";
+  -webkit-font-feature-settings: "pcap";
+  font-feature-settings: "pcap"; }
+
+[data-opentype~='pkna'] {
+  -moz-font-feature-settings: "pkna";
+  -moz-font-feature-settings: "pkna=1";
+  -ms-font-feature-settings: "pkna";
+  -o-font-feature-settings: "pkna";
+  -webkit-font-feature-settings: "pkna";
+  font-feature-settings: "pkna"; }
+
+[data-opentype~='pnum'] {
+  -moz-font-feature-settings: "pnum";
+  -moz-font-feature-settings: "pnum=1";
+  -ms-font-feature-settings: "pnum";
+  -o-font-feature-settings: "pnum";
+  -webkit-font-feature-settings: "pnum";
+  font-feature-settings: "pnum"; }
+
+[data-opentype~='pref'] {
+  -moz-font-feature-settings: "pref";
+  -moz-font-feature-settings: "pref=1";
+  -ms-font-feature-settings: "pref";
+  -o-font-feature-settings: "pref";
+  -webkit-font-feature-settings: "pref";
+  font-feature-settings: "pref"; }
+
+[data-opentype~='pres'] {
+  -moz-font-feature-settings: "pres";
+  -moz-font-feature-settings: "pres=1";
+  -ms-font-feature-settings: "pres";
+  -o-font-feature-settings: "pres";
+  -webkit-font-feature-settings: "pres";
+  font-feature-settings: "pres"; }
+
+[data-opentype~='pstf'] {
+  -moz-font-feature-settings: "pstf";
+  -moz-font-feature-settings: "pstf=1";
+  -ms-font-feature-settings: "pstf";
+  -o-font-feature-settings: "pstf";
+  -webkit-font-feature-settings: "pstf";
+  font-feature-settings: "pstf"; }
+
+[data-opentype~='psts'] {
+  -moz-font-feature-settings: "psts";
+  -moz-font-feature-settings: "psts=1";
+  -ms-font-feature-settings: "psts";
+  -o-font-feature-settings: "psts";
+  -webkit-font-feature-settings: "psts";
+  font-feature-settings: "psts"; }
+
+[data-opentype~='pwid'] {
+  -moz-font-feature-settings: "pwid";
+  -moz-font-feature-settings: "pwid=1";
+  -ms-font-feature-settings: "pwid";
+  -o-font-feature-settings: "pwid";
+  -webkit-font-feature-settings: "pwid";
+  font-feature-settings: "pwid"; }
+
+[data-opentype~='qwid'] {
+  -moz-font-feature-settings: "qwid";
+  -moz-font-feature-settings: "qwid=1";
+  -ms-font-feature-settings: "qwid";
+  -o-font-feature-settings: "qwid";
+  -webkit-font-feature-settings: "qwid";
+  font-feature-settings: "qwid"; }
+
+[data-opentype~='rand'] {
+  -moz-font-feature-settings: "rand";
+  -moz-font-feature-settings: "rand=1";
+  -ms-font-feature-settings: "rand";
+  -o-font-feature-settings: "rand";
+  -webkit-font-feature-settings: "rand";
+  font-feature-settings: "rand"; }
+
+[data-opentype~='rclt'] {
+  -moz-font-feature-settings: "rclt";
+  -moz-font-feature-settings: "rclt=1";
+  -ms-font-feature-settings: "rclt";
+  -o-font-feature-settings: "rclt";
+  -webkit-font-feature-settings: "rclt";
+  font-feature-settings: "rclt"; }
+
+[data-opentype~='rkrf'] {
+  -moz-font-feature-settings: "rkrf";
+  -moz-font-feature-settings: "rkrf=1";
+  -ms-font-feature-settings: "rkrf";
+  -o-font-feature-settings: "rkrf";
+  -webkit-font-feature-settings: "rkrf";
+  font-feature-settings: "rkrf"; }
+
+[data-opentype~='rlig'] {
+  -moz-font-feature-settings: "rlig";
+  -moz-font-feature-settings: "rlig=1";
+  -ms-font-feature-settings: "rlig";
+  -o-font-feature-settings: "rlig";
+  -webkit-font-feature-settings: "rlig";
+  font-feature-settings: "rlig"; }
+
+[data-opentype~='rphf'] {
+  -moz-font-feature-settings: "rphf";
+  -moz-font-feature-settings: "rphf=1";
+  -ms-font-feature-settings: "rphf";
+  -o-font-feature-settings: "rphf";
+  -webkit-font-feature-settings: "rphf";
+  font-feature-settings: "rphf"; }
+
+[data-opentype~='rtbd'] {
+  -moz-font-feature-settings: "rtbd";
+  -moz-font-feature-settings: "rtbd=1";
+  -ms-font-feature-settings: "rtbd";
+  -o-font-feature-settings: "rtbd";
+  -webkit-font-feature-settings: "rtbd";
+  font-feature-settings: "rtbd"; }
+
+[data-opentype~='rtla'] {
+  -moz-font-feature-settings: "rtla";
+  -moz-font-feature-settings: "rtla=1";
+  -ms-font-feature-settings: "rtla";
+  -o-font-feature-settings: "rtla";
+  -webkit-font-feature-settings: "rtla";
+  font-feature-settings: "rtla"; }
+
+[data-opentype~='rtlm'] {
+  -moz-font-feature-settings: "rtlm";
+  -moz-font-feature-settings: "rtlm=1";
+  -ms-font-feature-settings: "rtlm";
+  -o-font-feature-settings: "rtlm";
+  -webkit-font-feature-settings: "rtlm";
+  font-feature-settings: "rtlm"; }
+
+[data-opentype~='ruby'] {
+  -moz-font-feature-settings: "ruby";
+  -moz-font-feature-settings: "ruby=1";
+  -ms-font-feature-settings: "ruby";
+  -o-font-feature-settings: "ruby";
+  -webkit-font-feature-settings: "ruby";
+  font-feature-settings: "ruby"; }
+
+[data-opentype~='salt'] {
+  -moz-font-feature-settings: "salt";
+  -moz-font-feature-settings: "salt=1";
+  -ms-font-feature-settings: "salt";
+  -o-font-feature-settings: "salt";
+  -webkit-font-feature-settings: "salt";
+  font-feature-settings: "salt"; }
+
+[data-opentype~='sinf'] {
+  -moz-font-feature-settings: "sinf";
+  -moz-font-feature-settings: "sinf=1";
+  -ms-font-feature-settings: "sinf";
+  -o-font-feature-settings: "sinf";
+  -webkit-font-feature-settings: "sinf";
+  font-feature-settings: "sinf"; }
+
+[data-opentype~='size'] {
+  -moz-font-feature-settings: "size";
+  -moz-font-feature-settings: "size=1";
+  -ms-font-feature-settings: "size";
+  -o-font-feature-settings: "size";
+  -webkit-font-feature-settings: "size";
+  font-feature-settings: "size"; }
+
+[data-opentype~='smcp'] {
+  -moz-font-feature-settings: "smcp";
+  -moz-font-feature-settings: "smcp=1";
+  -ms-font-feature-settings: "smcp";
+  -o-font-feature-settings: "smcp";
+  -webkit-font-feature-settings: "smcp";
+  font-feature-settings: "smcp"; }
+
+[data-opentype~='smpl'] {
+  -moz-font-feature-settings: "smpl";
+  -moz-font-feature-settings: "smpl=1";
+  -ms-font-feature-settings: "smpl";
+  -o-font-feature-settings: "smpl";
+  -webkit-font-feature-settings: "smpl";
+  font-feature-settings: "smpl"; }
+
+[data-opentype~='ss01'] {
+  -moz-font-feature-settings: "ss01";
+  -moz-font-feature-settings: "ss01=1";
+  -ms-font-feature-settings: "ss01";
+  -o-font-feature-settings: "ss01";
+  -webkit-font-feature-settings: "ss01";
+  font-feature-settings: "ss01"; }
+
+[data-opentype~='ss02'] {
+  -moz-font-feature-settings: "ss02";
+  -moz-font-feature-settings: "ss02=1";
+  -ms-font-feature-settings: "ss02";
+  -o-font-feature-settings: "ss02";
+  -webkit-font-feature-settings: "ss02";
+  font-feature-settings: "ss02"; }
+
+[data-opentype~='ss03'] {
+  -moz-font-feature-settings: "ss03";
+  -moz-font-feature-settings: "ss03=1";
+  -ms-font-feature-settings: "ss03";
+  -o-font-feature-settings: "ss03";
+  -webkit-font-feature-settings: "ss03";
+  font-feature-settings: "ss03"; }
+
+[data-opentype~='ss04'] {
+  -moz-font-feature-settings: "ss04";
+  -moz-font-feature-settings: "ss04=1";
+  -ms-font-feature-settings: "ss04";
+  -o-font-feature-settings: "ss04";
+  -webkit-font-feature-settings: "ss04";
+  font-feature-settings: "ss04"; }
+
+[data-opentype~='ss05'] {
+  -moz-font-feature-settings: "ss05";
+  -moz-font-feature-settings: "ss05=1";
+  -ms-font-feature-settings: "ss05";
+  -o-font-feature-settings: "ss05";
+  -webkit-font-feature-settings: "ss05";
+  font-feature-settings: "ss05"; }
+
+[data-opentype~='ss06'] {
+  -moz-font-feature-settings: "ss06";
+  -moz-font-feature-settings: "ss06=1";
+  -ms-font-feature-settings: "ss06";
+  -o-font-feature-settings: "ss06";
+  -webkit-font-feature-settings: "ss06";
+  font-feature-settings: "ss06"; }
+
+[data-opentype~='ss07'] {
+  -moz-font-feature-settings: "ss07";
+  -moz-font-feature-settings: "ss07=1";
+  -ms-font-feature-settings: "ss07";
+  -o-font-feature-settings: "ss07";
+  -webkit-font-feature-settings: "ss07";
+  font-feature-settings: "ss07"; }
+
+[data-opentype~='ss08'] {
+  -moz-font-feature-settings: "ss08";
+  -moz-font-feature-settings: "ss08=1";
+  -ms-font-feature-settings: "ss08";
+  -o-font-feature-settings: "ss08";
+  -webkit-font-feature-settings: "ss08";
+  font-feature-settings: "ss08"; }
+
+[data-opentype~='ss09'] {
+  -moz-font-feature-settings: "ss09";
+  -moz-font-feature-settings: "ss09=1";
+  -ms-font-feature-settings: "ss09";
+  -o-font-feature-settings: "ss09";
+  -webkit-font-feature-settings: "ss09";
+  font-feature-settings: "ss09"; }
+
+[data-opentype~='ss10'] {
+  -moz-font-feature-settings: "ss10";
+  -moz-font-feature-settings: "ss10=1";
+  -ms-font-feature-settings: "ss10";
+  -o-font-feature-settings: "ss10";
+  -webkit-font-feature-settings: "ss10";
+  font-feature-settings: "ss10"; }
+
+[data-opentype~='ss11'] {
+  -moz-font-feature-settings: "ss11";
+  -moz-font-feature-settings: "ss11=1";
+  -ms-font-feature-settings: "ss11";
+  -o-font-feature-settings: "ss11";
+  -webkit-font-feature-settings: "ss11";
+  font-feature-settings: "ss11"; }
+
+[data-opentype~='ss12'] {
+  -moz-font-feature-settings: "ss12";
+  -moz-font-feature-settings: "ss12=1";
+  -ms-font-feature-settings: "ss12";
+  -o-font-feature-settings: "ss12";
+  -webkit-font-feature-settings: "ss12";
+  font-feature-settings: "ss12"; }
+
+[data-opentype~='ss13'] {
+  -moz-font-feature-settings: "ss13";
+  -moz-font-feature-settings: "ss13=1";
+  -ms-font-feature-settings: "ss13";
+  -o-font-feature-settings: "ss13";
+  -webkit-font-feature-settings: "ss13";
+  font-feature-settings: "ss13"; }
+
+[data-opentype~='ss14'] {
+  -moz-font-feature-settings: "ss14";
+  -moz-font-feature-settings: "ss14=1";
+  -ms-font-feature-settings: "ss14";
+  -o-font-feature-settings: "ss14";
+  -webkit-font-feature-settings: "ss14";
+  font-feature-settings: "ss14"; }
+
+[data-opentype~='ss15'] {
+  -moz-font-feature-settings: "ss15";
+  -moz-font-feature-settings: "ss15=1";
+  -ms-font-feature-settings: "ss15";
+  -o-font-feature-settings: "ss15";
+  -webkit-font-feature-settings: "ss15";
+  font-feature-settings: "ss15"; }
+
+[data-opentype~='ss16'] {
+  -moz-font-feature-settings: "ss16";
+  -moz-font-feature-settings: "ss16=1";
+  -ms-font-feature-settings: "ss16";
+  -o-font-feature-settings: "ss16";
+  -webkit-font-feature-settings: "ss16";
+  font-feature-settings: "ss16"; }
+
+[data-opentype~='ss17'] {
+  -moz-font-feature-settings: "ss17";
+  -moz-font-feature-settings: "ss17=1";
+  -ms-font-feature-settings: "ss17";
+  -o-font-feature-settings: "ss17";
+  -webkit-font-feature-settings: "ss17";
+  font-feature-settings: "ss17"; }
+
+[data-opentype~='ss18'] {
+  -moz-font-feature-settings: "ss18";
+  -moz-font-feature-settings: "ss18=1";
+  -ms-font-feature-settings: "ss18";
+  -o-font-feature-settings: "ss18";
+  -webkit-font-feature-settings: "ss18";
+  font-feature-settings: "ss18"; }
+
+[data-opentype~='ss19'] {
+  -moz-font-feature-settings: "ss19";
+  -moz-font-feature-settings: "ss19=1";
+  -ms-font-feature-settings: "ss19";
+  -o-font-feature-settings: "ss19";
+  -webkit-font-feature-settings: "ss19";
+  font-feature-settings: "ss19"; }
+
+[data-opentype~='ss20'] {
+  -moz-font-feature-settings: "ss20";
+  -moz-font-feature-settings: "ss20=1";
+  -ms-font-feature-settings: "ss20";
+  -o-font-feature-settings: "ss20";
+  -webkit-font-feature-settings: "ss20";
+  font-feature-settings: "ss20"; }
+
+[data-opentype~='ssty'] {
+  -moz-font-feature-settings: "ssty";
+  -moz-font-feature-settings: "ssty=1";
+  -ms-font-feature-settings: "ssty";
+  -o-font-feature-settings: "ssty";
+  -webkit-font-feature-settings: "ssty";
+  font-feature-settings: "ssty"; }
+
+[data-opentype~='stch'] {
+  -moz-font-feature-settings: "stch";
+  -moz-font-feature-settings: "stch=1";
+  -ms-font-feature-settings: "stch";
+  -o-font-feature-settings: "stch";
+  -webkit-font-feature-settings: "stch";
+  font-feature-settings: "stch"; }
+
+[data-opentype~='subs'] {
+  -moz-font-feature-settings: "subs";
+  -moz-font-feature-settings: "subs=1";
+  -ms-font-feature-settings: "subs";
+  -o-font-feature-settings: "subs";
+  -webkit-font-feature-settings: "subs";
+  font-feature-settings: "subs"; }
+
+[data-opentype~='sups'] {
+  -moz-font-feature-settings: "sups";
+  -moz-font-feature-settings: "sups=1";
+  -ms-font-feature-settings: "sups";
+  -o-font-feature-settings: "sups";
+  -webkit-font-feature-settings: "sups";
+  font-feature-settings: "sups"; }
+
+[data-opentype~='swsh'] {
+  -moz-font-feature-settings: "swsh";
+  -moz-font-feature-settings: "swsh=1";
+  -ms-font-feature-settings: "swsh";
+  -o-font-feature-settings: "swsh";
+  -webkit-font-feature-settings: "swsh";
+  font-feature-settings: "swsh"; }
+
+[data-opentype~='titl'] {
+  -moz-font-feature-settings: "titl";
+  -moz-font-feature-settings: "titl=1";
+  -ms-font-feature-settings: "titl";
+  -o-font-feature-settings: "titl";
+  -webkit-font-feature-settings: "titl";
+  font-feature-settings: "titl"; }
+
+[data-opentype~='tjmo'] {
+  -moz-font-feature-settings: "tjmo";
+  -moz-font-feature-settings: "tjmo=1";
+  -ms-font-feature-settings: "tjmo";
+  -o-font-feature-settings: "tjmo";
+  -webkit-font-feature-settings: "tjmo";
+  font-feature-settings: "tjmo"; }
+
+[data-opentype~='tnam'] {
+  -moz-font-feature-settings: "tnam";
+  -moz-font-feature-settings: "tnam=1";
+  -ms-font-feature-settings: "tnam";
+  -o-font-feature-settings: "tnam";
+  -webkit-font-feature-settings: "tnam";
+  font-feature-settings: "tnam"; }
+
+[data-opentype~='tnum'] {
+  -moz-font-feature-settings: "tnum";
+  -moz-font-feature-settings: "tnum=1";
+  -ms-font-feature-settings: "tnum";
+  -o-font-feature-settings: "tnum";
+  -webkit-font-feature-settings: "tnum";
+  font-feature-settings: "tnum"; }
+
+[data-opentype~='trad'] {
+  -moz-font-feature-settings: "trad";
+  -moz-font-feature-settings: "trad=1";
+  -ms-font-feature-settings: "trad";
+  -o-font-feature-settings: "trad";
+  -webkit-font-feature-settings: "trad";
+  font-feature-settings: "trad"; }
+
+[data-opentype~='twid'] {
+  -moz-font-feature-settings: "twid";
+  -moz-font-feature-settings: "twid=1";
+  -ms-font-feature-settings: "twid";
+  -o-font-feature-settings: "twid";
+  -webkit-font-feature-settings: "twid";
+  font-feature-settings: "twid"; }
+
+[data-opentype~='unic'] {
+  -moz-font-feature-settings: "unic";
+  -moz-font-feature-settings: "unic=1";
+  -ms-font-feature-settings: "unic";
+  -o-font-feature-settings: "unic";
+  -webkit-font-feature-settings: "unic";
+  font-feature-settings: "unic"; }
+
+[data-opentype~='valt'] {
+  -moz-font-feature-settings: "valt";
+  -moz-font-feature-settings: "valt=1";
+  -ms-font-feature-settings: "valt";
+  -o-font-feature-settings: "valt";
+  -webkit-font-feature-settings: "valt";
+  font-feature-settings: "valt"; }
+
+[data-opentype~='vatu'] {
+  -moz-font-feature-settings: "vatu";
+  -moz-font-feature-settings: "vatu=1";
+  -ms-font-feature-settings: "vatu";
+  -o-font-feature-settings: "vatu";
+  -webkit-font-feature-settings: "vatu";
+  font-feature-settings: "vatu"; }
+
+[data-opentype~='vert'] {
+  -moz-font-feature-settings: "vert";
+  -moz-font-feature-settings: "vert=1";
+  -ms-font-feature-settings: "vert";
+  -o-font-feature-settings: "vert";
+  -webkit-font-feature-settings: "vert";
+  font-feature-settings: "vert"; }
+
+[data-opentype~='vhal'] {
+  -moz-font-feature-settings: "vhal";
+  -moz-font-feature-settings: "vhal=1";
+  -ms-font-feature-settings: "vhal";
+  -o-font-feature-settings: "vhal";
+  -webkit-font-feature-settings: "vhal";
+  font-feature-settings: "vhal"; }
+
+[data-opentype~='vjmo'] {
+  -moz-font-feature-settings: "vjmo";
+  -moz-font-feature-settings: "vjmo=1";
+  -ms-font-feature-settings: "vjmo";
+  -o-font-feature-settings: "vjmo";
+  -webkit-font-feature-settings: "vjmo";
+  font-feature-settings: "vjmo"; }
+
+[data-opentype~='vkna'] {
+  -moz-font-feature-settings: "vkna";
+  -moz-font-feature-settings: "vkna=1";
+  -ms-font-feature-settings: "vkna";
+  -o-font-feature-settings: "vkna";
+  -webkit-font-feature-settings: "vkna";
+  font-feature-settings: "vkna"; }
+
+[data-opentype~='vkrn'] {
+  -moz-font-feature-settings: "vkrn";
+  -moz-font-feature-settings: "vkrn=1";
+  -ms-font-feature-settings: "vkrn";
+  -o-font-feature-settings: "vkrn";
+  -webkit-font-feature-settings: "vkrn";
+  font-feature-settings: "vkrn"; }
+
+[data-opentype~='vpal'] {
+  -moz-font-feature-settings: "vpal";
+  -moz-font-feature-settings: "vpal=1";
+  -ms-font-feature-settings: "vpal";
+  -o-font-feature-settings: "vpal";
+  -webkit-font-feature-settings: "vpal";
+  font-feature-settings: "vpal"; }
+
+[data-opentype~='vrt2'] {
+  -moz-font-feature-settings: "vrt2";
+  -moz-font-feature-settings: "vrt2=1";
+  -ms-font-feature-settings: "vrt2";
+  -o-font-feature-settings: "vrt2";
+  -webkit-font-feature-settings: "vrt2";
+  font-feature-settings: "vrt2"; }
+
+[data-opentype~='zero'] {
+  -moz-font-feature-settings: "zero";
+  -moz-font-feature-settings: "zero=1";
+  -ms-font-feature-settings: "zero";
+  -o-font-feature-settings: "zero";
+  -webkit-font-feature-settings: "zero";
+  font-feature-settings: "zero"; }
+
+/* ⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼
+**  Aa|rchetypes :: Project Settings
+**
+**  Define project specifics.
+**  Overide any !default settings.
+*/
+/*
+▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
+
+Aa|rchetypes [ Variables + Lists + Maps ]
+
+⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼
+«   On some fonts, these analphabetic characters are beautifully
+    designed; on others they are not designed at all. Often they
+    are simply borrowed from another font, which may have been
+    drawn in a different weight and style.
+    ...
+    Fonts equipped with good versions of these characters must
+    often lend them to those without. But not just any good
+»   version will do.
+
+    'The Elements of Typographic Style'
+    — Robert Bringhurst
+⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼
+
+    Functions
+    1. is : http://www.sitepoint.com/tips-help-level-up-sass/
+    2. list : from arglist to list
+    3. each : call function on each $i in list
+    4. unit-conversions : from pixels → em, rem, pica, in, pt
+    5. reciprocal : returns reciprocal ( 1 / number )
+    9. misc : mixin specific functions
+
+⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼
 */
 html {
   font-size: 100%;
@@ -102,79 +3625,104 @@ header {
   margin-top: 3.5em;
   text-align: center; }
 
-h2 {
-  font-family: Cousine;
-  font-size: 10.5px;
-  line-height: 20px;
-  letter-spacing: 0.8125px;
+.logotype {
+  height: 35px;
+  width: auto; }
+
+p,
+code,
+.cmt,
+.note {
+  font-family: "Fira Mono";
+  font-size: 0.59375rem;
+  line-height: 1rem;
+  letter-spacing: 0.04063rem;
+  font-weight: 400; }
+
+h1 {
+  font-family: "Oswald";
+  font-size: 0.875rem;
+  line-height: 1.125rem;
+  letter-spacing: 0.04063rem;
   font-weight: 400;
-  font-style: normal;
+  letter-spacing: 2.4375px;
+  letter-spacing: 0.15234rem; }
+
+h2 {
+  font-family: "Oswald";
+  font-size: 0.625rem;
+  line-height: 1.125rem;
+  letter-spacing: 0.10156rem;
+  font-weight: 400; }
+
+.colors, li {
+  font-family: "Ubuntu";
+  font-size: 0.53125rem;
+  line-height: 1.125rem;
+  letter-spacing: 0.07109rem;
+  font-weight: 400; }
+
+h2 {
   color: #202429;
   text-align: center;
-  margin-bottom: .25em;
+  margin-bottom: .5rem;
   margin-top: 1.5em; }
 
 h3 {
-  color: #c7c8c9; }
+  color: #c7c8ca; }
 
 code, .cmt, .note {
-  font-family: Cousine;
-  font-size: 10.5px;
-  line-height: 18.5px;
-  letter-spacing: 0px;
-  font-weight: 400;
-  font-style: normal;
   color: #202429;
   overflow-x: scroll; }
   code span, .cmt span, .note span {
     display: inline; }
 
 .n {
-  color: #e55b32;
+  color: #D7005F;
   padding: 1px 3px;
   font-weight: 400 !important; }
 
 .sh:before {
+  color: #4E4E4E;
   content: "$";
   font-family: Cousine;
   font-size: 10.5;
-  color: #4E4E4E;
   margin: 0 1em 0 0; }
 
 .cmd {
   text-transform: uppercase;
-  background-color: #f3f4f4;
+  background-color: #f4f4f4;
   color: #202429;
   padding: 2px 3px; }
 
 .cmt {
   color: #767676 !important;
   font-style: italic !important; }
-  .cmt:before {
-    content: "#";
-    font-family: inherit;
-    font-size: inherit;
-    color: inherit;
-    margin: 0 1em 0 0; }
+
+.bash .cmt:before {
+  color: inherit;
+  content: "#";
+  font-family: inherit;
+  font-size: inherit;
+  margin: 0 1em 0 0; }
+
+.css .cmt:before {
+  color: inherit;
+  content: "//";
+  font-family: inherit;
+  font-size: inherit;
+  margin: 0 1em 0 0; }
 
 p {
-  font-family: Cousine;
-  font-size: 10.5px;
-  line-height: 17px;
-  letter-spacing: 0.3125px;
-  font-weight: 400;
-  font-style: normal;
-  clear: left;
-  color: #4E4E4E;
-  margin: 1em 0; }
+  color: #262626; }
   p + p {
-    margin-top: 0; }
+    margin-top: .6rem; }
   p a {
     text-transform: uppercase;
-    border-bottom: 1px solid #e55b32;
-    color: #e55b32; }
+    border-bottom: 1px solid gainsboro;
+    color: #D7005F; }
     p a:hover {
-      color: #202429;
+      border-bottom: 1px solid #D7005F;
       cursor: pointer; }
     p a:active, p a:focus {
       -webkit-appearance: none;
@@ -185,21 +3733,18 @@ p {
   text-transform: uppercase;
   border-bottom: 0;
   color: #202429;
-  font-size: 90%;
-  font-weight: 600;
+  font-size: 85%;
+  font-weight: 700;
   letter-spacing: .125em;
   padding-left: 1px;
   padding-right: 1px; }
+  .options a span {
+    color: #FF00D7;
+    font-weight: 400; }
   .options a:hover {
     color: #4E4E4E; }
 
 .title {
-  font-family: Cousine;
-  font-size: 10.5px;
-  line-height: 15px;
-  letter-spacing: 2.8125px;
-  font-weight: 400;
-  font-style: normal;
   width: 100%;
   color: #fff;
   margin: 5em 0 1.5em;
@@ -210,7 +3755,7 @@ footer {
   width: 100%;
   text-align: center; }
   footer p {
-    color: #575a5e; }
+    color: #585b5f; }
 
 a,
 .btn {
@@ -222,9 +3767,10 @@ a,
   fill: none;
   stroke-miterlimit: 12;
   stroke-width: .5;
-  stroke: #8f9194; }
+  stroke: #909294; }
 
 .menu:hover {
+  clear: both;
   cursor: pointer; }
   .menu:hover .btn {
     fill: none;
@@ -243,12 +3789,6 @@ section:not(.palette) div {
 
 footer p,
 .h {
-  font-family: Cousine;
-  font-size: 10.5px;
-  line-height: 17px;
-  letter-spacing: 0.5px;
-  font-weight: 400;
-  font-style: normal;
   text-transform: uppercase; }
 
 span + .bash {
@@ -261,7 +3801,7 @@ span + .bash {
 .bash > div,
 .css > div,
 .ref > div {
-  background-color: #f3f4f4; }
+  background-color: #f4f4f4; }
 
 .links {
   float: left;
@@ -277,7 +3817,7 @@ span + .bash {
 svg {
   height: 18px; }
   svg:hover {
-    fill: #f3f4f4; }
+    fill: #f4f4f4; }
 
 .info {
   background-color: #fefefe;
@@ -320,12 +3860,6 @@ svg {
   margin-top: 30px; }
 
 .colors {
-  font-family: Cousine;
-  font-size: 9px;
-  line-height: 17px;
-  letter-spacing: 1.25px;
-  font-weight: 400;
-  font-style: normal;
   width: 100%;
   -webkit-display: flex;
   display: flex;
@@ -338,7 +3872,8 @@ svg {
     text-transform: uppercase;
     display: inline-block;
     height: 25px;
-    margin-top: 10px;
+    margin-top: 7px;
+    padding-top: 2px;
     overflow-y: hidden;
     vertical-align: baseline;
     width: 75px;
@@ -356,7 +3891,7 @@ svg {
   text-align: center; }
   [data-value~='ref'] ol li::before {
     content: counter(ol) " ";
-    margin-bottom: 10px;
+    margin-bottom: 30px;
     margin-right: 30px;
     padding-left: 4px; }
 
@@ -372,1555 +3907,1551 @@ svg {
   padding-top: 1em; }
   ._16 .bg li:nth-of-type(1) {
     background-color: #000000 !important;
-    border-top: 5px solid #000000;
     color: #000000 !important; }
   ._16 .bg li:nth-of-type(2) {
     background-color: #800000 !important;
-    border-top: 5px solid #800000;
     color: #800000 !important; }
   ._16 .bg li:nth-of-type(3) {
     background-color: #008000 !important;
-    border-top: 5px solid #008000;
     color: #008000 !important; }
   ._16 .bg li:nth-of-type(4) {
     background-color: #808000 !important;
-    border-top: 5px solid #808000;
     color: #808000 !important; }
   ._16 .bg li:nth-of-type(5) {
     background-color: #000080 !important;
-    border-top: 5px solid #000080;
     color: #000080 !important; }
   ._16 .bg li:nth-of-type(6) {
     background-color: #800080 !important;
-    border-top: 5px solid #800080;
     color: #800080 !important; }
   ._16 .bg li:nth-of-type(7) {
     background-color: #008080 !important;
-    border-top: 5px solid #008080;
     color: #008080 !important; }
   ._16 .bg li:nth-of-type(8) {
     background-color: #C0C0C0 !important;
-    border-top: 5px solid #C0C0C0;
     color: #C0C0C0 !important; }
   ._16 .bg li:nth-of-type(9) {
     background-color: #808080 !important;
-    border-top: 5px solid #808080;
     color: #808080 !important; }
   ._16 .bg li:nth-of-type(10) {
     background-color: #FF0000 !important;
-    border-top: 5px solid #FF0000;
     color: #FF0000 !important; }
   ._16 .bg li:nth-of-type(11) {
     background-color: #00FF00 !important;
-    border-top: 5px solid #00FF00;
     color: #00FF00 !important; }
   ._16 .bg li:nth-of-type(12) {
     background-color: #FFFF00 !important;
-    border-top: 5px solid #FFFF00;
     color: #FFFF00 !important; }
   ._16 .bg li:nth-of-type(13) {
     background-color: #0000FF !important;
-    border-top: 5px solid #0000FF;
     color: #0000FF !important; }
   ._16 .bg li:nth-of-type(14) {
     background-color: #FF00FF !important;
-    border-top: 5px solid #FF00FF;
     color: #FF00FF !important; }
   ._16 .bg li:nth-of-type(15) {
     background-color: #00FFFF !important;
-    border-top: 5px solid #00FFFF;
     color: #00FFFF !important; }
   ._16 .bg li:nth-of-type(16) {
     background-color: #FFFFFF !important;
-    border-top: 5px solid #FFFFFF;
     color: #FFFFFF !important; }
   ._16 li:nth-of-type(1) {
-    border-bottom: 5px solid #000000; }
+    border-top: 3px solid #000000;
+    color: #e9e9ea !important; }
   ._16 li:nth-of-type(2) {
-    border-bottom: 5px solid #800000; }
+    border-top: 3px solid #800000;
+    color: #e9e9ea !important; }
   ._16 li:nth-of-type(3) {
-    border-bottom: 5px solid #008000; }
+    border-top: 3px solid #008000;
+    color: #e9e9ea !important; }
   ._16 li:nth-of-type(4) {
-    border-bottom: 5px solid #808000; }
+    border-top: 3px solid #808000;
+    color: #e9e9ea !important; }
   ._16 li:nth-of-type(5) {
-    border-bottom: 5px solid #000080; }
+    border-top: 3px solid #000080;
+    color: #e9e9ea !important; }
   ._16 li:nth-of-type(6) {
-    border-bottom: 5px solid #800080; }
+    border-top: 3px solid #800080;
+    color: #e9e9ea !important; }
   ._16 li:nth-of-type(7) {
-    border-bottom: 5px solid #008080; }
+    border-top: 3px solid #008080;
+    color: #e9e9ea !important; }
   ._16 li:nth-of-type(8) {
-    border-bottom: 5px solid #C0C0C0; }
+    border-top: 3px solid #C0C0C0;
+    color: #e9e9ea !important; }
   ._16 li:nth-of-type(9) {
-    border-bottom: 5px solid #808080; }
+    border-top: 3px solid #808080;
+    color: #e9e9ea !important; }
   ._16 li:nth-of-type(10) {
-    border-bottom: 5px solid #FF0000; }
+    border-top: 3px solid #FF0000;
+    color: #e9e9ea !important; }
   ._16 li:nth-of-type(11) {
-    border-bottom: 5px solid #00FF00; }
+    border-top: 3px solid #00FF00;
+    color: #e9e9ea !important; }
   ._16 li:nth-of-type(12) {
-    border-bottom: 5px solid #FFFF00; }
+    border-top: 3px solid #FFFF00;
+    color: #e9e9ea !important; }
   ._16 li:nth-of-type(13) {
-    border-bottom: 5px solid #0000FF; }
+    border-top: 3px solid #0000FF;
+    color: #e9e9ea !important; }
   ._16 li:nth-of-type(14) {
-    border-bottom: 5px solid #FF00FF; }
+    border-top: 3px solid #FF00FF;
+    color: #e9e9ea !important; }
   ._16 li:nth-of-type(15) {
-    border-bottom: 5px solid #00FFFF; }
+    border-top: 3px solid #00FFFF;
+    color: #e9e9ea !important; }
   ._16 li:nth-of-type(16) {
-    border-bottom: 5px solid #FFFFFF; }
+    border-top: 3px solid #FFFFFF;
+    color: #e9e9ea !important; }
 
 ._216 .bg li:nth-of-type(1) {
   background-color: #000000 !important;
-  border-top: 5px solid #000000;
   color: #000000 !important; }
 ._216 .bg li:nth-of-type(2) {
   background-color: #00005F !important;
-  border-top: 5px solid #00005F;
   color: #00005F !important; }
 ._216 .bg li:nth-of-type(3) {
   background-color: #000087 !important;
-  border-top: 5px solid #000087;
   color: #000087 !important; }
 ._216 .bg li:nth-of-type(4) {
   background-color: #0000AF !important;
-  border-top: 5px solid #0000AF;
   color: #0000AF !important; }
 ._216 .bg li:nth-of-type(5) {
   background-color: #0000D7 !important;
-  border-top: 5px solid #0000D7;
   color: #0000D7 !important; }
 ._216 .bg li:nth-of-type(6) {
   background-color: #0000FF !important;
-  border-top: 5px solid #0000FF;
   color: #0000FF !important; }
 ._216 .bg li:nth-of-type(7) {
   background-color: #005F00 !important;
-  border-top: 5px solid #005F00;
   color: #005F00 !important; }
 ._216 .bg li:nth-of-type(8) {
   background-color: #005F5F !important;
-  border-top: 5px solid #005F5F;
   color: #005F5F !important; }
 ._216 .bg li:nth-of-type(9) {
   background-color: #005F87 !important;
-  border-top: 5px solid #005F87;
   color: #005F87 !important; }
 ._216 .bg li:nth-of-type(10) {
   background-color: #005FAF !important;
-  border-top: 5px solid #005FAF;
   color: #005FAF !important; }
 ._216 .bg li:nth-of-type(11) {
   background-color: #005FD7 !important;
-  border-top: 5px solid #005FD7;
   color: #005FD7 !important; }
 ._216 .bg li:nth-of-type(12) {
   background-color: #005FFF !important;
-  border-top: 5px solid #005FFF;
   color: #005FFF !important; }
 ._216 .bg li:nth-of-type(13) {
   background-color: #008700 !important;
-  border-top: 5px solid #008700;
   color: #008700 !important; }
 ._216 .bg li:nth-of-type(14) {
   background-color: #00875F !important;
-  border-top: 5px solid #00875F;
   color: #00875F !important; }
 ._216 .bg li:nth-of-type(15) {
   background-color: #008787 !important;
-  border-top: 5px solid #008787;
   color: #008787 !important; }
 ._216 .bg li:nth-of-type(16) {
   background-color: #0087AF !important;
-  border-top: 5px solid #0087AF;
   color: #0087AF !important; }
 ._216 .bg li:nth-of-type(17) {
   background-color: #0087D7 !important;
-  border-top: 5px solid #0087D7;
   color: #0087D7 !important; }
 ._216 .bg li:nth-of-type(18) {
   background-color: #0087FF !important;
-  border-top: 5px solid #0087FF;
   color: #0087FF !important; }
 ._216 .bg li:nth-of-type(19) {
   background-color: #00AF00 !important;
-  border-top: 5px solid #00AF00;
   color: #00AF00 !important; }
 ._216 .bg li:nth-of-type(20) {
   background-color: #00AF5F !important;
-  border-top: 5px solid #00AF5F;
   color: #00AF5F !important; }
 ._216 .bg li:nth-of-type(21) {
   background-color: #00AF87 !important;
-  border-top: 5px solid #00AF87;
   color: #00AF87 !important; }
 ._216 .bg li:nth-of-type(22) {
   background-color: #00AFAF !important;
-  border-top: 5px solid #00AFAF;
   color: #00AFAF !important; }
 ._216 .bg li:nth-of-type(23) {
   background-color: #00AFD7 !important;
-  border-top: 5px solid #00AFD7;
   color: #00AFD7 !important; }
 ._216 .bg li:nth-of-type(24) {
   background-color: #00AFFF !important;
-  border-top: 5px solid #00AFFF;
   color: #00AFFF !important; }
 ._216 .bg li:nth-of-type(25) {
   background-color: #00D700 !important;
-  border-top: 5px solid #00D700;
   color: #00D700 !important; }
 ._216 .bg li:nth-of-type(26) {
   background-color: #00D75F !important;
-  border-top: 5px solid #00D75F;
   color: #00D75F !important; }
 ._216 .bg li:nth-of-type(27) {
   background-color: #00D787 !important;
-  border-top: 5px solid #00D787;
   color: #00D787 !important; }
 ._216 .bg li:nth-of-type(28) {
   background-color: #00D7AF !important;
-  border-top: 5px solid #00D7AF;
   color: #00D7AF !important; }
 ._216 .bg li:nth-of-type(29) {
   background-color: #00D7D7 !important;
-  border-top: 5px solid #00D7D7;
   color: #00D7D7 !important; }
 ._216 .bg li:nth-of-type(30) {
   background-color: #00D7FF !important;
-  border-top: 5px solid #00D7FF;
   color: #00D7FF !important; }
 ._216 .bg li:nth-of-type(31) {
   background-color: #00FF00 !important;
-  border-top: 5px solid #00FF00;
   color: #00FF00 !important; }
 ._216 .bg li:nth-of-type(32) {
   background-color: #00FF5F !important;
-  border-top: 5px solid #00FF5F;
   color: #00FF5F !important; }
 ._216 .bg li:nth-of-type(33) {
   background-color: #00FF87 !important;
-  border-top: 5px solid #00FF87;
   color: #00FF87 !important; }
 ._216 .bg li:nth-of-type(34) {
   background-color: #00FFAF !important;
-  border-top: 5px solid #00FFAF;
   color: #00FFAF !important; }
 ._216 .bg li:nth-of-type(35) {
   background-color: #00FFD7 !important;
-  border-top: 5px solid #00FFD7;
   color: #00FFD7 !important; }
 ._216 .bg li:nth-of-type(36) {
   background-color: #00FFFF !important;
-  border-top: 5px solid #00FFFF;
   color: #00FFFF !important; }
 ._216 .bg li:nth-of-type(37) {
   background-color: #5F0000 !important;
-  border-top: 5px solid #5F0000;
   color: #5F0000 !important; }
 ._216 .bg li:nth-of-type(38) {
   background-color: #5F005F !important;
-  border-top: 5px solid #5F005F;
   color: #5F005F !important; }
 ._216 .bg li:nth-of-type(39) {
   background-color: #5F0087 !important;
-  border-top: 5px solid #5F0087;
   color: #5F0087 !important; }
 ._216 .bg li:nth-of-type(40) {
   background-color: #5F00AF !important;
-  border-top: 5px solid #5F00AF;
   color: #5F00AF !important; }
 ._216 .bg li:nth-of-type(41) {
   background-color: #5F00D7 !important;
-  border-top: 5px solid #5F00D7;
   color: #5F00D7 !important; }
 ._216 .bg li:nth-of-type(42) {
   background-color: #5F00FF !important;
-  border-top: 5px solid #5F00FF;
   color: #5F00FF !important; }
 ._216 .bg li:nth-of-type(43) {
   background-color: #5F5F00 !important;
-  border-top: 5px solid #5F5F00;
   color: #5F5F00 !important; }
 ._216 .bg li:nth-of-type(44) {
   background-color: #5F5F5F !important;
-  border-top: 5px solid #5F5F5F;
   color: #5F5F5F !important; }
 ._216 .bg li:nth-of-type(45) {
   background-color: #5F5F87 !important;
-  border-top: 5px solid #5F5F87;
   color: #5F5F87 !important; }
 ._216 .bg li:nth-of-type(46) {
   background-color: #5F5FAF !important;
-  border-top: 5px solid #5F5FAF;
   color: #5F5FAF !important; }
 ._216 .bg li:nth-of-type(47) {
   background-color: #5F5FD7 !important;
-  border-top: 5px solid #5F5FD7;
   color: #5F5FD7 !important; }
 ._216 .bg li:nth-of-type(48) {
   background-color: #5F5FFF !important;
-  border-top: 5px solid #5F5FFF;
   color: #5F5FFF !important; }
 ._216 .bg li:nth-of-type(49) {
   background-color: #5F8700 !important;
-  border-top: 5px solid #5F8700;
   color: #5F8700 !important; }
 ._216 .bg li:nth-of-type(50) {
   background-color: #5F875F !important;
-  border-top: 5px solid #5F875F;
   color: #5F875F !important; }
 ._216 .bg li:nth-of-type(51) {
   background-color: #5F8787 !important;
-  border-top: 5px solid #5F8787;
   color: #5F8787 !important; }
 ._216 .bg li:nth-of-type(52) {
   background-color: #5F87AF !important;
-  border-top: 5px solid #5F87AF;
   color: #5F87AF !important; }
 ._216 .bg li:nth-of-type(53) {
   background-color: #5F87D7 !important;
-  border-top: 5px solid #5F87D7;
   color: #5F87D7 !important; }
 ._216 .bg li:nth-of-type(54) {
   background-color: #5F87FF !important;
-  border-top: 5px solid #5F87FF;
   color: #5F87FF !important; }
 ._216 .bg li:nth-of-type(55) {
   background-color: #5FAF00 !important;
-  border-top: 5px solid #5FAF00;
   color: #5FAF00 !important; }
 ._216 .bg li:nth-of-type(56) {
   background-color: #5FAF5F !important;
-  border-top: 5px solid #5FAF5F;
   color: #5FAF5F !important; }
 ._216 .bg li:nth-of-type(57) {
   background-color: #5FAF87 !important;
-  border-top: 5px solid #5FAF87;
   color: #5FAF87 !important; }
 ._216 .bg li:nth-of-type(58) {
   background-color: #5FAFAF !important;
-  border-top: 5px solid #5FAFAF;
   color: #5FAFAF !important; }
 ._216 .bg li:nth-of-type(59) {
   background-color: #5FAFD7 !important;
-  border-top: 5px solid #5FAFD7;
   color: #5FAFD7 !important; }
 ._216 .bg li:nth-of-type(60) {
   background-color: #5FAFFF !important;
-  border-top: 5px solid #5FAFFF;
   color: #5FAFFF !important; }
 ._216 .bg li:nth-of-type(61) {
   background-color: #5FD700 !important;
-  border-top: 5px solid #5FD700;
   color: #5FD700 !important; }
 ._216 .bg li:nth-of-type(62) {
   background-color: #5FD75F !important;
-  border-top: 5px solid #5FD75F;
   color: #5FD75F !important; }
 ._216 .bg li:nth-of-type(63) {
   background-color: #5FD787 !important;
-  border-top: 5px solid #5FD787;
   color: #5FD787 !important; }
 ._216 .bg li:nth-of-type(64) {
   background-color: #5FD7AF !important;
-  border-top: 5px solid #5FD7AF;
   color: #5FD7AF !important; }
 ._216 .bg li:nth-of-type(65) {
   background-color: #5FD7D7 !important;
-  border-top: 5px solid #5FD7D7;
   color: #5FD7D7 !important; }
 ._216 .bg li:nth-of-type(66) {
   background-color: #5FD7FF !important;
-  border-top: 5px solid #5FD7FF;
   color: #5FD7FF !important; }
 ._216 .bg li:nth-of-type(67) {
   background-color: #5FFF00 !important;
-  border-top: 5px solid #5FFF00;
   color: #5FFF00 !important; }
 ._216 .bg li:nth-of-type(68) {
   background-color: #5FFF5F !important;
-  border-top: 5px solid #5FFF5F;
   color: #5FFF5F !important; }
 ._216 .bg li:nth-of-type(69) {
   background-color: #5FFF87 !important;
-  border-top: 5px solid #5FFF87;
   color: #5FFF87 !important; }
 ._216 .bg li:nth-of-type(70) {
   background-color: #5FFFAF !important;
-  border-top: 5px solid #5FFFAF;
   color: #5FFFAF !important; }
 ._216 .bg li:nth-of-type(71) {
   background-color: #5FFFD7 !important;
-  border-top: 5px solid #5FFFD7;
   color: #5FFFD7 !important; }
 ._216 .bg li:nth-of-type(72) {
   background-color: #5FFFFF !important;
-  border-top: 5px solid #5FFFFF;
   color: #5FFFFF !important; }
 ._216 .bg li:nth-of-type(73) {
   background-color: #870000 !important;
-  border-top: 5px solid #870000;
   color: #870000 !important; }
 ._216 .bg li:nth-of-type(74) {
   background-color: #87005F !important;
-  border-top: 5px solid #87005F;
   color: #87005F !important; }
 ._216 .bg li:nth-of-type(75) {
   background-color: #870087 !important;
-  border-top: 5px solid #870087;
   color: #870087 !important; }
 ._216 .bg li:nth-of-type(76) {
   background-color: #8700AF !important;
-  border-top: 5px solid #8700AF;
   color: #8700AF !important; }
 ._216 .bg li:nth-of-type(77) {
   background-color: #8700D7 !important;
-  border-top: 5px solid #8700D7;
   color: #8700D7 !important; }
 ._216 .bg li:nth-of-type(78) {
   background-color: #8700FF !important;
-  border-top: 5px solid #8700FF;
   color: #8700FF !important; }
 ._216 .bg li:nth-of-type(79) {
   background-color: #875F00 !important;
-  border-top: 5px solid #875F00;
   color: #875F00 !important; }
 ._216 .bg li:nth-of-type(80) {
   background-color: #875F5F !important;
-  border-top: 5px solid #875F5F;
   color: #875F5F !important; }
 ._216 .bg li:nth-of-type(81) {
   background-color: #875F87 !important;
-  border-top: 5px solid #875F87;
   color: #875F87 !important; }
 ._216 .bg li:nth-of-type(82) {
   background-color: #875FAF !important;
-  border-top: 5px solid #875FAF;
   color: #875FAF !important; }
 ._216 .bg li:nth-of-type(83) {
   background-color: #875FD7 !important;
-  border-top: 5px solid #875FD7;
   color: #875FD7 !important; }
 ._216 .bg li:nth-of-type(84) {
   background-color: #875FFF !important;
-  border-top: 5px solid #875FFF;
   color: #875FFF !important; }
 ._216 .bg li:nth-of-type(85) {
   background-color: #878700 !important;
-  border-top: 5px solid #878700;
   color: #878700 !important; }
 ._216 .bg li:nth-of-type(86) {
   background-color: #87875F !important;
-  border-top: 5px solid #87875F;
   color: #87875F !important; }
 ._216 .bg li:nth-of-type(87) {
   background-color: #878787 !important;
-  border-top: 5px solid #878787;
   color: #878787 !important; }
 ._216 .bg li:nth-of-type(88) {
   background-color: #8787AF !important;
-  border-top: 5px solid #8787AF;
   color: #8787AF !important; }
 ._216 .bg li:nth-of-type(89) {
   background-color: #8787D7 !important;
-  border-top: 5px solid #8787D7;
   color: #8787D7 !important; }
 ._216 .bg li:nth-of-type(90) {
   background-color: #8787FF !important;
-  border-top: 5px solid #8787FF;
   color: #8787FF !important; }
 ._216 .bg li:nth-of-type(91) {
   background-color: #87AF00 !important;
-  border-top: 5px solid #87AF00;
   color: #87AF00 !important; }
 ._216 .bg li:nth-of-type(92) {
   background-color: #87AF5F !important;
-  border-top: 5px solid #87AF5F;
   color: #87AF5F !important; }
 ._216 .bg li:nth-of-type(93) {
   background-color: #87AF87 !important;
-  border-top: 5px solid #87AF87;
   color: #87AF87 !important; }
 ._216 .bg li:nth-of-type(94) {
   background-color: #87AFAF !important;
-  border-top: 5px solid #87AFAF;
   color: #87AFAF !important; }
 ._216 .bg li:nth-of-type(95) {
   background-color: #87AFD7 !important;
-  border-top: 5px solid #87AFD7;
   color: #87AFD7 !important; }
 ._216 .bg li:nth-of-type(96) {
   background-color: #87AFFF !important;
-  border-top: 5px solid #87AFFF;
   color: #87AFFF !important; }
 ._216 .bg li:nth-of-type(97) {
   background-color: #87D700 !important;
-  border-top: 5px solid #87D700;
   color: #87D700 !important; }
 ._216 .bg li:nth-of-type(98) {
   background-color: #87D75F !important;
-  border-top: 5px solid #87D75F;
   color: #87D75F !important; }
 ._216 .bg li:nth-of-type(99) {
   background-color: #87D787 !important;
-  border-top: 5px solid #87D787;
   color: #87D787 !important; }
 ._216 .bg li:nth-of-type(100) {
   background-color: #87D7AF !important;
-  border-top: 5px solid #87D7AF;
   color: #87D7AF !important; }
 ._216 .bg li:nth-of-type(101) {
   background-color: #87D7D7 !important;
-  border-top: 5px solid #87D7D7;
   color: #87D7D7 !important; }
 ._216 .bg li:nth-of-type(102) {
   background-color: #87D7FF !important;
-  border-top: 5px solid #87D7FF;
   color: #87D7FF !important; }
 ._216 .bg li:nth-of-type(103) {
   background-color: #87FF00 !important;
-  border-top: 5px solid #87FF00;
   color: #87FF00 !important; }
 ._216 .bg li:nth-of-type(104) {
   background-color: #87FF5F !important;
-  border-top: 5px solid #87FF5F;
   color: #87FF5F !important; }
 ._216 .bg li:nth-of-type(105) {
   background-color: #87FF87 !important;
-  border-top: 5px solid #87FF87;
   color: #87FF87 !important; }
 ._216 .bg li:nth-of-type(106) {
   background-color: #87FFAF !important;
-  border-top: 5px solid #87FFAF;
   color: #87FFAF !important; }
 ._216 .bg li:nth-of-type(107) {
   background-color: #87FFD7 !important;
-  border-top: 5px solid #87FFD7;
   color: #87FFD7 !important; }
 ._216 .bg li:nth-of-type(108) {
   background-color: #87FFFF !important;
-  border-top: 5px solid #87FFFF;
   color: #87FFFF !important; }
 ._216 .bg li:nth-of-type(109) {
   background-color: #AF0000 !important;
-  border-top: 5px solid #AF0000;
   color: #AF0000 !important; }
 ._216 .bg li:nth-of-type(110) {
   background-color: #AF005F !important;
-  border-top: 5px solid #AF005F;
   color: #AF005F !important; }
 ._216 .bg li:nth-of-type(111) {
   background-color: #AF0087 !important;
-  border-top: 5px solid #AF0087;
   color: #AF0087 !important; }
 ._216 .bg li:nth-of-type(112) {
   background-color: #AF00AF !important;
-  border-top: 5px solid #AF00AF;
   color: #AF00AF !important; }
 ._216 .bg li:nth-of-type(113) {
   background-color: #AF00D7 !important;
-  border-top: 5px solid #AF00D7;
   color: #AF00D7 !important; }
 ._216 .bg li:nth-of-type(114) {
   background-color: #AF00FF !important;
-  border-top: 5px solid #AF00FF;
   color: #AF00FF !important; }
 ._216 .bg li:nth-of-type(115) {
   background-color: #AF5F00 !important;
-  border-top: 5px solid #AF5F00;
   color: #AF5F00 !important; }
 ._216 .bg li:nth-of-type(116) {
   background-color: #AF5F5F !important;
-  border-top: 5px solid #AF5F5F;
   color: #AF5F5F !important; }
 ._216 .bg li:nth-of-type(117) {
   background-color: #AF5F87 !important;
-  border-top: 5px solid #AF5F87;
   color: #AF5F87 !important; }
 ._216 .bg li:nth-of-type(118) {
   background-color: #AF5FAF !important;
-  border-top: 5px solid #AF5FAF;
   color: #AF5FAF !important; }
 ._216 .bg li:nth-of-type(119) {
   background-color: #AF5FD7 !important;
-  border-top: 5px solid #AF5FD7;
   color: #AF5FD7 !important; }
 ._216 .bg li:nth-of-type(120) {
   background-color: #AF5FFF !important;
-  border-top: 5px solid #AF5FFF;
   color: #AF5FFF !important; }
 ._216 .bg li:nth-of-type(121) {
   background-color: #AF8700 !important;
-  border-top: 5px solid #AF8700;
   color: #AF8700 !important; }
 ._216 .bg li:nth-of-type(122) {
   background-color: #AF875F !important;
-  border-top: 5px solid #AF875F;
   color: #AF875F !important; }
 ._216 .bg li:nth-of-type(123) {
   background-color: #AF8787 !important;
-  border-top: 5px solid #AF8787;
   color: #AF8787 !important; }
 ._216 .bg li:nth-of-type(124) {
   background-color: #AF87AF !important;
-  border-top: 5px solid #AF87AF;
   color: #AF87AF !important; }
 ._216 .bg li:nth-of-type(125) {
   background-color: #AF87D7 !important;
-  border-top: 5px solid #AF87D7;
   color: #AF87D7 !important; }
 ._216 .bg li:nth-of-type(126) {
   background-color: #AF87FF !important;
-  border-top: 5px solid #AF87FF;
   color: #AF87FF !important; }
 ._216 .bg li:nth-of-type(127) {
   background-color: #AFAF00 !important;
-  border-top: 5px solid #AFAF00;
   color: #AFAF00 !important; }
 ._216 .bg li:nth-of-type(128) {
   background-color: #AFAF5F !important;
-  border-top: 5px solid #AFAF5F;
   color: #AFAF5F !important; }
 ._216 .bg li:nth-of-type(129) {
   background-color: #AFAF87 !important;
-  border-top: 5px solid #AFAF87;
   color: #AFAF87 !important; }
 ._216 .bg li:nth-of-type(130) {
   background-color: #AFAFAF !important;
-  border-top: 5px solid #AFAFAF;
   color: #AFAFAF !important; }
 ._216 .bg li:nth-of-type(131) {
   background-color: #AFAFD7 !important;
-  border-top: 5px solid #AFAFD7;
   color: #AFAFD7 !important; }
 ._216 .bg li:nth-of-type(132) {
   background-color: #AFAFFF !important;
-  border-top: 5px solid #AFAFFF;
   color: #AFAFFF !important; }
 ._216 .bg li:nth-of-type(133) {
   background-color: #AFD700 !important;
-  border-top: 5px solid #AFD700;
   color: #AFD700 !important; }
 ._216 .bg li:nth-of-type(134) {
   background-color: #AFD75F !important;
-  border-top: 5px solid #AFD75F;
   color: #AFD75F !important; }
 ._216 .bg li:nth-of-type(135) {
   background-color: #AFD787 !important;
-  border-top: 5px solid #AFD787;
   color: #AFD787 !important; }
 ._216 .bg li:nth-of-type(136) {
   background-color: #AFD7AF !important;
-  border-top: 5px solid #AFD7AF;
   color: #AFD7AF !important; }
 ._216 .bg li:nth-of-type(137) {
   background-color: #AFD7D7 !important;
-  border-top: 5px solid #AFD7D7;
   color: #AFD7D7 !important; }
 ._216 .bg li:nth-of-type(138) {
   background-color: #AFD7FF !important;
-  border-top: 5px solid #AFD7FF;
   color: #AFD7FF !important; }
 ._216 .bg li:nth-of-type(139) {
   background-color: #AFFF00 !important;
-  border-top: 5px solid #AFFF00;
   color: #AFFF00 !important; }
 ._216 .bg li:nth-of-type(140) {
   background-color: #AFFF5F !important;
-  border-top: 5px solid #AFFF5F;
   color: #AFFF5F !important; }
 ._216 .bg li:nth-of-type(141) {
   background-color: #AFFF87 !important;
-  border-top: 5px solid #AFFF87;
   color: #AFFF87 !important; }
 ._216 .bg li:nth-of-type(142) {
   background-color: #AFFFAF !important;
-  border-top: 5px solid #AFFFAF;
   color: #AFFFAF !important; }
 ._216 .bg li:nth-of-type(143) {
   background-color: #AFFFD7 !important;
-  border-top: 5px solid #AFFFD7;
   color: #AFFFD7 !important; }
 ._216 .bg li:nth-of-type(144) {
   background-color: #AFFFFF !important;
-  border-top: 5px solid #AFFFFF;
   color: #AFFFFF !important; }
 ._216 .bg li:nth-of-type(145) {
   background-color: #D70000 !important;
-  border-top: 5px solid #D70000;
   color: #D70000 !important; }
 ._216 .bg li:nth-of-type(146) {
   background-color: #D7005F !important;
-  border-top: 5px solid #D7005F;
   color: #D7005F !important; }
 ._216 .bg li:nth-of-type(147) {
   background-color: #D70087 !important;
-  border-top: 5px solid #D70087;
   color: #D70087 !important; }
 ._216 .bg li:nth-of-type(148) {
   background-color: #D700AF !important;
-  border-top: 5px solid #D700AF;
   color: #D700AF !important; }
 ._216 .bg li:nth-of-type(149) {
   background-color: #D700D7 !important;
-  border-top: 5px solid #D700D7;
   color: #D700D7 !important; }
 ._216 .bg li:nth-of-type(150) {
   background-color: #D700FF !important;
-  border-top: 5px solid #D700FF;
   color: #D700FF !important; }
 ._216 .bg li:nth-of-type(151) {
   background-color: #D75F00 !important;
-  border-top: 5px solid #D75F00;
   color: #D75F00 !important; }
 ._216 .bg li:nth-of-type(152) {
   background-color: #D75F5F !important;
-  border-top: 5px solid #D75F5F;
   color: #D75F5F !important; }
 ._216 .bg li:nth-of-type(153) {
   background-color: #D75F87 !important;
-  border-top: 5px solid #D75F87;
   color: #D75F87 !important; }
 ._216 .bg li:nth-of-type(154) {
   background-color: #D75FAF !important;
-  border-top: 5px solid #D75FAF;
   color: #D75FAF !important; }
 ._216 .bg li:nth-of-type(155) {
   background-color: #D75FD7 !important;
-  border-top: 5px solid #D75FD7;
   color: #D75FD7 !important; }
 ._216 .bg li:nth-of-type(156) {
   background-color: #D75FFF !important;
-  border-top: 5px solid #D75FFF;
   color: #D75FFF !important; }
 ._216 .bg li:nth-of-type(157) {
   background-color: #D78700 !important;
-  border-top: 5px solid #D78700;
   color: #D78700 !important; }
 ._216 .bg li:nth-of-type(158) {
   background-color: #D7875F !important;
-  border-top: 5px solid #D7875F;
   color: #D7875F !important; }
 ._216 .bg li:nth-of-type(159) {
   background-color: #D78787 !important;
-  border-top: 5px solid #D78787;
   color: #D78787 !important; }
 ._216 .bg li:nth-of-type(160) {
   background-color: #D787AF !important;
-  border-top: 5px solid #D787AF;
   color: #D787AF !important; }
 ._216 .bg li:nth-of-type(161) {
   background-color: #D787D7 !important;
-  border-top: 5px solid #D787D7;
   color: #D787D7 !important; }
 ._216 .bg li:nth-of-type(162) {
   background-color: #D787FF !important;
-  border-top: 5px solid #D787FF;
   color: #D787FF !important; }
 ._216 .bg li:nth-of-type(163) {
   background-color: #D7AF00 !important;
-  border-top: 5px solid #D7AF00;
   color: #D7AF00 !important; }
 ._216 .bg li:nth-of-type(164) {
   background-color: #D7AF5F !important;
-  border-top: 5px solid #D7AF5F;
   color: #D7AF5F !important; }
 ._216 .bg li:nth-of-type(165) {
   background-color: #D7AF87 !important;
-  border-top: 5px solid #D7AF87;
   color: #D7AF87 !important; }
 ._216 .bg li:nth-of-type(166) {
   background-color: #D7AFAF !important;
-  border-top: 5px solid #D7AFAF;
   color: #D7AFAF !important; }
 ._216 .bg li:nth-of-type(167) {
   background-color: #D7AFD7 !important;
-  border-top: 5px solid #D7AFD7;
   color: #D7AFD7 !important; }
 ._216 .bg li:nth-of-type(168) {
   background-color: #D7AFFF !important;
-  border-top: 5px solid #D7AFFF;
   color: #D7AFFF !important; }
 ._216 .bg li:nth-of-type(169) {
   background-color: #D7D700 !important;
-  border-top: 5px solid #D7D700;
   color: #D7D700 !important; }
 ._216 .bg li:nth-of-type(170) {
   background-color: #D7D75F !important;
-  border-top: 5px solid #D7D75F;
   color: #D7D75F !important; }
 ._216 .bg li:nth-of-type(171) {
   background-color: #D7D787 !important;
-  border-top: 5px solid #D7D787;
   color: #D7D787 !important; }
 ._216 .bg li:nth-of-type(172) {
   background-color: #D7D7AF !important;
-  border-top: 5px solid #D7D7AF;
   color: #D7D7AF !important; }
 ._216 .bg li:nth-of-type(173) {
   background-color: #D7D7D7 !important;
-  border-top: 5px solid #D7D7D7;
   color: #D7D7D7 !important; }
 ._216 .bg li:nth-of-type(174) {
   background-color: #D7D7FF !important;
-  border-top: 5px solid #D7D7FF;
   color: #D7D7FF !important; }
 ._216 .bg li:nth-of-type(175) {
   background-color: #D7FF00 !important;
-  border-top: 5px solid #D7FF00;
   color: #D7FF00 !important; }
 ._216 .bg li:nth-of-type(176) {
   background-color: #D7FF5F !important;
-  border-top: 5px solid #D7FF5F;
   color: #D7FF5F !important; }
 ._216 .bg li:nth-of-type(177) {
   background-color: #D7FF87 !important;
-  border-top: 5px solid #D7FF87;
   color: #D7FF87 !important; }
 ._216 .bg li:nth-of-type(178) {
   background-color: #D7FFAF !important;
-  border-top: 5px solid #D7FFAF;
   color: #D7FFAF !important; }
 ._216 .bg li:nth-of-type(179) {
   background-color: #D7FFD7 !important;
-  border-top: 5px solid #D7FFD7;
   color: #D7FFD7 !important; }
 ._216 .bg li:nth-of-type(180) {
   background-color: #D7FFFF !important;
-  border-top: 5px solid #D7FFFF;
   color: #D7FFFF !important; }
 ._216 .bg li:nth-of-type(181) {
   background-color: #FF0000 !important;
-  border-top: 5px solid #FF0000;
   color: #FF0000 !important; }
 ._216 .bg li:nth-of-type(182) {
   background-color: #FF005F !important;
-  border-top: 5px solid #FF005F;
   color: #FF005F !important; }
 ._216 .bg li:nth-of-type(183) {
   background-color: #FF0087 !important;
-  border-top: 5px solid #FF0087;
   color: #FF0087 !important; }
 ._216 .bg li:nth-of-type(184) {
   background-color: #FF00AF !important;
-  border-top: 5px solid #FF00AF;
   color: #FF00AF !important; }
 ._216 .bg li:nth-of-type(185) {
   background-color: #FF00D7 !important;
-  border-top: 5px solid #FF00D7;
   color: #FF00D7 !important; }
 ._216 .bg li:nth-of-type(186) {
   background-color: #FF00FF !important;
-  border-top: 5px solid #FF00FF;
   color: #FF00FF !important; }
 ._216 .bg li:nth-of-type(187) {
   background-color: #FF5F00 !important;
-  border-top: 5px solid #FF5F00;
   color: #FF5F00 !important; }
 ._216 .bg li:nth-of-type(188) {
   background-color: #FF5F5F !important;
-  border-top: 5px solid #FF5F5F;
   color: #FF5F5F !important; }
 ._216 .bg li:nth-of-type(189) {
   background-color: #FF5F87 !important;
-  border-top: 5px solid #FF5F87;
   color: #FF5F87 !important; }
 ._216 .bg li:nth-of-type(190) {
   background-color: #FF5FAF !important;
-  border-top: 5px solid #FF5FAF;
   color: #FF5FAF !important; }
 ._216 .bg li:nth-of-type(191) {
   background-color: #FF5FD7 !important;
-  border-top: 5px solid #FF5FD7;
   color: #FF5FD7 !important; }
 ._216 .bg li:nth-of-type(192) {
   background-color: #FF5FFF !important;
-  border-top: 5px solid #FF5FFF;
   color: #FF5FFF !important; }
 ._216 .bg li:nth-of-type(193) {
   background-color: #FF8700 !important;
-  border-top: 5px solid #FF8700;
   color: #FF8700 !important; }
 ._216 .bg li:nth-of-type(194) {
   background-color: #FF875F !important;
-  border-top: 5px solid #FF875F;
   color: #FF875F !important; }
 ._216 .bg li:nth-of-type(195) {
   background-color: #FF8787 !important;
-  border-top: 5px solid #FF8787;
   color: #FF8787 !important; }
 ._216 .bg li:nth-of-type(196) {
   background-color: #FF87AF !important;
-  border-top: 5px solid #FF87AF;
   color: #FF87AF !important; }
 ._216 .bg li:nth-of-type(197) {
   background-color: #FF87D7 !important;
-  border-top: 5px solid #FF87D7;
   color: #FF87D7 !important; }
 ._216 .bg li:nth-of-type(198) {
   background-color: #FF87FF !important;
-  border-top: 5px solid #FF87FF;
   color: #FF87FF !important; }
 ._216 .bg li:nth-of-type(199) {
   background-color: #FFAF00 !important;
-  border-top: 5px solid #FFAF00;
   color: #FFAF00 !important; }
 ._216 .bg li:nth-of-type(200) {
   background-color: #FFAF5F !important;
-  border-top: 5px solid #FFAF5F;
   color: #FFAF5F !important; }
 ._216 .bg li:nth-of-type(201) {
   background-color: #FFAF87 !important;
-  border-top: 5px solid #FFAF87;
   color: #FFAF87 !important; }
 ._216 .bg li:nth-of-type(202) {
   background-color: #FFAFAF !important;
-  border-top: 5px solid #FFAFAF;
   color: #FFAFAF !important; }
 ._216 .bg li:nth-of-type(203) {
   background-color: #FFAFD7 !important;
-  border-top: 5px solid #FFAFD7;
   color: #FFAFD7 !important; }
 ._216 .bg li:nth-of-type(204) {
   background-color: #FFAFFF !important;
-  border-top: 5px solid #FFAFFF;
   color: #FFAFFF !important; }
 ._216 .bg li:nth-of-type(205) {
   background-color: #FFD700 !important;
-  border-top: 5px solid #FFD700;
   color: #FFD700 !important; }
 ._216 .bg li:nth-of-type(206) {
   background-color: #FFD75F !important;
-  border-top: 5px solid #FFD75F;
   color: #FFD75F !important; }
 ._216 .bg li:nth-of-type(207) {
   background-color: #FFD787 !important;
-  border-top: 5px solid #FFD787;
   color: #FFD787 !important; }
 ._216 .bg li:nth-of-type(208) {
   background-color: #FFD7AF !important;
-  border-top: 5px solid #FFD7AF;
   color: #FFD7AF !important; }
 ._216 .bg li:nth-of-type(209) {
   background-color: #FFD7D7 !important;
-  border-top: 5px solid #FFD7D7;
   color: #FFD7D7 !important; }
 ._216 .bg li:nth-of-type(210) {
   background-color: #FFD7FF !important;
-  border-top: 5px solid #FFD7FF;
   color: #FFD7FF !important; }
 ._216 .bg li:nth-of-type(211) {
   background-color: #FFFF00 !important;
-  border-top: 5px solid #FFFF00;
   color: #FFFF00 !important; }
 ._216 .bg li:nth-of-type(212) {
   background-color: #FFFF5F !important;
-  border-top: 5px solid #FFFF5F;
   color: #FFFF5F !important; }
 ._216 .bg li:nth-of-type(213) {
   background-color: #FFFF87 !important;
-  border-top: 5px solid #FFFF87;
   color: #FFFF87 !important; }
 ._216 .bg li:nth-of-type(214) {
   background-color: #FFFFAF !important;
-  border-top: 5px solid #FFFFAF;
   color: #FFFFAF !important; }
 ._216 .bg li:nth-of-type(215) {
   background-color: #FFFFD7 !important;
-  border-top: 5px solid #FFFFD7;
   color: #FFFFD7 !important; }
 ._216 .bg li:nth-of-type(216) {
   background-color: #FFFFFF !important;
-  border-top: 5px solid #FFFFFF;
   color: #FFFFFF !important; }
 ._216 li:nth-of-type(1) {
-  border-bottom: 5px solid #000000; }
+  border-top: 3px solid #000000;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(2) {
-  border-bottom: 5px solid #00005F; }
+  border-top: 3px solid #00005F;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(3) {
-  border-bottom: 5px solid #000087; }
+  border-top: 3px solid #000087;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(4) {
-  border-bottom: 5px solid #0000AF; }
+  border-top: 3px solid #0000AF;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(5) {
-  border-bottom: 5px solid #0000D7; }
+  border-top: 3px solid #0000D7;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(6) {
-  border-bottom: 5px solid #0000FF; }
+  border-top: 3px solid #0000FF;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(7) {
-  border-bottom: 5px solid #005F00; }
+  border-top: 3px solid #005F00;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(8) {
-  border-bottom: 5px solid #005F5F; }
+  border-top: 3px solid #005F5F;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(9) {
-  border-bottom: 5px solid #005F87; }
+  border-top: 3px solid #005F87;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(10) {
-  border-bottom: 5px solid #005FAF; }
+  border-top: 3px solid #005FAF;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(11) {
-  border-bottom: 5px solid #005FD7; }
+  border-top: 3px solid #005FD7;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(12) {
-  border-bottom: 5px solid #005FFF; }
+  border-top: 3px solid #005FFF;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(13) {
-  border-bottom: 5px solid #008700; }
+  border-top: 3px solid #008700;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(14) {
-  border-bottom: 5px solid #00875F; }
+  border-top: 3px solid #00875F;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(15) {
-  border-bottom: 5px solid #008787; }
+  border-top: 3px solid #008787;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(16) {
-  border-bottom: 5px solid #0087AF; }
+  border-top: 3px solid #0087AF;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(17) {
-  border-bottom: 5px solid #0087D7; }
+  border-top: 3px solid #0087D7;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(18) {
-  border-bottom: 5px solid #0087FF; }
+  border-top: 3px solid #0087FF;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(19) {
-  border-bottom: 5px solid #00AF00; }
+  border-top: 3px solid #00AF00;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(20) {
-  border-bottom: 5px solid #00AF5F; }
+  border-top: 3px solid #00AF5F;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(21) {
-  border-bottom: 5px solid #00AF87; }
+  border-top: 3px solid #00AF87;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(22) {
-  border-bottom: 5px solid #00AFAF; }
+  border-top: 3px solid #00AFAF;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(23) {
-  border-bottom: 5px solid #00AFD7; }
+  border-top: 3px solid #00AFD7;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(24) {
-  border-bottom: 5px solid #00AFFF; }
+  border-top: 3px solid #00AFFF;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(25) {
-  border-bottom: 5px solid #00D700; }
+  border-top: 3px solid #00D700;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(26) {
-  border-bottom: 5px solid #00D75F; }
+  border-top: 3px solid #00D75F;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(27) {
-  border-bottom: 5px solid #00D787; }
+  border-top: 3px solid #00D787;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(28) {
-  border-bottom: 5px solid #00D7AF; }
+  border-top: 3px solid #00D7AF;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(29) {
-  border-bottom: 5px solid #00D7D7; }
+  border-top: 3px solid #00D7D7;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(30) {
-  border-bottom: 5px solid #00D7FF; }
+  border-top: 3px solid #00D7FF;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(31) {
-  border-bottom: 5px solid #00FF00; }
+  border-top: 3px solid #00FF00;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(32) {
-  border-bottom: 5px solid #00FF5F; }
+  border-top: 3px solid #00FF5F;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(33) {
-  border-bottom: 5px solid #00FF87; }
+  border-top: 3px solid #00FF87;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(34) {
-  border-bottom: 5px solid #00FFAF; }
+  border-top: 3px solid #00FFAF;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(35) {
-  border-bottom: 5px solid #00FFD7; }
+  border-top: 3px solid #00FFD7;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(36) {
-  border-bottom: 5px solid #00FFFF; }
+  border-top: 3px solid #00FFFF;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(37) {
-  border-bottom: 5px solid #5F0000; }
+  border-top: 3px solid #5F0000;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(38) {
-  border-bottom: 5px solid #5F005F; }
+  border-top: 3px solid #5F005F;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(39) {
-  border-bottom: 5px solid #5F0087; }
+  border-top: 3px solid #5F0087;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(40) {
-  border-bottom: 5px solid #5F00AF; }
+  border-top: 3px solid #5F00AF;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(41) {
-  border-bottom: 5px solid #5F00D7; }
+  border-top: 3px solid #5F00D7;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(42) {
-  border-bottom: 5px solid #5F00FF; }
+  border-top: 3px solid #5F00FF;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(43) {
-  border-bottom: 5px solid #5F5F00; }
+  border-top: 3px solid #5F5F00;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(44) {
-  border-bottom: 5px solid #5F5F5F; }
+  border-top: 3px solid #5F5F5F;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(45) {
-  border-bottom: 5px solid #5F5F87; }
+  border-top: 3px solid #5F5F87;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(46) {
-  border-bottom: 5px solid #5F5FAF; }
+  border-top: 3px solid #5F5FAF;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(47) {
-  border-bottom: 5px solid #5F5FD7; }
+  border-top: 3px solid #5F5FD7;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(48) {
-  border-bottom: 5px solid #5F5FFF; }
+  border-top: 3px solid #5F5FFF;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(49) {
-  border-bottom: 5px solid #5F8700; }
+  border-top: 3px solid #5F8700;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(50) {
-  border-bottom: 5px solid #5F875F; }
+  border-top: 3px solid #5F875F;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(51) {
-  border-bottom: 5px solid #5F8787; }
+  border-top: 3px solid #5F8787;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(52) {
-  border-bottom: 5px solid #5F87AF; }
+  border-top: 3px solid #5F87AF;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(53) {
-  border-bottom: 5px solid #5F87D7; }
+  border-top: 3px solid #5F87D7;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(54) {
-  border-bottom: 5px solid #5F87FF; }
+  border-top: 3px solid #5F87FF;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(55) {
-  border-bottom: 5px solid #5FAF00; }
+  border-top: 3px solid #5FAF00;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(56) {
-  border-bottom: 5px solid #5FAF5F; }
+  border-top: 3px solid #5FAF5F;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(57) {
-  border-bottom: 5px solid #5FAF87; }
+  border-top: 3px solid #5FAF87;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(58) {
-  border-bottom: 5px solid #5FAFAF; }
+  border-top: 3px solid #5FAFAF;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(59) {
-  border-bottom: 5px solid #5FAFD7; }
+  border-top: 3px solid #5FAFD7;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(60) {
-  border-bottom: 5px solid #5FAFFF; }
+  border-top: 3px solid #5FAFFF;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(61) {
-  border-bottom: 5px solid #5FD700; }
+  border-top: 3px solid #5FD700;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(62) {
-  border-bottom: 5px solid #5FD75F; }
+  border-top: 3px solid #5FD75F;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(63) {
-  border-bottom: 5px solid #5FD787; }
+  border-top: 3px solid #5FD787;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(64) {
-  border-bottom: 5px solid #5FD7AF; }
+  border-top: 3px solid #5FD7AF;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(65) {
-  border-bottom: 5px solid #5FD7D7; }
+  border-top: 3px solid #5FD7D7;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(66) {
-  border-bottom: 5px solid #5FD7FF; }
+  border-top: 3px solid #5FD7FF;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(67) {
-  border-bottom: 5px solid #5FFF00; }
+  border-top: 3px solid #5FFF00;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(68) {
-  border-bottom: 5px solid #5FFF5F; }
+  border-top: 3px solid #5FFF5F;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(69) {
-  border-bottom: 5px solid #5FFF87; }
+  border-top: 3px solid #5FFF87;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(70) {
-  border-bottom: 5px solid #5FFFAF; }
+  border-top: 3px solid #5FFFAF;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(71) {
-  border-bottom: 5px solid #5FFFD7; }
+  border-top: 3px solid #5FFFD7;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(72) {
-  border-bottom: 5px solid #5FFFFF; }
+  border-top: 3px solid #5FFFFF;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(73) {
-  border-bottom: 5px solid #870000; }
+  border-top: 3px solid #870000;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(74) {
-  border-bottom: 5px solid #87005F; }
+  border-top: 3px solid #87005F;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(75) {
-  border-bottom: 5px solid #870087; }
+  border-top: 3px solid #870087;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(76) {
-  border-bottom: 5px solid #8700AF; }
+  border-top: 3px solid #8700AF;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(77) {
-  border-bottom: 5px solid #8700D7; }
+  border-top: 3px solid #8700D7;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(78) {
-  border-bottom: 5px solid #8700FF; }
+  border-top: 3px solid #8700FF;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(79) {
-  border-bottom: 5px solid #875F00; }
+  border-top: 3px solid #875F00;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(80) {
-  border-bottom: 5px solid #875F5F; }
+  border-top: 3px solid #875F5F;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(81) {
-  border-bottom: 5px solid #875F87; }
+  border-top: 3px solid #875F87;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(82) {
-  border-bottom: 5px solid #875FAF; }
+  border-top: 3px solid #875FAF;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(83) {
-  border-bottom: 5px solid #875FD7; }
+  border-top: 3px solid #875FD7;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(84) {
-  border-bottom: 5px solid #875FFF; }
+  border-top: 3px solid #875FFF;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(85) {
-  border-bottom: 5px solid #878700; }
+  border-top: 3px solid #878700;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(86) {
-  border-bottom: 5px solid #87875F; }
+  border-top: 3px solid #87875F;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(87) {
-  border-bottom: 5px solid #878787; }
+  border-top: 3px solid #878787;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(88) {
-  border-bottom: 5px solid #8787AF; }
+  border-top: 3px solid #8787AF;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(89) {
-  border-bottom: 5px solid #8787D7; }
+  border-top: 3px solid #8787D7;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(90) {
-  border-bottom: 5px solid #8787FF; }
+  border-top: 3px solid #8787FF;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(91) {
-  border-bottom: 5px solid #87AF00; }
+  border-top: 3px solid #87AF00;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(92) {
-  border-bottom: 5px solid #87AF5F; }
+  border-top: 3px solid #87AF5F;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(93) {
-  border-bottom: 5px solid #87AF87; }
+  border-top: 3px solid #87AF87;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(94) {
-  border-bottom: 5px solid #87AFAF; }
+  border-top: 3px solid #87AFAF;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(95) {
-  border-bottom: 5px solid #87AFD7; }
+  border-top: 3px solid #87AFD7;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(96) {
-  border-bottom: 5px solid #87AFFF; }
+  border-top: 3px solid #87AFFF;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(97) {
-  border-bottom: 5px solid #87D700; }
+  border-top: 3px solid #87D700;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(98) {
-  border-bottom: 5px solid #87D75F; }
+  border-top: 3px solid #87D75F;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(99) {
-  border-bottom: 5px solid #87D787; }
+  border-top: 3px solid #87D787;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(100) {
-  border-bottom: 5px solid #87D7AF; }
+  border-top: 3px solid #87D7AF;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(101) {
-  border-bottom: 5px solid #87D7D7; }
+  border-top: 3px solid #87D7D7;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(102) {
-  border-bottom: 5px solid #87D7FF; }
+  border-top: 3px solid #87D7FF;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(103) {
-  border-bottom: 5px solid #87FF00; }
+  border-top: 3px solid #87FF00;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(104) {
-  border-bottom: 5px solid #87FF5F; }
+  border-top: 3px solid #87FF5F;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(105) {
-  border-bottom: 5px solid #87FF87; }
+  border-top: 3px solid #87FF87;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(106) {
-  border-bottom: 5px solid #87FFAF; }
+  border-top: 3px solid #87FFAF;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(107) {
-  border-bottom: 5px solid #87FFD7; }
+  border-top: 3px solid #87FFD7;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(108) {
-  border-bottom: 5px solid #87FFFF; }
+  border-top: 3px solid #87FFFF;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(109) {
-  border-bottom: 5px solid #AF0000; }
+  border-top: 3px solid #AF0000;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(110) {
-  border-bottom: 5px solid #AF005F; }
+  border-top: 3px solid #AF005F;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(111) {
-  border-bottom: 5px solid #AF0087; }
+  border-top: 3px solid #AF0087;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(112) {
-  border-bottom: 5px solid #AF00AF; }
+  border-top: 3px solid #AF00AF;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(113) {
-  border-bottom: 5px solid #AF00D7; }
+  border-top: 3px solid #AF00D7;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(114) {
-  border-bottom: 5px solid #AF00FF; }
+  border-top: 3px solid #AF00FF;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(115) {
-  border-bottom: 5px solid #AF5F00; }
+  border-top: 3px solid #AF5F00;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(116) {
-  border-bottom: 5px solid #AF5F5F; }
+  border-top: 3px solid #AF5F5F;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(117) {
-  border-bottom: 5px solid #AF5F87; }
+  border-top: 3px solid #AF5F87;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(118) {
-  border-bottom: 5px solid #AF5FAF; }
+  border-top: 3px solid #AF5FAF;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(119) {
-  border-bottom: 5px solid #AF5FD7; }
+  border-top: 3px solid #AF5FD7;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(120) {
-  border-bottom: 5px solid #AF5FFF; }
+  border-top: 3px solid #AF5FFF;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(121) {
-  border-bottom: 5px solid #AF8700; }
+  border-top: 3px solid #AF8700;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(122) {
-  border-bottom: 5px solid #AF875F; }
+  border-top: 3px solid #AF875F;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(123) {
-  border-bottom: 5px solid #AF8787; }
+  border-top: 3px solid #AF8787;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(124) {
-  border-bottom: 5px solid #AF87AF; }
+  border-top: 3px solid #AF87AF;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(125) {
-  border-bottom: 5px solid #AF87D7; }
+  border-top: 3px solid #AF87D7;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(126) {
-  border-bottom: 5px solid #AF87FF; }
+  border-top: 3px solid #AF87FF;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(127) {
-  border-bottom: 5px solid #AFAF00; }
+  border-top: 3px solid #AFAF00;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(128) {
-  border-bottom: 5px solid #AFAF5F; }
+  border-top: 3px solid #AFAF5F;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(129) {
-  border-bottom: 5px solid #AFAF87; }
+  border-top: 3px solid #AFAF87;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(130) {
-  border-bottom: 5px solid #AFAFAF; }
+  border-top: 3px solid #AFAFAF;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(131) {
-  border-bottom: 5px solid #AFAFD7; }
+  border-top: 3px solid #AFAFD7;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(132) {
-  border-bottom: 5px solid #AFAFFF; }
+  border-top: 3px solid #AFAFFF;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(133) {
-  border-bottom: 5px solid #AFD700; }
+  border-top: 3px solid #AFD700;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(134) {
-  border-bottom: 5px solid #AFD75F; }
+  border-top: 3px solid #AFD75F;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(135) {
-  border-bottom: 5px solid #AFD787; }
+  border-top: 3px solid #AFD787;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(136) {
-  border-bottom: 5px solid #AFD7AF; }
+  border-top: 3px solid #AFD7AF;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(137) {
-  border-bottom: 5px solid #AFD7D7; }
+  border-top: 3px solid #AFD7D7;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(138) {
-  border-bottom: 5px solid #AFD7FF; }
+  border-top: 3px solid #AFD7FF;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(139) {
-  border-bottom: 5px solid #AFFF00; }
+  border-top: 3px solid #AFFF00;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(140) {
-  border-bottom: 5px solid #AFFF5F; }
+  border-top: 3px solid #AFFF5F;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(141) {
-  border-bottom: 5px solid #AFFF87; }
+  border-top: 3px solid #AFFF87;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(142) {
-  border-bottom: 5px solid #AFFFAF; }
+  border-top: 3px solid #AFFFAF;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(143) {
-  border-bottom: 5px solid #AFFFD7; }
+  border-top: 3px solid #AFFFD7;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(144) {
-  border-bottom: 5px solid #AFFFFF; }
+  border-top: 3px solid #AFFFFF;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(145) {
-  border-bottom: 5px solid #D70000; }
+  border-top: 3px solid #D70000;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(146) {
-  border-bottom: 5px solid #D7005F; }
+  border-top: 3px solid #D7005F;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(147) {
-  border-bottom: 5px solid #D70087; }
+  border-top: 3px solid #D70087;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(148) {
-  border-bottom: 5px solid #D700AF; }
+  border-top: 3px solid #D700AF;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(149) {
-  border-bottom: 5px solid #D700D7; }
+  border-top: 3px solid #D700D7;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(150) {
-  border-bottom: 5px solid #D700FF; }
+  border-top: 3px solid #D700FF;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(151) {
-  border-bottom: 5px solid #D75F00; }
+  border-top: 3px solid #D75F00;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(152) {
-  border-bottom: 5px solid #D75F5F; }
+  border-top: 3px solid #D75F5F;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(153) {
-  border-bottom: 5px solid #D75F87; }
+  border-top: 3px solid #D75F87;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(154) {
-  border-bottom: 5px solid #D75FAF; }
+  border-top: 3px solid #D75FAF;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(155) {
-  border-bottom: 5px solid #D75FD7; }
+  border-top: 3px solid #D75FD7;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(156) {
-  border-bottom: 5px solid #D75FFF; }
+  border-top: 3px solid #D75FFF;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(157) {
-  border-bottom: 5px solid #D78700; }
+  border-top: 3px solid #D78700;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(158) {
-  border-bottom: 5px solid #D7875F; }
+  border-top: 3px solid #D7875F;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(159) {
-  border-bottom: 5px solid #D78787; }
+  border-top: 3px solid #D78787;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(160) {
-  border-bottom: 5px solid #D787AF; }
+  border-top: 3px solid #D787AF;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(161) {
-  border-bottom: 5px solid #D787D7; }
+  border-top: 3px solid #D787D7;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(162) {
-  border-bottom: 5px solid #D787FF; }
+  border-top: 3px solid #D787FF;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(163) {
-  border-bottom: 5px solid #D7AF00; }
+  border-top: 3px solid #D7AF00;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(164) {
-  border-bottom: 5px solid #D7AF5F; }
+  border-top: 3px solid #D7AF5F;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(165) {
-  border-bottom: 5px solid #D7AF87; }
+  border-top: 3px solid #D7AF87;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(166) {
-  border-bottom: 5px solid #D7AFAF; }
+  border-top: 3px solid #D7AFAF;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(167) {
-  border-bottom: 5px solid #D7AFD7; }
+  border-top: 3px solid #D7AFD7;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(168) {
-  border-bottom: 5px solid #D7AFFF; }
+  border-top: 3px solid #D7AFFF;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(169) {
-  border-bottom: 5px solid #D7D700; }
+  border-top: 3px solid #D7D700;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(170) {
-  border-bottom: 5px solid #D7D75F; }
+  border-top: 3px solid #D7D75F;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(171) {
-  border-bottom: 5px solid #D7D787; }
+  border-top: 3px solid #D7D787;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(172) {
-  border-bottom: 5px solid #D7D7AF; }
+  border-top: 3px solid #D7D7AF;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(173) {
-  border-bottom: 5px solid #D7D7D7; }
+  border-top: 3px solid #D7D7D7;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(174) {
-  border-bottom: 5px solid #D7D7FF; }
+  border-top: 3px solid #D7D7FF;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(175) {
-  border-bottom: 5px solid #D7FF00; }
+  border-top: 3px solid #D7FF00;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(176) {
-  border-bottom: 5px solid #D7FF5F; }
+  border-top: 3px solid #D7FF5F;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(177) {
-  border-bottom: 5px solid #D7FF87; }
+  border-top: 3px solid #D7FF87;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(178) {
-  border-bottom: 5px solid #D7FFAF; }
+  border-top: 3px solid #D7FFAF;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(179) {
-  border-bottom: 5px solid #D7FFD7; }
+  border-top: 3px solid #D7FFD7;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(180) {
-  border-bottom: 5px solid #D7FFFF; }
+  border-top: 3px solid #D7FFFF;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(181) {
-  border-bottom: 5px solid #FF0000; }
+  border-top: 3px solid #FF0000;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(182) {
-  border-bottom: 5px solid #FF005F; }
+  border-top: 3px solid #FF005F;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(183) {
-  border-bottom: 5px solid #FF0087; }
+  border-top: 3px solid #FF0087;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(184) {
-  border-bottom: 5px solid #FF00AF; }
+  border-top: 3px solid #FF00AF;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(185) {
-  border-bottom: 5px solid #FF00D7; }
+  border-top: 3px solid #FF00D7;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(186) {
-  border-bottom: 5px solid #FF00FF; }
+  border-top: 3px solid #FF00FF;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(187) {
-  border-bottom: 5px solid #FF5F00; }
+  border-top: 3px solid #FF5F00;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(188) {
-  border-bottom: 5px solid #FF5F5F; }
+  border-top: 3px solid #FF5F5F;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(189) {
-  border-bottom: 5px solid #FF5F87; }
+  border-top: 3px solid #FF5F87;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(190) {
-  border-bottom: 5px solid #FF5FAF; }
+  border-top: 3px solid #FF5FAF;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(191) {
-  border-bottom: 5px solid #FF5FD7; }
+  border-top: 3px solid #FF5FD7;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(192) {
-  border-bottom: 5px solid #FF5FFF; }
+  border-top: 3px solid #FF5FFF;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(193) {
-  border-bottom: 5px solid #FF8700; }
+  border-top: 3px solid #FF8700;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(194) {
-  border-bottom: 5px solid #FF875F; }
+  border-top: 3px solid #FF875F;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(195) {
-  border-bottom: 5px solid #FF8787; }
+  border-top: 3px solid #FF8787;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(196) {
-  border-bottom: 5px solid #FF87AF; }
+  border-top: 3px solid #FF87AF;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(197) {
-  border-bottom: 5px solid #FF87D7; }
+  border-top: 3px solid #FF87D7;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(198) {
-  border-bottom: 5px solid #FF87FF; }
+  border-top: 3px solid #FF87FF;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(199) {
-  border-bottom: 5px solid #FFAF00; }
+  border-top: 3px solid #FFAF00;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(200) {
-  border-bottom: 5px solid #FFAF5F; }
+  border-top: 3px solid #FFAF5F;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(201) {
-  border-bottom: 5px solid #FFAF87; }
+  border-top: 3px solid #FFAF87;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(202) {
-  border-bottom: 5px solid #FFAFAF; }
+  border-top: 3px solid #FFAFAF;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(203) {
-  border-bottom: 5px solid #FFAFD7; }
+  border-top: 3px solid #FFAFD7;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(204) {
-  border-bottom: 5px solid #FFAFFF; }
+  border-top: 3px solid #FFAFFF;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(205) {
-  border-bottom: 5px solid #FFD700; }
+  border-top: 3px solid #FFD700;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(206) {
-  border-bottom: 5px solid #FFD75F; }
+  border-top: 3px solid #FFD75F;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(207) {
-  border-bottom: 5px solid #FFD787; }
+  border-top: 3px solid #FFD787;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(208) {
-  border-bottom: 5px solid #FFD7AF; }
+  border-top: 3px solid #FFD7AF;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(209) {
-  border-bottom: 5px solid #FFD7D7; }
+  border-top: 3px solid #FFD7D7;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(210) {
-  border-bottom: 5px solid #FFD7FF; }
+  border-top: 3px solid #FFD7FF;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(211) {
-  border-bottom: 5px solid #FFFF00; }
+  border-top: 3px solid #FFFF00;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(212) {
-  border-bottom: 5px solid #FFFF5F; }
+  border-top: 3px solid #FFFF5F;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(213) {
-  border-bottom: 5px solid #FFFF87; }
+  border-top: 3px solid #FFFF87;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(214) {
-  border-bottom: 5px solid #FFFFAF; }
+  border-top: 3px solid #FFFFAF;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(215) {
-  border-bottom: 5px solid #FFFFD7; }
+  border-top: 3px solid #FFFFD7;
+  color: #e9e9ea !important; }
 ._216 li:nth-of-type(216) {
-  border-bottom: 5px solid #FFFFFF; }
+  border-top: 3px solid #FFFFFF;
+  color: #e9e9ea !important; }
 
 ._24 {
   padding-bottom: 1em; }
   ._24 .bg li:nth-of-type(1) {
     background-color: #080808 !important;
-    border-top: 5px solid #080808;
     color: #080808 !important; }
   ._24 .bg li:nth-of-type(2) {
     background-color: #121212 !important;
-    border-top: 5px solid #121212;
     color: #121212 !important; }
   ._24 .bg li:nth-of-type(3) {
     background-color: #1C1C1C !important;
-    border-top: 5px solid #1C1C1C;
     color: #1C1C1C !important; }
   ._24 .bg li:nth-of-type(4) {
     background-color: #262626 !important;
-    border-top: 5px solid #262626;
     color: #262626 !important; }
   ._24 .bg li:nth-of-type(5) {
     background-color: #303030 !important;
-    border-top: 5px solid #303030;
     color: #303030 !important; }
   ._24 .bg li:nth-of-type(6) {
     background-color: #3A3A3A !important;
-    border-top: 5px solid #3A3A3A;
     color: #3A3A3A !important; }
   ._24 .bg li:nth-of-type(7) {
     background-color: #444444 !important;
-    border-top: 5px solid #444444;
     color: #444444 !important; }
   ._24 .bg li:nth-of-type(8) {
     background-color: #4E4E4E !important;
-    border-top: 5px solid #4E4E4E;
     color: #4E4E4E !important; }
   ._24 .bg li:nth-of-type(9) {
     background-color: #585858 !important;
-    border-top: 5px solid #585858;
     color: #585858 !important; }
   ._24 .bg li:nth-of-type(10) {
     background-color: #606060 !important;
-    border-top: 5px solid #606060;
     color: #606060 !important; }
   ._24 .bg li:nth-of-type(11) {
     background-color: #666666 !important;
-    border-top: 5px solid #666666;
     color: #666666 !important; }
   ._24 .bg li:nth-of-type(12) {
     background-color: #767676 !important;
-    border-top: 5px solid #767676;
     color: #767676 !important; }
   ._24 .bg li:nth-of-type(13) {
     background-color: #808080 !important;
-    border-top: 5px solid #808080;
     color: #808080 !important; }
   ._24 .bg li:nth-of-type(14) {
     background-color: #8A8A8A !important;
-    border-top: 5px solid #8A8A8A;
     color: #8A8A8A !important; }
   ._24 .bg li:nth-of-type(15) {
     background-color: #949494 !important;
-    border-top: 5px solid #949494;
     color: #949494 !important; }
   ._24 .bg li:nth-of-type(16) {
     background-color: #9E9E9E !important;
-    border-top: 5px solid #9E9E9E;
     color: #9E9E9E !important; }
   ._24 .bg li:nth-of-type(17) {
     background-color: #A8A8A8 !important;
-    border-top: 5px solid #A8A8A8;
     color: #A8A8A8 !important; }
   ._24 .bg li:nth-of-type(18) {
     background-color: #B2B2B2 !important;
-    border-top: 5px solid #B2B2B2;
     color: #B2B2B2 !important; }
   ._24 .bg li:nth-of-type(19) {
     background-color: #BCBCBC !important;
-    border-top: 5px solid #BCBCBC;
     color: #BCBCBC !important; }
   ._24 .bg li:nth-of-type(20) {
     background-color: #C6C6C6 !important;
-    border-top: 5px solid #C6C6C6;
     color: #C6C6C6 !important; }
   ._24 .bg li:nth-of-type(21) {
     background-color: #D0D0D0 !important;
-    border-top: 5px solid #D0D0D0;
     color: #D0D0D0 !important; }
   ._24 .bg li:nth-of-type(22) {
     background-color: #DADADA !important;
-    border-top: 5px solid #DADADA;
     color: #DADADA !important; }
   ._24 .bg li:nth-of-type(23) {
     background-color: #E4E4E4 !important;
-    border-top: 5px solid #E4E4E4;
     color: #E4E4E4 !important; }
   ._24 .bg li:nth-of-type(24) {
     background-color: #EEEEEE !important;
-    border-top: 5px solid #EEEEEE;
     color: #EEEEEE !important; }
   ._24 li:nth-of-type(1) {
-    border-bottom: 5px solid #080808; }
+    border-top: 3px solid #080808;
+    color: #e9e9ea !important; }
   ._24 li:nth-of-type(2) {
-    border-bottom: 5px solid #121212; }
+    border-top: 3px solid #121212;
+    color: #e9e9ea !important; }
   ._24 li:nth-of-type(3) {
-    border-bottom: 5px solid #1C1C1C; }
+    border-top: 3px solid #1C1C1C;
+    color: #e9e9ea !important; }
   ._24 li:nth-of-type(4) {
-    border-bottom: 5px solid #262626; }
+    border-top: 3px solid #262626;
+    color: #e9e9ea !important; }
   ._24 li:nth-of-type(5) {
-    border-bottom: 5px solid #303030; }
+    border-top: 3px solid #303030;
+    color: #e9e9ea !important; }
   ._24 li:nth-of-type(6) {
-    border-bottom: 5px solid #3A3A3A; }
+    border-top: 3px solid #3A3A3A;
+    color: #e9e9ea !important; }
   ._24 li:nth-of-type(7) {
-    border-bottom: 5px solid #444444; }
+    border-top: 3px solid #444444;
+    color: #e9e9ea !important; }
   ._24 li:nth-of-type(8) {
-    border-bottom: 5px solid #4E4E4E; }
+    border-top: 3px solid #4E4E4E;
+    color: #e9e9ea !important; }
   ._24 li:nth-of-type(9) {
-    border-bottom: 5px solid #585858; }
+    border-top: 3px solid #585858;
+    color: #e9e9ea !important; }
   ._24 li:nth-of-type(10) {
-    border-bottom: 5px solid #606060; }
+    border-top: 3px solid #606060;
+    color: #e9e9ea !important; }
   ._24 li:nth-of-type(11) {
-    border-bottom: 5px solid #666666; }
+    border-top: 3px solid #666666;
+    color: #e9e9ea !important; }
   ._24 li:nth-of-type(12) {
-    border-bottom: 5px solid #767676; }
+    border-top: 3px solid #767676;
+    color: #e9e9ea !important; }
   ._24 li:nth-of-type(13) {
-    border-bottom: 5px solid #808080; }
+    border-top: 3px solid #808080;
+    color: #e9e9ea !important; }
   ._24 li:nth-of-type(14) {
-    border-bottom: 5px solid #8A8A8A; }
+    border-top: 3px solid #8A8A8A;
+    color: #e9e9ea !important; }
   ._24 li:nth-of-type(15) {
-    border-bottom: 5px solid #949494; }
+    border-top: 3px solid #949494;
+    color: #e9e9ea !important; }
   ._24 li:nth-of-type(16) {
-    border-bottom: 5px solid #9E9E9E; }
+    border-top: 3px solid #9E9E9E;
+    color: #e9e9ea !important; }
   ._24 li:nth-of-type(17) {
-    border-bottom: 5px solid #A8A8A8; }
+    border-top: 3px solid #A8A8A8;
+    color: #e9e9ea !important; }
   ._24 li:nth-of-type(18) {
-    border-bottom: 5px solid #B2B2B2; }
+    border-top: 3px solid #B2B2B2;
+    color: #e9e9ea !important; }
   ._24 li:nth-of-type(19) {
-    border-bottom: 5px solid #BCBCBC; }
+    border-top: 3px solid #BCBCBC;
+    color: #e9e9ea !important; }
   ._24 li:nth-of-type(20) {
-    border-bottom: 5px solid #C6C6C6; }
+    border-top: 3px solid #C6C6C6;
+    color: #e9e9ea !important; }
   ._24 li:nth-of-type(21) {
-    border-bottom: 5px solid #D0D0D0; }
+    border-top: 3px solid #D0D0D0;
+    color: #e9e9ea !important; }
   ._24 li:nth-of-type(22) {
-    border-bottom: 5px solid #DADADA; }
+    border-top: 3px solid #DADADA;
+    color: #e9e9ea !important; }
   ._24 li:nth-of-type(23) {
-    border-bottom: 5px solid #E4E4E4; }
+    border-top: 3px solid #E4E4E4;
+    color: #e9e9ea !important; }
   ._24 li:nth-of-type(24) {
-    border-bottom: 5px solid #EEEEEE; }
+    border-top: 3px solid #EEEEEE;
+    color: #e9e9ea !important; }
 
 [data-bg='dark'] {
   background-color: #202429; }
-  [data-bg='dark'] .colors li {
-    color: #b0b2b4; }
 
 [data-bg='light'] {
   background-color: #fff;
   color: #202429; }
-  [data-bg='light'] .colors li {
-    color: #202429 !important; }
 
 @media screen and (min-width: 841px) {
   .palette,
@@ -1928,8 +5459,8 @@ svg {
     float: left;
     display: block;
     margin-right: 2.84259%;
-    width: 79.43148%;
-    margin-left: 10.28426%; }
+    width: 58.86297%;
+    margin-left: 20.56852%; }
     .palette:last-child,
     .info > section:last-child {
       margin-right: 0; } }
@@ -1966,13 +5497,13 @@ svg {
     .palette:last-child,
     .info > section:last-child {
       margin-right: 0; } }
-::selection {
-  background: #202429;
-  color: #fff; }
+::selection, ::before ::selection {
+  background-color: #fff;
+  color: #202429; }
 
 ::-moz-selection {
-  background: #202429;
-  color: #fff; }
+  background-color: #fff;
+  color: #202429; }
 
 .ga {
   bottom: 1%;
@@ -1983,3 +5514,5 @@ svg {
   right: 1%;
   visibility: hidden;
   width: 1px; }
+
+
