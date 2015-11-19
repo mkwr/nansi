@@ -1,6 +1,9 @@
-# ███████████████████████████████████████
-# nansi.sh
-# workmade.github.io/nansi
+## ⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼
+##  nansi.sh
+##
+##  site: mkwr.github.io/nansi
+##  github: https://github.com/mkwr/nansi
+##  author: Mike Warren
 
 STOP=$(tput sgr0)  # reset
 BOLD=$(tput bold)  # bold
@@ -62,33 +65,33 @@ N24 ()	{
 N256 () {
   if [[ $1 == "-g" || $1 == "--grid" ]]; then
     printf '%s\n'
-    printf '%s\n' "▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ 16 STANDARD COLORS"
+    printf '%s\n' "16 STANDARD COLORS"
     N16
     printf '%s\n'
-    printf '%s\n' "▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ 6 x 6 x 6 COLORS"
+    printf '%s\n'
+    printf '%s\n' "6 x 6 x 6 COLORS"
     N216
     printf '%s\n'
-    printf '%s\n' "▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ 24 GREYSCALE COLORS"
+    printf '%s\n' "24 GREYSCALE COLORS"
     N24
   fi
 
   if [[ $1 == "-s" || $1 == "--swatch" ]]; then
     printf '%s\n'
-    printf '%s\n' "░░░░░░░░░░░░░░░░░░░░"
-    printf '%s\n' " 16 STANDARD COLORS "
-    printf '%s\n' "░░░░░░░░░░░░░░░░░░░░"
+    printf '%s\n' " 16 STANDARD COLORS"
+    printf '%s\n'
     for i in {0..16}; do
       printf '%s\n' "$(tput setaf "$i")▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ "$i"$(tput sgr0)"
     done
-    printf '%s\n' "░░░░░░░░░░░░░░░░░░░░"
-    printf '%s\n' "  6 x 6 x 6 COLORS  "
-    printf '%s\n' "░░░░░░░░░░░░░░░░░░░░"
+    printf '%s\n'
+    printf '%s\n' "  6 x 6 x 6 COLORS "
+    printf '%s\n'
     for i in {17..231}; do
       printf '%s\n' "$(tput setaf "$i")▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ "$i"$(tput sgr0)"
     done
-    printf '%s\n' "░░░░░░░░░░░░░░░░░░░░"
-    printf '%s\n' "24 GREYSCALE COLORS "
-    printf '%s\n' "░░░░░░░░░░░░░░░░░░░░"
+    printf '%s\n'
+    printf '%s\n' "24 GREYSCALE COLORS"
+    printf '%s\n'
     for i in {232..255}; do
       printf '%s\n' "$(tput setaf "$i")▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓ "$i"$(tput sgr0)"
     done
