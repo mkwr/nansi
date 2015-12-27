@@ -3,11 +3,11 @@ NANSI — README
 
 SYNOPSIS
 
-Nansi simplifies working with the xterm-256 color palette. Designed and written in/for bash, adapted for SCSS and LESS, and available in ASE, ‘Adobe Stack Exchange’ format.
+Nansi simplifies working with the xterm-256 color palette. Originally designed for shell, Nansi has since been adapted for Sass and Less, and is also available in ASE, ‘Adobe Swatch Exchange’ format.
 
-	→	DOWNLOAD: 	https://github.com/mkwr/nansi/archive/gh-pages.zip
-	→	SOURCE:		https://github.com/mkwr/nansi
-	→	REFERENCE:	http://mkwr.github.io/nansi/
+	➝	DOWNLOAD: 	https://github.com/mkwr/nansi/archive/gh-pages.zip
+	➝	SOURCE:			https://github.com/mkwr/nansi
+	➝	REFERENCE:	https://git.io/nansi
 
 FILE FORMATS
 	nansi.sh					bash/shell
@@ -16,9 +16,6 @@ FILE FORMATS
 	nansi.hex.less		standard hexadecimal format for LESS.
 	nansi.rgb.less		rgb format for LESS.
 	nansi.ase					Adobe Swatch Exchange file.
-
-DESCRIPTION
-	Nansi simplifies working with the xterm-256 color palette. Nansi reduces style/escape sequence 		bloat, by using a concise, referential syntax. In addition, Nansi has a nice modern reference 		for working with the palette. Nansi was originally designed because I wanted the option to ex		plore a variety of colors in my bash dotfiles/functions. It has since been extended into the 		preprocesser and swatch file formats above.
 
 INSTALL
 	SH/BASH — Source nansi as you would any other dotfile. Make sure you do so before any file, 		script, function, etc, you plan to use Nansi within.

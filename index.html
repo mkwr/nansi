@@ -3,414 +3,350 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" chrome="1">
   <meta name="viewport" content="width=device-width">
   <title>Nansi</title>
   <script src='//ajax.googleapis.com/ajax/libs/webfont/1/webfont.js'></script>
   <script>
-  WebFont.load({google:{families:["Fira+Sans:300,300italic,400,400italic,500,500italic,700,700italic","Ubuntu:100,100italic,300,300italic,400,400italic,500,500italic,700,700italic","Oswald:300,400,700","Roboto+Slab:100,300,400,700","Cousine:400,400italic,700,700italic","Fira+Mono:400,700","Roboto+Mono:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic","Source+Code+Pro:200,300,400,500,600,700,900"]}});
+  // curated google fonts +
+  // web font loader
+
+  WebFont.load({
+    google: {
+      families: [
+      // 'Lato:100,100italic,300,300italic,400,400italic,700,700italic,900,900italic',
+      // 'Oswald:300,400,700',
+      // 'Cousine:400,400italic,700,700italic',
+      // 'Cutive+Mono:400',
+      'Roboto+Mono:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic',
+    ],
+    }
+  });
+
   </script>
+
   <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
-  <header>
-    <h1 class='title'>
-      NANSI
-    <!-- <svg class="logotype" xmlns="http://www.w3.org/2000/svg" viewBox="104 322 820 150">
-        <style>
-            .st0{fill:#FF00FF;} .st1{fill:#FF00D7;} .st2{fill:#FF00AF;} .st3{fill:#FF0087;} .st4{fill:#FF005F;}
-        </style>
-        <path class="st0" d="M819.8 325.9v119.6h22V325.9h-22zm15 112.8h-8.6V332.6h8.6v106.1zm75.2 29.4H751.6v-4.8H910v4.8z"/>
-        <path class="st1" d="M695.1 389.1l-28.8-28.4V348h11.2v15.5h22v-23.7c.2-8.6-2.1-13.9-14.6-13.9h-26.5c-11 0-14.2 6.5-14.2 12.7v23.2c0 5.3.2 7.4 3.8 11.2l29.7 30.7v19.4h-11.2V404h-22v28c0 7.6 4 13.6 14.6 13.6h25.4c12.9 0 15.8-8.4 15.8-13.6v-30.1c.1-5.9-3.5-11.1-5.2-12.8zm-1.9 42.6c0 3.1-1.9 7-8.9 7H659c-5.7 0-7.6-2.4-7.6-6.7v-21h8.6v19.1h24.8v-29l-31.6-32.6c-1.9-1.9-1.9-3.8-1.9-6.7v-23.5c0-3.4 1.5-5.7 7.4-5.7h26.6c7 0 7.9 2.4 7.9 7v17.1h-8.6v-15.5h-24.8v22.5l30.1 30.7c1.2 1.2 3.4 4.3 3.4 7.6l-.1 29.7zm58.4 36.4H593.2v-4.8h158.4v4.8z"/>
-        <path class="st2" d="M522.1 325.9V345h-.2c0 15.5 1.2 38.8 1.2 38.8s-1.9-5.5-5.5-14.6l-16.7-43h-16.7v119.6h22v-20.1c0-18.4-1.2-34.5-1.2-34.5s5.1 14.6 9.1 24.8l12.2 29.9h18.2V326.4h-22.2l-.2-.5zm15.4 112.4h-6.7l-31.6-78.2v78.2h-8.6V332.6h6.5l32 80.4v-80.4h8.4v105.7zm55.7 29.8H434.8v-4.8h158.4v4.8z"/>
-        <path class="st3" d="M366.8 325.9h-22.7l-25.6 119.6h22.9l5.1-21.6h19.1l4.8 21.6h23.1l-26.7-119.6zm8.7 112.8l-4.8-21.6h-30.3l-5.3 21.6h-8.6l22.9-106h11.9L384 438.4h-8.7v.3h.2zM342 408.5h26.8l-13.6-64.6-13.2 64.6zm18.4-6.7h-9.1l4.3-28.4 4.8 28.4zm74.4 66.3H276.4v-4.8h158.4v4.8z"/>
-        <path class="st4" d="M205.3 325.9V345h-.2c0 15.5 1.2 38.8 1.2 38.8s-1.9-5.5-5.5-14.6l-16.7-43h-16.8v119.6h22v-20.1c0-18.4-1.2-34.5-1.2-34.5s5.1 14.6 9.1 24.8l12.2 29.9h18.2V326.4h-22.3v-.5zm15.4 112.4H214l-31.6-78.2v78.2h-8.6V332.6h6.5l32 80.4v-80.4h8.4v105.7zm55.7 29.8H118v-4.8h158.4v4.8z"/>
-    </svg> -->
-    </h1>
-    <!-- <p class='intro'>
-      A reference / utility for the xterm-256 color palette.<br>
-      CLI - SASS/SCSS - LESS - ASE
-    </p> -->
-    <!-- <h1 class='title center'>MANUAL</h1>
-    <h1 class='title right'>NANSI(1)</h1> -->
-
-    <a class='menu'>
-      <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 14 14" style="enable-background:new 0 0 14 14;" xml:space="preserve">
-<style type="text/css">
-	.st0{fill:#FFFFFF;}
-</style>
-<path class="st0" d="M7.1,9.6L7.1,9.6L7.1,9.6C7.1,9.6,7.1,9.6,7.1,9.6z M12.5,7c0,3-2.5,5.5-5.5,5.5C4,12.5,1.5,10,1.5,7
-	C1.5,4,4,1.5,7,1.5C10,1.5,12.5,4,12.5,7z M9.3,6.8C9.2,6.7,9,6.7,8.9,6.8L7.3,8.6V4.5c0-0.2-0.1-0.3-0.3-0.3S6.7,4.4,6.7,4.5v4.1
-	L5.1,6.8C5,6.7,4.8,6.7,4.7,6.8C4.6,6.8,4.6,6.9,4.6,7c0,0.1,0,0.1,0.1,0.2l2.1,2.5l0.1,0c0,0,0,0,0.1,0c0,0,0,0,0.1,0h0
-	c0,0,0,0,0.1,0s0,0,0.1,0c0,0,0,0,0.1,0c0,0,0,0,0,0c0,0,0,0,0,0l2.1-2.5C9.5,7.1,9.4,6.9,9.3,6.8z"/>
-</svg>
-    </a>
-  </header>
-  <div class="info" data-state="closed">
-    <section class='about'>
-      <h2>✶ ✶ ✶</h2>
-      <p>
-        Nansi simplifies working with the xterm-256 color palette. Originally designed for command line usage, Nansi has since been adapted for the web and formatted for software supporting the ASE (Adobe Swatch Exchange) format. You can <a class="download" href='https://github.com/workmade/nansi/archive/gh-pages.zip'>download</a>        or browse the <a class="github" href='http://github.com/workmade/nansi' target="_blank">source</a> on Github.
-      </p>
-    </section>
-    <section class='ref'>
-      <h2>REFERENCE</h2>
-      <p class='options'>
-        The keyboard numbers 1 through 4 will toggle the following options. Switch bewteen a
-        <a class='opt-1'><span>1</span> dark/light</a> background,
-        <a class='opt-2'><span>2</span> reference/hex</a> values,
-        <a class='opt-3'><span>3</span> small/large</a> swatch size, and turn column spacing
-        <a class='opt-4'><span>4</span> off/on</a>, respectively.
-      </p>
-
-      <p>If you have the nansi.sh file installed (see below), you can print the reference palette to standard output with the following command:</p>
-      <div class="bash">
-        <code><span class='sh'>N256</span><br></code>
-      </div>
-    </section>
-
-    <section class='install'>
-      <h2>INSTALL</h2>
-      <p>Source into your .bashrc or dotfile of choice, import the partial into your Sass/Less stylesheet, or load into your Adobe Swatch Panel, or any program supporting the ASE (Adobe Swatch Exchange) format.</p>
-      <div>
-        <code>source ~/<span class='n'>.nansi.sh</span></code>
-      </div>
-      <div>
-        <code>@import “<span class='n'>_nansi.hex.scss</span>”;</code>
-      </div>
-      <div>
-        <code>Swatches Panel <span class='n'>→</span> Menu <span class='n'>→</span> Load Swatches <span class='n'>→</span> <span class='n'>nansi.ase</span></code>
-      </div>
-    </section>
-
-    <section class='bash'>
-      <h2>SH/BASH</h2>
-      <p>
-        The syntax is straight forward; <span class='cmd'>f0–255</span> to set a foreground color, and <span class='cmd'>b0–255</span> to set a background color; respectively. To set text bold use: <span class='cmd'>bold</span>. To set reversed text (foreground becomes background),
-        use <span class='cmd'>rvrs</span>. To underline text use <span class='cmd'>undr</span>, and finally to end a color/style use <span class='cmd'>stop</span>.
-        <div>
-          <span class='cmt'>set the foreground then background</span>
-          <br>
-          <code><span class="sh">printf "<span class='n'>${F42}</span>hamburg<span class='n'>${B89}</span>fonstiv<span class='n'>${STOP}</span>"</span></code>
-        </div>
-        <div>
-          <span class='cmt'>set the foreground and background</span>
-          <br>
-          <code><span class="sh">printf "<span class='n'>${F42}${B89}</span>hamburgfonstiv<span class='n'>${STOP}</span>"</span></code>
-        </div>
-        <div>
-          <span class='cmt'>set multiple foreground colors</span>
-          <br>
-          <code><span class="sh">printf "<span class='n'>${F124}</span>hamb<span class='n'>${F126}</span>urg<span class='n'>${F128}</span>fontstiv<span class='n'>${STOP}</span>"</span></code>
-        </div>
-    </section>
-
-    <section class='css'>
-      <h2>SCSS + LESS</h2>
-      <p>
-        Nansi is composed of basic color variables, no matter which version you use (hex, hsl, rgb), or which pre-processor Sass or Less. For Sass it's the dollar sign, and for Less, the at sign.
-      </p>
-      <div>
-        <span class='cmt'>sass/scss = $_0–255</span>
-        <br>
-        <code><span>h4 { color: <span class="n">$_32</span>; border-bottom: 1px solid <span class="n">$_32</span>; }</code>
-      </div>
-      <div>
-        <span class='cmt'>less = @_0–255</span>
-        <br>
-        <code><span>h5 { color: <span class="n">@_133</span>; border: 1px solid <span class="n">@_96</span>; }</code>
-      </div>
-        <h2>✶ ✶ ✶</h2>
-    </section>
-
-  </div>
-
-  <div class='main' data-bg='dark'>
-    <section class='palette' data-value="ref">
-      <div class='_16'>
+<body data-bg="light">
+<header data-bg="light">
+  <nav>
+    <span class='title'>NANSI</span>
+    <a class='src' href="https://github.com/mkwr/nansi" target="_blank">src</a>
+    <a class='zip' href="https://github.com/mkwr/nansi/archive/gh-pages.zip" download="nansi-master">zip</a>
+    <a class='opt' href="#">opt</a>
+  </nav>
+</header>
+<div class='synopsis' data-bg="light" data-state="closed">
+  <p>
+    Nansi simplifies working with the xterm-256 color palette. Source into your .bash_profile for use within
+    your shell, import into your Sass or Less stylesheet, or load one of the Adobe swatch files into Illustrator,
+    InDesign, or Photoshop.
+  </p>
+  <p>
+    This reference palette uses the keyboard keys [ <span>X, C, V</span> and <span>B</span> ] to
+    toggle adjustments; <span>X </span>swatch sizing <em>(small/large)</em>, <span>C </span>column
+    spacing <em>(on/off)</em>, <span>V </span>reference values <em>(ansi/hex)</em>, <span>B </span>
+    background color <em>(light/dark)</em>.
+  </p>
+</div>
+<div class='main'>
+  <!-- <section class='info' style='display:none'>
+    <p>
+      Nansi simplifies working with the xterm-256 color palette. Source into your .bash_profile for use within
+      your shell, import into your Sass or Less stylesheet, or load one of the Adobe swatch files into Illustrator,
+      InDesign, or Photoshop.
+    </p>
+    <p>
+      This reference palette uses the keyboard keys [ <span>X, C, V</span> and <span>B</span> ] to
+      toggle adjustments; <span>X </span>swatch sizing <em>(small/large)</em>, <span>C </span>column
+      spacing <em>(on/off)</em>, <span>V </span>reference values <em>(ansi/hex)</em>, <span>B </span>
+      background color <em>(light/dark)</em>.
+    </p>
+  </section> -->
+  <section class='palette' data-value="ref">
+    <div class='_16'>
   <ol class='colors' data-spacing='on'>
-    <li>#000000</li>
-    <li>#800000</li>
-    <li>#008000</li>
-    <li>#808000</li>
-    <li>#000080</li>
-    <li>#800080</li>
-    <li>#008080</li>
-    <li>#C0C0C0</li>
-    <li>#808080</li>
-    <li>#FF0000</li>
-    <li>#00FF00</li>
-    <li>#FFFF00</li>
-    <li>#0000FF</li>
-    <li>#FF00FF</li>
-    <li>#00FFFF</li>
-    <li>#FFFFFF</li>
+    <li>000000</li>
+    <li>800000</li>
+    <li>008000</li>
+    <li>808000</li>
+    <li>000080</li>
+    <li>800080</li>
+    <li>008080</li>
+    <li>C0C0C0</li>
+    <li>808080</li>
+    <li>FF0000</li>
+    <li>00FF00</li>
+    <li>FFFF00</li>
+    <li>0000FF</li>
+    <li>FF00FF</li>
+    <li>00FFFF</li>
+    <li>FFFFFF</li>
   </ol>
 </div>
 <div class='_216'>
   <ol class='colors' data-spacing='on'>
-    <li>#000000</li>
-    <li>#00005F</li>
-    <li>#000087</li>
-    <li>#0000AF</li>
-    <li>#0000D7</li>
-    <li>#0000FF</li>
-    <li>#005F00</li>
-    <li>#005F5F</li>
-    <li>#005F87</li>
-    <li>#005FAF</li>
-    <li>#005FD7</li>
-    <li>#005FFF</li>
-    <li>#008700</li>
-    <li>#00875F</li>
-    <li>#008787</li>
-    <li>#0087AF</li>
-    <li>#0087D7</li>
-    <li>#0087FF</li>
-    <li>#00AF00</li>
-    <li>#00AF5F</li>
-    <li>#00AF87</li>
-    <li>#00AFAF</li>
-    <li>#00AFD7</li>
-    <li>#00AFFF</li>
-    <li>#00D700</li>
-    <li>#00D75F</li>
-    <li>#00D787</li>
-    <li>#00D7AF</li>
-    <li>#00D7D7</li>
-    <li>#00D7FF</li>
-    <li>#00FF00</li>
-    <li>#00FF5F</li>
-    <li>#00FF87</li>
-    <li>#00FFAF</li>
-    <li>#00FFD7</li>
-    <li>#00FFFF</li>
-    <li>#5F0000</li>
-    <li>#5F005F</li>
-    <li>#5F0087</li>
-    <li>#5F00AF</li>
-    <li>#5F00D7</li>
-    <li>#5F00FF</li>
-    <li>#5F5F00</li>
-    <li>#5F5F5F</li>
-    <li>#5F5F87</li>
-    <li>#5F5FAF</li>
-    <li>#5F5FD7</li>
-    <li>#5F5FFF</li>
-    <li>#5F8700</li>
-    <li>#5F875F</li>
-    <li>#5F8787</li>
-    <li>#5F87AF</li>
-    <li>#5F87D7</li>
-    <li>#5F87FF</li>
-    <li>#5FAF00</li>
-    <li>#5FAF5F</li>
-    <li>#5FAF87</li>
-    <li>#5FAFAF</li>
-    <li>#5FAFD7</li>
-    <li>#5FAFFF</li>
-    <li>#5FD700</li>
-    <li>#5FD75F</li>
-    <li>#5FD787</li>
-    <li>#5FD7AF</li>
-    <li>#5FD7D7</li>
-    <li>#5FD7FF</li>
-    <li>#5FFF00</li>
-    <li>#5FFF5F</li>
-    <li>#5FFF87</li>
-    <li>#5FFFAF</li>
-    <li>#5FFFD7</li>
-    <li>#5FFFFF</li>
-    <li>#870000</li>
-    <li>#87005F</li>
-    <li>#870087</li>
-    <li>#8700AF</li>
-    <li>#8700D7</li>
-    <li>#8700FF</li>
-    <li>#875F00</li>
-    <li>#875F5F</li>
-    <li>#875F87</li>
-    <li>#875FAF</li>
-    <li>#875FD7</li>
-    <li>#875FFF</li>
-    <li>#878700</li>
-    <li>#87875F</li>
-    <li>#878787</li>
-    <li>#8787AF</li>
-    <li>#8787D7</li>
-    <li>#8787FF</li>
-    <li>#87AF00</li>
-    <li>#87AF5F</li>
-    <li>#87AF87</li>
-    <li>#87AFAF</li>
-    <li>#87AFD7</li>
-    <li>#87AFFF</li>
-    <li>#87D700</li>
-    <li>#87D75F</li>
-    <li>#87D787</li>
-    <li>#87D7AF</li>
-    <li>#87D7D7</li>
-    <li>#87D7FF</li>
-    <li>#87FF00</li>
-    <li>#87FF5F</li>
-    <li>#87FF87</li>
-    <li>#87FFAF</li>
-    <li>#87FFD7</li>
-    <li>#87FFFF</li>
-    <li>#AF0000</li>
-    <li>#AF005F</li>
-    <li>#AF0087</li>
-    <li>#AF00AF</li>
-    <li>#AF00D7</li>
-    <li>#AF00FF</li>
-    <li>#AF5F00</li>
-    <li>#AF5F5F</li>
-    <li>#AF5F87</li>
-    <li>#AF5FAF</li>
-    <li>#AF5FD7</li>
-    <li>#AF5FFF</li>
-    <li>#AF8700</li>
-    <li>#AF875F</li>
-    <li>#AF8787</li>
-    <li>#AF87AF</li>
-    <li>#AF87D7</li>
-    <li>#AF87FF</li>
-    <li>#AFAF00</li>
-    <li>#AFAF5F</li>
-    <li>#AFAF87</li>
-    <li>#AFAFAF</li>
-    <li>#AFAFD7</li>
-    <li>#AFAFFF</li>
-    <li>#AFD700</li>
-    <li>#AFD75F</li>
-    <li>#AFD787</li>
-    <li>#AFD7AF</li>
-    <li>#AFD7D7</li>
-    <li>#AFD7FF</li>
-    <li>#AFFF00</li>
-    <li>#AFFF5F</li>
-    <li>#AFFF87</li>
-    <li>#AFFFAF</li>
-    <li>#AFFFD7</li>
-    <li>#AFFFFF</li>
-    <li>#D70000</li>
-    <li>#D7005F</li>
-    <li>#D70087</li>
-    <li>#D700AF</li>
-    <li>#D700D7</li>
-    <li>#D700FF</li>
-    <li>#D75F00</li>
-    <li>#D75F5F</li>
-    <li>#D75F87</li>
-    <li>#D75FAF</li>
-    <li>#D75FD7</li>
-    <li>#D75FFF</li>
-    <li>#D78700</li>
-    <li>#D7875F</li>
-    <li>#D78787</li>
-    <li>#D787AF</li>
-    <li>#D787D7</li>
-    <li>#D787FF</li>
-    <li>#D7AF00</li>
-    <li>#D7AF5F</li>
-    <li>#D7AF87</li>
-    <li>#D7AFAF</li>
-    <li>#D7AFD7</li>
-    <li>#D7AFFF</li>
-    <li>#D7D700</li>
-    <li>#D7D75F</li>
-    <li>#D7D787</li>
-    <li>#D7D7AF</li>
-    <li>#D7D7D7</li>
-    <li>#D7D7FF</li>
-    <li>#D7FF00</li>
-    <li>#D7FF5F</li>
-    <li>#D7FF87</li>
-    <li>#D7FFAF</li>
-    <li>#D7FFD7</li>
-    <li>#D7FFFF</li>
-    <li>#FF0000</li>
-    <li>#FF005F</li>
-    <li>#FF0087</li>
-    <li>#FF00AF</li>
-    <li>#FF00D7</li>
-    <li>#FF00FF</li>
-    <li>#FF5F00</li>
-    <li>#FF5F5F</li>
-    <li>#FF5F87</li>
-    <li>#FF5FAF</li>
-    <li>#FF5FD7</li>
-    <li>#FF5FFF</li>
-    <li>#FF8700</li>
-    <li>#FF875F</li>
-    <li>#FF8787</li>
-    <li>#FF87AF</li>
-    <li>#FF87D7</li>
-    <li>#FF87FF</li>
-    <li>#FFAF00</li>
-    <li>#FFAF5F</li>
-    <li>#FFAF87</li>
-    <li>#FFAFAF</li>
-    <li>#FFAFD7</li>
-    <li>#FFAFFF</li>
-    <li>#FFD700</li>
-    <li>#FFD75F</li>
-    <li>#FFD787</li>
-    <li>#FFD7AF</li>
-    <li>#FFD7D7</li>
-    <li>#FFD7FF</li>
-    <li>#FFFF00</li>
-    <li>#FFFF5F</li>
-    <li>#FFFF87</li>
-    <li>#FFFFAF</li>
-    <li>#FFFFD7</li>
-    <li>#FFFFFF</li>
+    <li>000000</li>
+    <li>00005F</li>
+    <li>000087</li>
+    <li>0000AF</li>
+    <li>0000D7</li>
+    <li>0000FF</li>
+    <li>005F00</li>
+    <li>005F5F</li>
+    <li>005F87</li>
+    <li>005FAF</li>
+    <li>005FD7</li>
+    <li>005FFF</li>
+    <li>008700</li>
+    <li>00875F</li>
+    <li>008787</li>
+    <li>0087AF</li>
+    <li>0087D7</li>
+    <li>0087FF</li>
+    <li>00AF00</li>
+    <li>00AF5F</li>
+    <li>00AF87</li>
+    <li>00AFAF</li>
+    <li>00AFD7</li>
+    <li>00AFFF</li>
+    <li>00D700</li>
+    <li>00D75F</li>
+    <li>00D787</li>
+    <li>00D7AF</li>
+    <li>00D7D7</li>
+    <li>00D7FF</li>
+    <li>00FF00</li>
+    <li>00FF5F</li>
+    <li>00FF87</li>
+    <li>00FFAF</li>
+    <li>00FFD7</li>
+    <li>00FFFF</li>
+    <li>5F0000</li>
+    <li>5F005F</li>
+    <li>5F0087</li>
+    <li>5F00AF</li>
+    <li>5F00D7</li>
+    <li>5F00FF</li>
+    <li>5F5F00</li>
+    <li>5F5F5F</li>
+    <li>5F5F87</li>
+    <li>5F5FAF</li>
+    <li>5F5FD7</li>
+    <li>5F5FFF</li>
+    <li>5F8700</li>
+    <li>5F875F</li>
+    <li>5F8787</li>
+    <li>5F87AF</li>
+    <li>5F87D7</li>
+    <li>5F87FF</li>
+    <li>5FAF00</li>
+    <li>5FAF5F</li>
+    <li>5FAF87</li>
+    <li>5FAFAF</li>
+    <li>5FAFD7</li>
+    <li>5FAFFF</li>
+    <li>5FD700</li>
+    <li>5FD75F</li>
+    <li>5FD787</li>
+    <li>5FD7AF</li>
+    <li>5FD7D7</li>
+    <li>5FD7FF</li>
+    <li>5FFF00</li>
+    <li>5FFF5F</li>
+    <li>5FFF87</li>
+    <li>5FFFAF</li>
+    <li>5FFFD7</li>
+    <li>5FFFFF</li>
+    <li>870000</li>
+    <li>87005F</li>
+    <li>870087</li>
+    <li>8700AF</li>
+    <li>8700D7</li>
+    <li>8700FF</li>
+    <li>875F00</li>
+    <li>875F5F</li>
+    <li>875F87</li>
+    <li>875FAF</li>
+    <li>875FD7</li>
+    <li>875FFF</li>
+    <li>878700</li>
+    <li>87875F</li>
+    <li>878787</li>
+    <li>8787AF</li>
+    <li>8787D7</li>
+    <li>8787FF</li>
+    <li>87AF00</li>
+    <li>87AF5F</li>
+    <li>87AF87</li>
+    <li>87AFAF</li>
+    <li>87AFD7</li>
+    <li>87AFFF</li>
+    <li>87D700</li>
+    <li>87D75F</li>
+    <li>87D787</li>
+    <li>87D7AF</li>
+    <li>87D7D7</li>
+    <li>87D7FF</li>
+    <li>87FF00</li>
+    <li>87FF5F</li>
+    <li>87FF87</li>
+    <li>87FFAF</li>
+    <li>87FFD7</li>
+    <li>87FFFF</li>
+    <li>AF0000</li>
+    <li>AF005F</li>
+    <li>AF0087</li>
+    <li>AF00AF</li>
+    <li>AF00D7</li>
+    <li>AF00FF</li>
+    <li>AF5F00</li>
+    <li>AF5F5F</li>
+    <li>AF5F87</li>
+    <li>AF5FAF</li>
+    <li>AF5FD7</li>
+    <li>AF5FFF</li>
+    <li>AF8700</li>
+    <li>AF875F</li>
+    <li>AF8787</li>
+    <li>AF87AF</li>
+    <li>AF87D7</li>
+    <li>AF87FF</li>
+    <li>AFAF00</li>
+    <li>AFAF5F</li>
+    <li>AFAF87</li>
+    <li>AFAFAF</li>
+    <li>AFAFD7</li>
+    <li>AFAFFF</li>
+    <li>AFD700</li>
+    <li>AFD75F</li>
+    <li>AFD787</li>
+    <li>AFD7AF</li>
+    <li>AFD7D7</li>
+    <li>AFD7FF</li>
+    <li>AFFF00</li>
+    <li>AFFF5F</li>
+    <li>AFFF87</li>
+    <li>AFFFAF</li>
+    <li>AFFFD7</li>
+    <li>AFFFFF</li>
+    <li>D70000</li>
+    <li>D7005F</li>
+    <li>D70087</li>
+    <li>D700AF</li>
+    <li>D700D7</li>
+    <li>D700FF</li>
+    <li>D75F00</li>
+    <li>D75F5F</li>
+    <li>D75F87</li>
+    <li>D75FAF</li>
+    <li>D75FD7</li>
+    <li>D75FFF</li>
+    <li>D78700</li>
+    <li>D7875F</li>
+    <li>D78787</li>
+    <li>D787AF</li>
+    <li>D787D7</li>
+    <li>D787FF</li>
+    <li>D7AF00</li>
+    <li>D7AF5F</li>
+    <li>D7AF87</li>
+    <li>D7AFAF</li>
+    <li>D7AFD7</li>
+    <li>D7AFFF</li>
+    <li>D7D700</li>
+    <li>D7D75F</li>
+    <li>D7D787</li>
+    <li>D7D7AF</li>
+    <li>D7D7D7</li>
+    <li>D7D7FF</li>
+    <li>D7FF00</li>
+    <li>D7FF5F</li>
+    <li>D7FF87</li>
+    <li>D7FFAF</li>
+    <li>D7FFD7</li>
+    <li>D7FFFF</li>
+    <li>FF0000</li>
+    <li>FF005F</li>
+    <li>FF0087</li>
+    <li>FF00AF</li>
+    <li>FF00D7</li>
+    <li>FF00FF</li>
+    <li>FF5F00</li>
+    <li>FF5F5F</li>
+    <li>FF5F87</li>
+    <li>FF5FAF</li>
+    <li>FF5FD7</li>
+    <li>FF5FFF</li>
+    <li>FF8700</li>
+    <li>FF875F</li>
+    <li>FF8787</li>
+    <li>FF87AF</li>
+    <li>FF87D7</li>
+    <li>FF87FF</li>
+    <li>FFAF00</li>
+    <li>FFAF5F</li>
+    <li>FFAF87</li>
+    <li>FFAFAF</li>
+    <li>FFAFD7</li>
+    <li>FFAFFF</li>
+    <li>FFD700</li>
+    <li>FFD75F</li>
+    <li>FFD787</li>
+    <li>FFD7AF</li>
+    <li>FFD7D7</li>
+    <li>FFD7FF</li>
+    <li>FFFF00</li>
+    <li>FFFF5F</li>
+    <li>FFFF87</li>
+    <li>FFFFAF</li>
+    <li>FFFFD7</li>
+    <li>FFFFFF</li>
   </ol>
 </div>
 <div class='_24'>
   <ol class='colors' data-spacing='on'>
-    <li>#080808</li>
-    <li>#121212</li>
-    <li>#1C1C1C</li>
-    <li>#262626</li>
-    <li>#303030</li>
-    <li>#3A3A3A</li>
-    <li>#444444</li>
-    <li>#4E4E4E</li>
-    <li>#585858</li>
-    <li>#606060</li>
-    <li>#666666</li>
-    <li>#767676</li>
-    <li>#808080</li>
-    <li>#8A8A8A</li>
-    <li>#949494</li>
-    <li>#9E9E9E</li>
-    <li>#A8A8A8</li>
-    <li>#B2B2B2</li>
-    <li>#BCBCBC</li>
-    <li>#C6C6C6</li>
-    <li>#D0D0D0</li>
-    <li>#DADADA</li>
-    <li>#E4E4E4</li>
-    <li>#EEEEEE</li>
+    <li>080808</li>
+    <li>121212</li>
+    <li>1C1C1C</li>
+    <li>262626</li>
+    <li>303030</li>
+    <li>3A3A3A</li>
+    <li>444444</li>
+    <li>4E4E4E</li>
+    <li>585858</li>
+    <li>606060</li>
+    <li>666666</li>
+    <li>767676</li>
+    <li>808080</li>
+    <li>8A8A8A</li>
+    <li>949494</li>
+    <li>9E9E9E</li>
+    <li>A8A8A8</li>
+    <li>B2B2B2</li>
+    <li>BCBCBC</li>
+    <li>C6C6C6</li>
+    <li>D0D0D0</li>
+    <li>DADADA</li>
+    <li>E4E4E4</li>
+    <li>EEEEEE</li>
   </ol>
 </div>
 
-    </section>
-  </div>
+  </section>
+</div>
+<footer>
+  <p>
+    © 2015 — MIKE WARREN
+  </p>
+</footer>
 
-  <footer>
-    <p>© mmxv — mike warren</p>
-  </footer>
+<!-- <script src='new.js'></script> -->
 
-  <script>
-  !function(){var t=document.querySelector(".menu"),e=document.querySelector(".info");t.addEventListener("click",function(){e.setAttribute("data-state","open"===e.getAttribute("data-state")?"closed":"open")});var o=document.querySelector(".main"),r=document.querySelector(".palette");addEventListener("keypress",function(t){49==t.keyCode&&o.setAttribute("data-bg","dark"===o.getAttribute("data-bg")?"light":"dark")}),addEventListener("keypress",function(t){50==t.keyCode&&r.setAttribute("data-value","ref"===r.getAttribute("data-value")?"hex":"ref")}),addEventListener("keypress",function(t){51==t.keyCode&&[].forEach.call(document.querySelectorAll(".colors"),function(t){t.classList.toggle("bg")})}),addEventListener("keypress",function(t){52==t.keyCode&&[].forEach.call(document.querySelectorAll(".colors"),function(t){t.setAttribute("data-spacing","off"===t.getAttribute("data-spacing")?"on":"off")})});var n=document.querySelector(".opt-1"),c=document.querySelector(".opt-2"),a=document.querySelector(".opt-3"),u=document.querySelector(".opt-4");n.addEventListener("click",function(){o.setAttribute("data-bg","dark"===o.getAttribute("data-bg")?"light":"dark")}),c.addEventListener("click",function(){r.setAttribute("data-value","ref"===r.getAttribute("data-value")?"hex":"ref")}),a.addEventListener("click",function(){[].forEach.call(document.querySelectorAll(".colors"),function(t){t.classList.toggle("bg")})}),u.addEventListener("click",function(){[].forEach.call(document.querySelectorAll(".colors"),function(t){t.setAttribute("data-spacing","off"===t.getAttribute("data-spacing")?"on":"off")})})}();
-  </script>
-  <a class='ga' href="https://workmade.github.io/nansi">
-    <img src="https://ga-beacon.appspot.com/UA-42808437-6/workmade.github.io/nansi?pixel" alt="analytics"/>
-  </a>
+<script>
+  (function(){var g=document.querySelectorAll('[data-bg]'),d=document.querySelectorAll('ol.colors'),e=document.querySelector('.palette'),c=document.querySelector('.synopsis'),f=document.querySelector('.opt');f.addEventListener('mouseover',function(){c.setAttribute('data-state','open'===c.getAttribute('data-state')?'closed':'open')});f.addEventListener('mouseout',function(){c.setAttribute('data-state','open'===c.getAttribute('data-state')?'closed':'open')});addEventListener('keydown',function(a){[].forEach.call(g,function(b){66==a.keyCode&&b.setAttribute('data-bg','dark'===b.getAttribute('data-bg')?'light':'dark')})});addEventListener('keydown',function(a){86==a.keyCode&&e.setAttribute('data-value','ref'===e.getAttribute('data-value')?'hex':'ref')});addEventListener('keydown',function(a){[].forEach.call(d,function(b){88==a.keyCode&&b.classList.toggle('bg')})});addEventListener('keydown',function(a){[].forEach.call(d,function(b){67==a.keyCode&&b.setAttribute('data-spacing','off'===b.getAttribute('data-spacing')?'on':'off')})})})();
+</script>
 </body>
 
 </html>
