@@ -27,7 +27,7 @@ INSTALL
   LESS — Same for LESS.
     >  @import ‘nansi.rgb.less‘;
 
-	ASE, AI (ADOBE SWATCH EXCHANGE)
+  ASE, AI (ADOBE SWATCH EXCHANGE)
     Swatches panel → Menu → Load Swatches → path/to/nansi.ase
     Swatches → Open swatch → Library → Other → path/to/nansi.ase
 
@@ -48,35 +48,35 @@ USAGE
     $  printf “${F42}${B89}hamburgfonstiv${STOP}”
     $  printf “${F124}hamb${F126}urg${F128}fontstiv${STOP}”
 
-	SCSS — Again, the syntax is simple; A dollar sign, followed by an underscore, then a number 0–255.
+  SCSS — Nansi is just variables. $_<0–255>.
 
-  >  .class {
-  >    color: $_30;
-  >    border: 1px solid $_30;
-  >    background-color: rgba($_30, .5);
-  >  }
+    .class {
+      color: $_30;
+      border: 1px solid $_30;
+      background-color: rgba($_30, .5);
+    }
 
-	LESS — In this case an at-sign, followed by an underscore, then a reference number 0–255.
+  LESS — Again, just variables. @_<0–255>.
 
-	>  .class {
-	>    color: @_30;
-	>    border: 1px solid @_30;
-	>    background-color: fade(@_30, 50%);
-	>  }
+    .class {
+      color: @_30;
+      border: 1px solid @_30;
+      background-color: fade(@_30, 50%);
+    }
 
 REFERENCE
   BROWSER
     Nansi is meant to be used with its visual reference here: http://workmade.github.io/nansi.
     I’ve taken great care to make it the nicest reference/resource for the xterm-256 palette.
 
-    The keyboard numbers 1–4 toggle some features to assist in color selection:
+    The keyboard keys [ X, C, V, B ] toggle some features to assist in color selection:
 
       X  swatch sizing (small/large).
       C  column spacing (on/off).
       V  switch number values (ref/hex).
       B  change background color (dark/light).
 
-	CLI
+  CLI
     If you would rather keep it local, print the complete palette to standard output.
     Note: f/b = f OR b, not both.
 
