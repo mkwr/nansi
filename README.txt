@@ -10,49 +10,42 @@ Nansi simplifies working with the xterm-256 color palette. Originally designed f
   ➝	REFERENCE: https://git.io/nansi
 
 FILE FORMATS
-	nansi.sh					bash/shell
-	nansi.hex.scss		standard hexadecimal format for SCSS.
-	nansi.rgb.scss		rgb format for SCSS.
-	nansi.hex.less		standard hexadecimal format for LESS.
-	nansi.rgb.less		rgb format for LESS.
-	nansi.ase					Adobe Swatch Exchange file.
+  nansi.sh          bash/shell
+  nansi.hex.scss    standard hexadecimal format for SCSS.
+  nansi.rgb.scss    rgb format for SCSS.
+  nansi.hex.less    standard hexadecimal format for LESS.
+  nansi.rgb.less    rgb format for LESS.
+  nansi.ase         Adobe Swatch Exchange file.
 
 INSTALL
-	SH/BASH — Source nansi as you would any other dotfile. Make sure you do so before any file, 		script, function, etc, you plan to use Nansi within.
+  SH/BASH — Source nansi as you would any other dotfile. Make sure you do so before any file, script, function, etc, you plan to use Nansi within.
+    >  source ~/.nansi
 
-		>	source ~/.nansi
+  SCSS — Nansi comes in standard hex format or rgb. Import your preference as usual.
+    >  @import ‘nansi.hex.scss‘;
 
-	SCSS — Nansi comes in standard hex format or rgb. Import your preference as usual.
+  LESS — Same for LESS.
+    >  @import ‘nansi.rgb.less‘;
 
-		>	@import ‘nansi.hex.scss‘;
-
-	LESS — Same for LESS.
-
-		>	@import ‘nansi.rgb.less‘;
-
-	ASE (ADOBE SWATCH EXCHANGE) -- The Nansi swatch file can be imported into any program
-	that supports the .ase format. Below illustrating the user flow in InDesign/Photoshop
-	and Illustrator.
-
-		Swatches panel → Menu → Load Swatches → path/to/nansi.ase
-		Swatches → Open swatch → Library → Other → path/to/nansi.ase
+	ASE (ADOBE SWATCH EXCHANGE) -- The Nansi swatch file can be imported into any program that supports the .ase format. Below illustrating the user flow in InDesign/Photoshop and Illustrator.
+    Swatches panel → Menu → Load Swatches → path/to/nansi.ase
+    Swatches → Open swatch → Library → Other → path/to/nansi.ase
 
 USAGE
-	SH/BASH — The syntax is simple; a number 0–255 preceded by f(oreground), or b(ackground).
-	In addition to the colors, there’s a few control styles needed which are outlined below:
-		F(0–255)		set a foreground color
-		B(0–255)		set a background color
-		STOP				stop a color or style
-		UNDR				set underline
-		BOLD				set bold text
-		RVRS				set reversed text
-		ITAL				set italic text (minimal support)
+  SH/BASH — The syntax is simple; a number 0–255 preceded by f(oreground), or b(ackground). In addition to the colors, there’s a few control styles needed which are outlined below:
+    F(0–255)    set a foreground color
+    B(0–255)    set a background color
+    STOP        stop a color or style
+    UNDR        set underline
+    BOLD        set bold text
+    RVRS        set reversed text
+    ITAL        set italic text (minimal support)
 
-		$  printf “${F16}hamburgfonstiv${STOP}”
-		$  printf "${F67}hamburg${UNDR}fonstiv${STOP}"
-		$  printf “${F42}hamburg${B89}fonstiv${STOP}”
-		$  printf “${F42}${B89}hamburgfonstiv${STOP}”
-		$  printf “${F124}hamb${F126}urg${F128}fontstiv${STOP}”
+    $  printf “${F16}hamburgfonstiv${STOP}”
+    $  printf "${F67}hamburg${UNDR}fonstiv${STOP}"
+    $  printf “${F42}hamburg${B89}fonstiv${STOP}”
+    $  printf “${F42}${B89}hamburgfonstiv${STOP}”
+    $  printf “${F124}hamb${F126}urg${F128}fontstiv${STOP}”
 
 	SCSS — Again, the syntax is simple; A dollar sign, followed by an underscore,
 	then a reference number 0–255.
