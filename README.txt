@@ -5,9 +5,9 @@ SYNOPSIS
 
 Nansi simplifies working with the xterm-256 color palette. Originally designed for shell, Nansi has since been adapted for Sass and Less, and is also available in ASE, ‘Adobe Swatch Exchange’ format.
 
-	➝	DOWNLOAD: 	https://github.com/mkwr/nansi/archive/gh-pages.zip
-	➝	SOURCE:			https://github.com/mkwr/nansi
-	➝	REFERENCE:	https://git.io/nansi
+  ➝	DOWNLOAD:  https://github.com/mkwr/nansi/archive/gh-pages.zip
+  ➝	SOURCE:    https://github.com/mkwr/nansi
+  ➝	REFERENCE: https://git.io/nansi
 
 FILE FORMATS
 	nansi.sh					bash/shell
