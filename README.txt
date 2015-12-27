@@ -21,7 +21,7 @@ INSTALL
   SH/BASH : Source nansi as you would any other dotfile.
     ➝  source ~/.nansi
 
-  SCSS : Nansi comes in hex, hsl and rgb. Import your preference as usual.
+  SCSS : Nansi has hex and rgb versions. Import your preference as usual.
     ➝  @import ‘nansi.hex.scss‘;
 
   LESS : Same for LESS.
