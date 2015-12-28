@@ -44,26 +44,13 @@
     InDesign, or Photoshop.
   </p>
   <p>
-    This reference palette uses the keyboard keys [ <span>X, C, V</span> and <span>B</span> ] to
+    This reference uses the keyboard keys [ <span>X, C, V</span> and <span>B</span> ] to
     toggle adjustments; <span>X </span>swatch sizing <em>(small/large)</em>, <span>C </span>column
     spacing <em>(on/off)</em>, <span>V </span>reference values <em>(ansi/hex)</em>, <span>B </span>
     background color <em>(light/dark)</em>.
   </p>
 </div>
 <div class='main'>
-  <!-- <section class='info' style='display:none'>
-    <p>
-      Nansi simplifies working with the xterm-256 color palette. Source into your .bash_profile for use within
-      your shell, import into your Sass or Less stylesheet, or load one of the Adobe swatch files into Illustrator,
-      InDesign, or Photoshop.
-    </p>
-    <p>
-      This reference palette uses the keyboard keys [ <span>X, C, V</span> and <span>B</span> ] to
-      toggle adjustments; <span>X </span>swatch sizing <em>(small/large)</em>, <span>C </span>column
-      spacing <em>(on/off)</em>, <span>V </span>reference values <em>(ansi/hex)</em>, <span>B </span>
-      background color <em>(light/dark)</em>.
-    </p>
-  </section> -->
   <section class='palette' data-value="ref">
     <div class='_16'>
   <ol class='colors' data-spacing='on'>
@@ -345,7 +332,7 @@
 <!-- <script src='new.js'></script> -->
 
 <script>
-  (function(){var g=document.querySelectorAll('[data-bg]'),d=document.querySelectorAll('ol.colors'),e=document.querySelector('.palette'),c=document.querySelector('.synopsis'),f=document.querySelector('.opt');f.addEventListener('mouseover',function(){c.setAttribute('data-state','open'===c.getAttribute('data-state')?'closed':'open')});f.addEventListener('mouseout',function(){c.setAttribute('data-state','open'===c.getAttribute('data-state')?'closed':'open')});addEventListener('keydown',function(a){[].forEach.call(g,function(b){66==a.keyCode&&b.setAttribute('data-bg','dark'===b.getAttribute('data-bg')?'light':'dark')})});addEventListener('keydown',function(a){86==a.keyCode&&e.setAttribute('data-value','ref'===e.getAttribute('data-value')?'hex':'ref')});addEventListener('keydown',function(a){[].forEach.call(d,function(b){88==a.keyCode&&b.classList.toggle('bg')})});addEventListener('keydown',function(a){[].forEach.call(d,function(b){67==a.keyCode&&b.setAttribute('data-spacing','off'===b.getAttribute('data-spacing')?'on':'off')})})})();
+  (function(){var g=document.querySelectorAll('[data-bg]'),d=document.querySelectorAll('ol.colors'),e=document.querySelector('.palette'),c=document.querySelector('.synopsis'),f=document.querySelector('.opt');f.addEventListener('click',function(){c.setAttribute('data-state','open'===c.getAttribute('data-state')?'closed':'open')});addEventListener('keydown',function(a){[].forEach.call(g,function(b){66==a.keyCode&&b.setAttribute('data-bg','dark'===b.getAttribute('data-bg')?'light':'dark')})});addEventListener('keydown',function(a){86==a.keyCode&&e.setAttribute('data-value','ref'===e.getAttribute('data-value')?'hex':'ref')});addEventListener('keydown',function(a){[].forEach.call(d,function(b){88==a.keyCode&&b.classList.toggle('bg')})});addEventListener('keydown',function(a){[].forEach.call(d,function(b){67==a.keyCode&&b.setAttribute('data-spacing','off'===b.getAttribute('data-spacing')?'on':'off')})})})();
 </script>
 </body>
 
