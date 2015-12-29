@@ -13,7 +13,7 @@ table { border-collapse: collapse; border-spacing: 0; }
 td, th { padding: 0; }
 html { font-synthesis: none; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 p { text-align: left; }
-header, footer p { text-align: center; }
+header, footer p, .colors li { text-align: center; }
 nav, a { text-transform: uppercase; }
 html { font-size: 100%; min-width: 100%; }
 body { max-width: 100%; margin-left: auto; margin-right: auto; font-family: "Roboto Mono"; font-weight: 400; background-color: transparent; box-sizing: border-box; position: relative; min-height: 100%; margin: 0; padding-bottom: 4rem; }
@@ -45,19 +45,18 @@ a:active { color: #d7005f; -webkit-appearance: none; -moz-outline: 0 none; outli
 .opt:hover { color: #00AFD7 !important; }
 .zip::before, .opt::before { content: "/"; margin: 0 8px 0 0; color: #d2d2d2 !important; }
 .zip:before, .opt:before { cursor: default; }
-.colors, li { font-size: 0.53125rem; line-height: 1.3125rem; }
 .palette { display: block; }
 .palette { width: 100%; margin-top: 8rem; counter-reset: ol -1; text-align: center; }
 .colors { -webkit-display: flex; display: flex; align-content: flex-start; clear: left; display: -ms-flexbox; flex-flow: row wrap; flex-direction: row; flex-align: center; justify-content: center; padding: 0; margin: 0; }
-.colors li { display: inline-block; width: 50px; height: 30px; line-height: 30px; margin-top: 10px; overflow-y: hidden; vertical-align: middle; }
+.colors li { font-size: 0.53125rem; line-height: 1.3125rem; display: inline-block; width: 50px; height: 30px; line-height: 30px; margin-top: 10px; overflow: hidden; vertical-align: middle; }
 [data-bg='dark'] { background-color: #202429; color: #eee; }
 [data-bg='dark'] p, [data-bg='dark'] p span, [data-bg='dark'] a { color: #fbf9f1; }
 [data-bg='dark'] .title { color: #fbf9f1 !important; }
 [data-bg='light'] { background-color: #fbf9f1; color: #777; }
 [data-bg='light'] .title { color: #202429 !important; }
 [data-value~='hex'] ol li { letter-spacing: 0.4875px; letter-spacing: 0.03047rem; counter-increment: ol 1; }
-[data-value~='hex'] ol li::before { content: ' '; margin-left: 0; text-align: center; }
-[data-value~='ref'] ol li { letter-spacing: 1.1375px; letter-spacing: 0.07109rem; counter-increment: ol 1; text-align: center; }
+[data-value~='hex'] ol li::before { content: ' '; margin-left: 0; }
+[data-value~='ref'] ol li { letter-spacing: 1.1375px; letter-spacing: 0.07109rem; counter-increment: ol 1; }
 [data-value~='ref'] ol li::before { content: counter(ol) " "; }
 [data-value~='ref'] ol li::after { content: counter(ol) " "; }
 [data-spacing='off'] li { margin-left: -2px; margin-right: -2px; }
