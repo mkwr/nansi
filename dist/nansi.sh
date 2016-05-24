@@ -1,9 +1,19 @@
-## ⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼
-## nansi.sh
-## mkwr.github.io/nansi
-## https://github.com/mkwr/nansi
-## © 2106 Mike Warren
-## License: MIT
+#!/usr/bin/bash
+# nansi.sh
+
+: <<'TLDR' ▬▬▬
+   :  Command line coloring; simplified. Nansi is a reference & 
+      utility for working with the xterm 256 color-palette. Written
+      in Bash; Sass/SCSS, Less, and Adobe Swatch Exchange compatible.
+      (c) 2016 Mike Warren and licensed under MIT.
+
+   →  https://git.io/nansi
+   →  https://github.com/mkwr/nansi
+   →  https://github.com/mkwr/nansi
+
+   :  OS X 10.11.5 (x86_64-apple-darwin15.0.0)
+   :  BASH V. 4.3.42(1)-release
+TLDR
 
 STOP=$(tput sgr0)    # reset
 BOLD=$(tput bold)    # bold
