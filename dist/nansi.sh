@@ -2,17 +2,16 @@
 # nansi.sh
 
 : <<'TLDR' ▬▬▬
-   :  Command line coloring; simplified. Nansi is a reference & 
+   :  Command line coloring; simplified. Nansi is a reference &
       utility for working with the xterm 256 color-palette. Written
       in Bash; Sass/SCSS, Less, and Adobe Swatch Exchange compatible.
       (c) 2016 Mike Warren and licensed under MIT.
 
    →  https://git.io/nansi
    →  https://github.com/mkwr/nansi
-   →  https://github.com/mkwr/nansi
 
-   :  OS X 10.11.5 (x86_64-apple-darwin15.0.0)
-   :  BASH V. 4.3.42(1)-release
+   :  OS X v. 10.11.5 (x86_64-apple-darwin15.0.0)
+   :  BASH v. 4.3.42(1)-release
 TLDR
 
 STOP=$(tput sgr0)    # reset
