@@ -1,5 +1,5 @@
 The MIT License (MIT)
-© 2015 Mike Warren
+© 2016 Mike Warren
 —
 https://github.com/mkwr/nansi
 https://git.io/nansi
