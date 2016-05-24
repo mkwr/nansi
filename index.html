@@ -2,57 +2,52 @@
 <html>
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" chrome="1">
-  <meta name="viewport" content="width=device-width">
-  <title>Nansi</title>
-  <script src='//ajax.googleapis.com/ajax/libs/webfont/1/webfont.js'></script>
-  <script>
-  // curated google fonts +
-  // web font loader
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" chrome="1">
+   <meta name="viewport" content="width=device-width">
+   <title>NANSI</title>
+   <script src='//ajax.googleapis.com/ajax/libs/webfont/1/webfont.js'></script>
+   <script>
+   // curated google fonts +
+   // web font loader
 
-  WebFont.load({
-    google: {
-      families: [
-      // 'Lato:100,100italic,300,300italic,400,400italic,700,700italic,900,900italic',
-      // 'Oswald:300,400,700',
-      // 'Cousine:400,400italic,700,700italic',
-      // 'Cutive+Mono:400',
-      'Roboto+Mono:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic',
-    ],
-    }
-  });
+   WebFont.load({
+     google: {
+       families: [
+       // 'Lato:100,100italic,300,300italic,400,400italic,700,700italic,900,900italic',
+       // 'Oswald:300,400,700',
+       // 'Cousine:400,400italic,700,700italic',
+       // 'Cutive+Mono:400',
+       'Roboto+Mono:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic',
+     ],
+     }
+   });
 
-  </script>
-
-  <link rel="stylesheet" href="css/style.css">
+   </script>
+   <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body data-bg="light">
-<header data-bg="light">
-  <nav>
-    <span class='title'>NANSI</span>
-    <a class='src' href="https://github.com/mkwr/nansi" target="_blank">src</a>
-    <a class='zip' href="https://github.com/mkwr/nansi/archive/gh-pages.zip" download="nansi-master">zip</a>
-    <a class='opt' href="#">opt</a>
-  </nav>
-</header>
-<div class='synopsis' data-bg="light" data-state="closed">
-  <p>
-    Nansi simplifies working with the xterm-256 color palette. Source into your .bash_profile for use within
-    your shell, import into your Sass or Less stylesheet, or load one of the Adobe swatch files into Illustrator,
-    InDesign, or Photoshop.
-  </p>
-  <p>
-    This reference uses the keyboard keys [ <span>X, C, V</span> and <span>B</span> ] to
-    toggle adjustments; <span>X </span>swatch sizing <em>(small/large)</em>, <span>C </span>column
-    spacing <em>(on/off)</em>, <span>V </span>reference values <em>(ansi/hex)</em>, <span>B </span>
-    background color <em>(light/dark)</em>.
-  </p>
-</div>
-<div class='main'>
-  <section class='palette' data-value="ref">
-    <div class='_16'>
+   <header data-bg="light">
+      <nav>
+         <div class='title'>NANSI<sup>™</sup></div>
+         <a class='src' href="https://github.com/mkwr/nansi" target="_blank">src</a>
+         <a class='zip' href="https://github.com/mkwr/nansi/archive/gh-pages.zip" download="nansi-master">zip</a>
+         <a class='opt' href="#">opt</a><i data-icon='expand'></i>
+      </nav>
+   </header>
+   <div class='synopsis' data-bg="light" data-state="closed">
+      <p>
+         Nansi simplifies working with the xterm-256 color palette. Source into your .bash_profile for use within your shell, import into your Sass or Less stylesheet, or load one of the Adobe swatch files into Illustrator, InDesign, or Photoshop.
+      </p>
+      <p>
+         This reference uses the keyboard keys [ <span>X, C, V</span> and <span>B</span> ] to toggle adjustments; <span>X </span>swatch sizing <em>(small/large)</em>, <span>C </span>column spacing <em>(on/off)</em>, <span>V </span>reference values
+         <em>(ansi/hex)</em>, <span>B </span> background color <em>(light/dark)</em>.
+      </p>
+   </div>
+   <div class='main'>
+      <section class='palette' data-value="ref">
+         <div class='_16'>
   <ol class='colors' data-spacing='on'>
     <li>000000</li>
     <li>800000</li>
@@ -321,19 +316,48 @@
   </ol>
 </div>
 
-  </section>
-</div>
-<footer>
-  <p>
-    © 2015 — MIKE WARREN
-  </p>
-</footer>
+      </section>
+   </div>
+   <footer>
+      <span>© 2016 MIKE WARREN — LICENSE MIT</span>
+   </footer>
 
-<!-- <script src='new.js'></script> -->
+   <script>
+   // nansi.js
 
-<script>
-  (function(){var g=document.querySelectorAll('[data-bg]'),d=document.querySelectorAll('ol.colors'),e=document.querySelector('.palette'),c=document.querySelector('.synopsis'),f=document.querySelector('.opt');f.addEventListener('click',function(){c.setAttribute('data-state','open'===c.getAttribute('data-state')?'closed':'open')});addEventListener('keydown',function(a){[].forEach.call(g,function(b){66==a.keyCode&&b.setAttribute('data-bg','dark'===b.getAttribute('data-bg')?'light':'dark')})});addEventListener('keydown',function(a){86==a.keyCode&&e.setAttribute('data-value','ref'===e.getAttribute('data-value')?'hex':'ref')});addEventListener('keydown',function(a){[].forEach.call(d,function(b){88==a.keyCode&&b.classList.toggle('bg')})});addEventListener('keydown',function(a){[].forEach.call(d,function(b){67==a.keyCode&&b.setAttribute('data-spacing','off'===b.getAttribute('data-spacing')?'on':'off')})})})();
-</script>
+   (function() {
+        var g = document.querySelectorAll('[data-bg]'),
+            d = document.querySelectorAll('ol.colors'),
+            e = document.querySelector('.palette'),
+            c = document.querySelector('.synopsis'),
+            f = document.querySelector('.opt');
+            i = document.querySelector('i');
+
+     f.addEventListener('click', function() {
+         c.setAttribute('data-state', 'open' === c.getAttribute('data-state') ? 'closed' : 'open')
+         i.setAttribute('data-icon', 'expand' === i.getAttribute('data-icon') ? 'compress' : 'expand')
+     });
+     addEventListener('keydown', function(a) {
+         [].forEach.call(g, function(b) {
+             66 == a.keyCode && b.setAttribute('data-bg', 'dark' === b.getAttribute('data-bg') ? 'light' : 'dark')
+         })
+     });
+     addEventListener('keydown', function(a) {
+         86 == a.keyCode && e.setAttribute('data-value', 'ref' === e.getAttribute('data-value') ? 'hex' : 'ref')
+     });
+     addEventListener('keydown', function(a) {
+         [].forEach.call(d, function(b) {
+             88 == a.keyCode && b.classList.toggle('bg')
+         })
+     });
+     addEventListener('keydown', function(a) {
+         [].forEach.call(d, function(b) {
+             67 == a.keyCode && b.setAttribute('data-spacing', 'off' === b.getAttribute('data-spacing') ? 'on' : 'off')
+         })
+     })
+   })();
+
+   </script>
 </body>
 
 </html>
