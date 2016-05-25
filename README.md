@@ -1,15 +1,12 @@
-### NANSI:README
-
+### NANSI -- README   
+#  
 **Synopsis**  
+Nansi simplifies working with the xterm-256 color palette. Source into your .bash_profile for use within your shell, import into your Sass or Less stylesheet, or load one of the Adobe swatch files into Illustrator, InDesign, or Photoshop.  
 
-Nansi simplifies working with the xterm-256 color palette. Source into your .bash_profile for use within your shell, import into your Sass or Less stylesheet, or load one of the Adobe swatch files into Illustrator, InDesign, or Photoshop.
-
-[DOWNLOAD](https://github.com/mkwr/nansi/archive/gh-pages.zip)
-[SOURCE](https://github.com/mkwr/nansi)
-[REFERENCE](https://git.io/nansi)
+[Source](https://github.com/mkwr/nansi)  
+[Reference](https://git.io/nansi)
 
 **Formats**  
-
   nansi.sh — bash/shell  
   nansi.hex.scss — standard hexadecimal format for SCSS.  
   nansi.rgb.scss — rgb format for SCSS.  
@@ -19,7 +16,6 @@ Nansi simplifies working with the xterm-256 color palette. Source into your .bas
   nansi.ase — Adobe Swatch Exchange file.  
 
 **Install**  
-
   SH/BASH : Source nansi as you would any other dotfile.  
    `source ~/.nansi`
 
@@ -34,7 +30,6 @@ Nansi simplifies working with the xterm-256 color palette. Source into your .bas
     `Swatches → Open swatch → Library → Other → path/to/nansi.ase`
 
 **Usage**
-
 Bash/Sh
 ```
 F(0–255)    # set a foreground color  
@@ -54,20 +49,20 @@ $  printf “${F124}hamb${F126}urg${F128}fontstiv${STOP}”
 
 Sass/SCSS
 ```
-   .class {
-      color: $_120;
-      border: 1px solid $_30;
-      background-color: rgba($_30, .5);
-    }
+.class {
+   color: $_120;
+   border: 1px solid $_30;
+   background-color: rgba($_30, .5);
+}
 ```
 
 Less
 ```
-    .class {
-      color: @_45;
-      border: 1px solid @_30;
-      background-color: fade(@_30, 50%);
-    }
+.class {
+   color: @_45;
+   border: 1px solid @_30;
+   background-color: fade(@_30, 50%);
+}
 ```
 
 **Reference**  
@@ -87,14 +82,18 @@ Less
     $ N256 --swatch  # verbose alias  
 
 **Further**  
-  + For information on the command behind Nansi, in terminal: $ man tput.
-  + For your terminals capabilities, in terminal: $ man terminfo or $ man termcap.
+For information on the command behind Nansi, and or, your terminals capabilities:
+
+    $ man tput  
+    $ man terminfo  
+    $ man termcap  
 
 **See Also**  
   [The Woolidge Bash Scripting Guide](http://mywiki.wooledge.org/BashGuide)  
   [Advanced Bash Scripting Guide](http://www.tldp.org/LDP/abs/html/abs-guide.html)  
 
 **The Fine Print**  
-  Bash Version: 4.3.42(1)-release
-  Author: © Mike Warren 2015
-  License: MIT
+  © 2016 Mike Warren  
+  License: MIT  
+  OS X — v. 10.11.5 (x86_64-apple-darwin15.0.0)  
+  Bash — v. 4.3.42(1)-release  
