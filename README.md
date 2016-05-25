@@ -1,37 +1,40 @@
-### NANSI -- README   
-#  
-**Synopsis**  
+## NANSI
+
+##### Synopsis  
 Nansi simplifies working with the xterm-256 color palette. Source into your .bash_profile for use within your shell, import into your Sass or Less stylesheet, or load one of the Adobe swatch files into Illustrator, InDesign, or Photoshop.  
 
 [Source](https://github.com/mkwr/nansi)  
 [Reference](https://git.io/nansi)
 
-**Formats**  
-  nansi.sh — bash/shell  
-  nansi.hex.scss — standard hexadecimal format for SCSS.  
-  nansi.rgb.scss — rgb format for SCSS.  
-  nansi.hex.less — standard hexadecimal format for LESS.  
-  nansi.rgb.less — rgb format for LESS.  
-  nansi.ai — Adobe Illustrator swatch file.  
-  nansi.ase — Adobe Swatch Exchange file.  
+##### Formats  
+nansi.sh  
+nansi.hex.scss  
+nansi.rgb.scss  
+nansi.hex.less  
+nansi.rgb.less  
+nansi.ai  
+nansi.ase  
 
-**Install**  
-  SH/BASH : Source nansi as you would any other dotfile.  
-   `source ~/.nansi`
-
-  SCSS : Nansi has hex and rgb versions. Import your preference as usual.  
-    `@import ‘nansi.hex.scss‘;`
-
-  LESS : Same for LESS.  
-    `@import ‘nansi.rgb.less‘;`
-
-  ASE, AI (Adobe Swatch Exchange)  
-    `Swatches panel → Menu → Load Swatches → path/to/nansi.ase`  
-    `Swatches → Open swatch → Library → Other → path/to/nansi.ase`
-
-**Usage**
-Bash/Sh
+##### Install
 ```
+// sh:  
+source ~/nansi
+
+// scss:   
+@import ‘nansi.hex.scss‘;
+
+// less:  
+@import ‘nansi.rgb.less‘;
+
+// .ase (adobe swatch exchange):
+Swatches panel → Menu → Load Swatches → path/to/nansi.ase
+Swatches → Open swatch → Library → Other → path/to/nansi.ase
+```
+##### Usage
+
+```
+# .sh
+
 F(0–255)    # set a foreground color  
 B(0–255)    # set a background color  
 STOP        # stop a color or style  
@@ -46,18 +49,20 @@ $  printf “${F42}hamburg${B89}fonstiv${STOP}”
 $  printf “${F42}${B89}hamburgfonstiv${STOP}”
 $  printf “${F124}hamb${F126}urg${F128}fontstiv${STOP}”
 ```
-
-Sass/SCSS
+----
 ```
+// .scss
+
 .class {
    color: $_120;
    border: 1px solid $_30;
    background-color: rgba($_30, .5);
 }
 ```
-
-Less
+----
 ```
+// .less
+
 .class {
    color: @_45;
    border: 1px solid @_30;
@@ -65,7 +70,7 @@ Less
 }
 ```
 
-**Reference**  
+##### Reference  
   Nansi is meant to be used with its visual reference here: http://mkwr.github.io/nansi/.
   I’ve taken great care to make it the nicest reference/resource for the xterm-256 palette.
   The keyboard keys [ X, C, V, B ] toggle some features to assist in color selection.
@@ -81,18 +86,18 @@ Less
     $ N256 -s        # prints all 256 colors in swatch format (1 colors per row)  
     $ N256 --swatch  # verbose alias  
 
-**Further**  
+##### Further  
 For information on the command behind Nansi, and or, your terminals capabilities:
 
     $ man tput  
     $ man terminfo  
     $ man termcap  
 
-**See Also**  
+##### See Also  
   [The Woolidge Bash Scripting Guide](http://mywiki.wooledge.org/BashGuide)  
   [Advanced Bash Scripting Guide](http://www.tldp.org/LDP/abs/html/abs-guide.html)  
 
-**The Fine Print**  
+##### The Fine Print  
   © 2016 Mike Warren  
   License: MIT  
   OS X — v. 10.11.5 (x86_64-apple-darwin15.0.0)  
