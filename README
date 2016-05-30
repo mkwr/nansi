@@ -1,19 +1,18 @@
-# NANSI
-# ⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼
+
+#  NANSI
 
    source: https://github.com/mkwr/nansi
    reference: https://git.io/nansi
 
-# synopsis
-# ⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼
+⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼
+#  SYNOPSIS
 
    Nansi simplifies working with the xterm-256 color palette. Source into your
-   .bash_profile for use within your shell, import into your Sass or Less stylesheet, 
+   .bash_profile for use within your shell, import into your Sass or Less stylesheet,
    or load one of the Adobe swatch files into Illustrator, InDesign, or Photoshop.
 
-
-# install
-# ⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼
+⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼
+#  INSTALL
 
    Source, or import nansi.sh, nansi.rgb.scss, nansi.rgb.less, or nansi.ase, and your all set.
 
@@ -30,8 +29,8 @@
       Swatches panel → Menu → Load Swatches → path/to/nansi.ase
       Swatches → Open swatch → Library → Other → path/to/nansi.ase
 
-# usage
-# ⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼
+⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼
+#  USAGE
 
    # .sh — syntax
 
@@ -67,9 +66,8 @@
             background-color: fade(@_30, 50%);
          }
 
-
-# reference
-# ⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼
+⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼
+#  REFERENCE
 
    Nansi is meant to be used with its visual reference here: http://mkwr.github.io/nansi/.
    I’ve taken great care to make it the nicest reference/resource for the xterm-256 palette.
@@ -86,23 +84,14 @@
       $ N256 -s        # prints all 256 colors in swatch format (1 colors per row)
       $ N256 --swatch  # verbose alias
 
-# further
-# ⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼
+⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼
+#  SEE ALSO
 
-   For information on the command behind Nansi, and or, your terminals capabilities:
+   The Woolidge Bash Scripting Guide: http://mywiki.wooledge.org/BashGuide
+   Advanced Bash Scripting Guide: http://www.tldp.org/LDP/abs/html/abs-guide.html
 
-    $ man tput
-    $ man terminfo
-    $ man termcap
-
-# see also
-# ⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼
-
-   The Woolidge Bash Scripting Guide: http://mywiki.wooledge.org/BashGuide)
-   Advanced Bash Scripting Guide: http://www.tldp.org/LDP/abs/html/abs-guide.html)
-
-# colophon
-# ⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼
+⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼
+#  COLOPHON
 
    License: MIT
    © 2016 Mike Warren
