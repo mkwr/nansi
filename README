@@ -1,12 +1,11 @@
 
 #  NANSI — CLI-COLORIZING MADE SIMPLE(R)
 
-      source: https://github.com/mkwr/nansi
-      reference: https://git.io/nansi
+   source: https://github.com/mkwr/nansi
+   reference: https://git.io/nansi
 
 
 §  SYNOPSIS
-⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼
 
    Nansi simplifies working with the xterm-256 color palette. Source into your
    .bash_profile for use within your shell, import into your Sass or Less stylesheet,
@@ -14,7 +13,6 @@
 
 
 §  INSTALL
-⎼⎼⎼⎼⎼⎼⎼⎼⎼
 
    Source, or import nansi.sh, nansi.rgb.scss, nansi.rgb.less, or nansi.ase, and your all set.
 
@@ -27,13 +25,12 @@
       # less:
       @import ‘nansi.rgb.less‘;
 
-      # .ase (adobe swatch exchange):
+      # ase (adobe swatch exchange):
       Swatches panel → Menu → Load Swatches → path/to/nansi.ase
       Swatches → Open swatch → Library → Other → path/to/nansi.ase
 
 
 §  USAGE
-⎼⎼⎼⎼⎼⎼⎼
 
    # .sh — syntax:
       F(0–255)    # set a foreground color
@@ -63,7 +60,6 @@
 
 
 §  REFERENCE
-⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼
 
    Nansi is meant to be used with its visual reference here: http://mkwr.github.io/nansi/.
    I’ve taken great care to make it the nicest reference/resource for the xterm-256 palette.
@@ -82,14 +78,12 @@
 
 
 §  SEE ALSO
-⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼
 
    The Woolidge Bash Scripting Guide: http://mywiki.wooledge.org/BashGuide
    Advanced Bash Scripting Guide: http://www.tldp.org/LDP/abs/html/abs-guide.html
 
 
 §  COLOPHON
-⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼
 
    License: MIT
    © 2016 Mike Warren
