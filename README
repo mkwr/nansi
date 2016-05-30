@@ -1,18 +1,20 @@
 
-#  NANSI
+#  NANSI — CLI-COLORIZING MADE SIMPLE(R)
 
-   source: https://github.com/mkwr/nansi
-   reference: https://git.io/nansi
+      source: https://github.com/mkwr/nansi
+      reference: https://git.io/nansi
 
-⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼
-#  SYNOPSIS
+
+§  SYNOPSIS
+⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼
 
    Nansi simplifies working with the xterm-256 color palette. Source into your
    .bash_profile for use within your shell, import into your Sass or Less stylesheet,
    or load one of the Adobe swatch files into Illustrator, InDesign, or Photoshop.
 
-⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼
-#  INSTALL
+
+§  INSTALL
+⎼⎼⎼⎼⎼⎼⎼⎼⎼
 
    Source, or import nansi.sh, nansi.rgb.scss, nansi.rgb.less, or nansi.ase, and your all set.
 
@@ -29,11 +31,11 @@
       Swatches panel → Menu → Load Swatches → path/to/nansi.ase
       Swatches → Open swatch → Library → Other → path/to/nansi.ase
 
-⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼
-#  USAGE
 
-   # .sh — syntax
+§  USAGE
+⎼⎼⎼⎼⎼⎼⎼
 
+   # .sh — syntax:
       F(0–255)    # set a foreground color
       B(0–255)    # set a background color
       STOP        # stop a color or style
@@ -42,32 +44,26 @@
       RVRS        # set reversed text
       ITAL        # set italic text (minimal support)
 
-   # .sh — examples
-
+   # .sh — examples:
       $  printf “${F16}hamburgfonstiv${STOP}”
       $  printf "${F67}hamburg${UNDR}fonstiv${STOP}"
       $  printf “${F42}hamburg${B29}fonstiv${STOP}”
       $  printf “${F42}${B192}hamburgfonstiv${STOP}”
       $  printf “${F124}hamb${F126}urg${F128}fontstiv${STOP}”
 
-   # .scss
-
+   # .scss:
          .class {
             color: $_120;
-            border: 1px solid $_30;
-            background-color: rgba($_30, .5);
          }
 
-   # .less
-
+   # .less:
          .class {
             color: @_45;
-            border: 1px solid @_30;
-            background-color: fade(@_30, 50%);
          }
 
-⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼
-#  REFERENCE
+
+§  REFERENCE
+⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼
 
    Nansi is meant to be used with its visual reference here: http://mkwr.github.io/nansi/.
    I’ve taken great care to make it the nicest reference/resource for the xterm-256 palette.
@@ -84,14 +80,16 @@
       $ N256 -s        # prints all 256 colors in swatch format (1 colors per row)
       $ N256 --swatch  # verbose alias
 
-⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼
-#  SEE ALSO
+
+§  SEE ALSO
+⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼
 
    The Woolidge Bash Scripting Guide: http://mywiki.wooledge.org/BashGuide
    Advanced Bash Scripting Guide: http://www.tldp.org/LDP/abs/html/abs-guide.html
 
-⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼
-#  COLOPHON
+
+§  COLOPHON
+⎼⎼⎼⎼⎼⎼⎼⎼⎼⎼
 
    License: MIT
    © 2016 Mike Warren
