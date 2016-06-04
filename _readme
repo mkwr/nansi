@@ -6,16 +6,16 @@
 
 
 §  SYNOPSIS
-
+   ▬▬▬
    Nansi simplifies working with the xterm-256 color palette. Source into your
    .bash_profile for use within your shell, import into your Sass or Less stylesheet,
    or load one of the Adobe swatch files into Illustrator, InDesign, or Photoshop.
 
 
 §  INSTALL
-
-   Source, or import nansi.sh, nansi.rgb.scss, nansi.rgb.less, or nansi.ase, and your all set.
-
+   Source nansi.sh, import nansi.rgb.scss, nansi.rgb.less, or load nansi.ase,
+   into your app/project and your all set.
+   ▬▬▬
       # sh:
       source ~/nansi
 
@@ -31,36 +31,25 @@
 
 
 §  USAGE
+   ▬▬▬
 
-   # .sh — syntax:
-      F(0–255)    # set a foreground color
-      B(0–255)    # set a background color
-      STOP        # stop a color or style
-      UNDR        # set underline
-      BOLD        # set bold text
-      RVRS        # set reversed text
-      ITAL        # set italic text (minimal support)
+.sh/bash:      F0–255   # start foreground color        BOLD   # set bold text 
+               B0–255   # srart background color        UNDR   # set underline
+               ST       # stop a color or style         RVRS   # set reversed text 
 
-   # .sh — examples:
-      $  printf “${F16}hamburgfonstiv${STOP}”
-      $  printf "${F67}hamburg${UNDR}fonstiv${STOP}"
-      $  printf “${F42}hamburg${B29}fonstiv${STOP}”
-      $  printf “${F42}${B192}hamburgfonstiv${STOP}”
-      $  printf “${F124}hamb${F126}urg${F128}fontstiv${STOP}”
+   .sh/bash:   printf “${F16}type${STOP}”
+               printf "${F67}hamburg${UNDR}fonstiv${STOP}"
+               printf “${F42}hamburg${B29}fonstiv${STOP}”
+               printf “${F42}${B192}hamburgfonstiv${STOP}”
+               printf “${F124}hamb${F126}urg${F128}fontstiv${STOP}”
 
-   # .scss:
-         .class {
-            color: $_120;
-         }
+   .scss:      h2 { color: $_120; }
 
-   # .less:
-         .class {
-            color: @_45;
-         }
+   .less:      h3 { color: @_134; }
 
 
 §  REFERENCE
-
+   ▬▬▬
    Nansi is meant to be used with its visual reference here: http://mkwr.github.io/nansi/.
    I’ve taken great care to make it the nicest reference/resource for the xterm-256 palette.
    The keyboard keys [ X, C, V, B ] toggle some features to assist in color selection.
@@ -78,13 +67,13 @@
 
 
 §  SEE ALSO
-
+   ▬▬▬
    The Woolidge Bash Scripting Guide: http://mywiki.wooledge.org/BashGuide
    Advanced Bash Scripting Guide: http://www.tldp.org/LDP/abs/html/abs-guide.html
 
 
 §  COLOPHON
-
+   ▬▬▬
    License: MIT
    © 2016 Mike Warren
    OS X — v. 10.11.5 (x86_64-apple-darwin15.0.0)
